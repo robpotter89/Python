@@ -1,6 +1,7 @@
 """
 Just to check
 """
+from __future__ import print_function
 
 
 def add(a, b):

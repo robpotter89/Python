@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from builtins import str
 import hashlib
 import importlib.util
 import json

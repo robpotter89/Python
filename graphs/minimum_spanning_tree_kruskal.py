@@ -1,3 +1,6 @@
+from builtins import map
+from builtins import input
+from builtins import range
 def kruskal(
     num_nodes: int, edges: list[tuple[int, int, int]]
 ) -> list[tuple[int, int, int]]:

@@ -7,8 +7,11 @@ The only allowed operations are
 --- Cost to delete a character is delete_cost
 --- Cost to insert a character is insert_cost
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def compute_transform_tables(
     source_string: str,
     destination_string: str,
@@ -124,6 +127,6 @@ if __name__ == "__main__":
             i += 1
 
         print("".join(string))
-        print("Cost: ", cost)
+        print(("Cost: ", cost))
 
         file.write("\r\nMinimum cost: " + str(cost))

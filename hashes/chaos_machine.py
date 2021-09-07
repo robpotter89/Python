@@ -1,6 +1,11 @@
 """example of simple chaos machine"""
+from __future__ import division
+from __future__ import print_function
 
 # Chaos Machine (K, t, m)
+from builtins import input
+from builtins import range
+from past.utils import old_div
 K = [0.33, 0.44, 0.55, 0.44, 0.33]
 t = 3
 m = 5
@@ -19,7 +24,7 @@ def push(seed):
     # Choosing Dynamical Systems (All)
     for key, value in enumerate(buffer_space):
         # Evolution Parameter
-        e = float(seed / value)
+        e = float(old_div(seed, value))
 
         # Control Theory: Orbit Change
         value = (buffer_space[(key + 1) % m] + e) % 1
@@ -87,7 +92,7 @@ if __name__ == "__main__":
     # Pushing Data (Input)
     import random
 
-    message = random.sample(range(0xFFFFFFFF), 100)
+    message = random.sample(list(range(0xFFFFFFFF)), 100)
     for chunk in message:
         push(chunk)
 

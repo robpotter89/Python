@@ -1,4 +1,9 @@
-class Node:
+from __future__ import print_function
+from builtins import input
+from builtins import str
+from builtins import range
+from builtins import object
+class Node(object):
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -7,7 +12,7 @@ class Node:
         return f"Node({self.data})"
 
 
-class LinkedList:
+class LinkedList(object):
     def __init__(self):
         self.head = None
 
@@ -15,7 +20,7 @@ class LinkedList:
         node = self.head
         while node:
             yield node.data
-            node = node.next
+            node = node.__next__
 
     def __len__(self) -> int:
         """
@@ -92,7 +97,7 @@ class LinkedList:
             raise ValueError("list index out of range.")
         current = self.head
         for i in range(index):
-            current = current.next
+            current = current.__next__
         current.data = data
 
     def insert_tail(self, data) -> None:
@@ -113,8 +118,8 @@ class LinkedList:
         else:
             temp = self.head
             for _ in range(index - 1):
-                temp = temp.next
-            new_node.next = temp.next
+                temp = temp.__next__
+            new_node.next = temp.__next__
             temp.next = new_node
 
     def print_list(self) -> None:  # print every node data
@@ -131,13 +136,13 @@ class LinkedList:
             raise IndexError("list index out of range")
         delete_node = self.head  # default first node
         if index == 0:
-            self.head = self.head.next
+            self.head = self.head.__next__
         else:
             temp = self.head
             for _ in range(index - 1):
-                temp = temp.next
-            delete_node = temp.next
-            temp.next = temp.next.next
+                temp = temp.__next__
+            delete_node = temp.__next__
+            temp.next = temp.next.__next__
         return delete_node.data
 
     def is_empty(self) -> bool:
@@ -149,7 +154,7 @@ class LinkedList:
 
         while current:
             # Store the current node's next node.
-            next_node = current.next
+            next_node = current.__next__
             # Make the current node's next point backwards
             current.next = prev
             # Make the previous node be the current node

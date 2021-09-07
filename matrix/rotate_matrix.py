@@ -4,7 +4,10 @@ In this problem, we want to rotate the matrix elements by 90, 180, 270
 Discussion in stackoverflow:
 https://stackoverflow.com/questions/42519/how-do-you-rotate-a-two-dimensional-array
 """
+from __future__ import print_function
 
+from builtins import zip
+from builtins import range
 from __future__ import annotations
 
 
@@ -78,7 +81,7 @@ def reverse_column(matrix: list[list]) -> list[list]:
 
 def print_matrix(matrix: list[list]) -> None:
     for i in matrix:
-        print(*i)
+        print((*i))
 
 
 if __name__ == "__main__":

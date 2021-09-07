@@ -1,4 +1,7 @@
+from __future__ import division
+from __future__ import print_function
 # DarkCoder
+from past.utils import old_div
 def sum_of_series(first_term, common_diff, num_of_terms):
     """
     Find the sum of n terms in an arithmetic progression.
@@ -8,7 +11,7 @@ def sum_of_series(first_term, common_diff, num_of_terms):
     >>> sum_of_series(1, 10, 100)
     49600.0
     """
-    sum = (num_of_terms / 2) * (2 * first_term + (num_of_terms - 1) * common_diff)
+    sum = (old_div(num_of_terms, 2)) * (2 * first_term + (num_of_terms - 1) * common_diff)
     # formula for sum of series
     return sum
 

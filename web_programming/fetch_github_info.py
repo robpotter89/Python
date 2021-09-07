@@ -17,6 +17,7 @@ with your token::
 #!/usr/bin/env bash
 export USER_TOKEN=""
 """
+from __future__ import print_function
 import os
 from typing import Any, Dict
 
@@ -44,7 +45,7 @@ def fetch_github_info(auth_token: str) -> Dict[Any, Any]:
 
 if __name__ == "__main__":  # pragma: no cover
     if USER_TOKEN:
-        for key, value in fetch_github_info(USER_TOKEN).items():
+        for key, value in list(fetch_github_info(USER_TOKEN).items()):
             print(f"{key}: {value}")
     else:
         raise ValueError("'USER_TOKEN' field cannot be empty.")

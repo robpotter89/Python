@@ -1,3 +1,8 @@
+from __future__ import print_function
+from builtins import str
+from builtins import input
+from builtins import chr
+from builtins import range
 import os
 import sys
 
@@ -116,7 +121,7 @@ def read_from_file_and_decrypt(message_filename: str, key_filename: str) -> str:
 
 def main() -> None:
     filename = "encrypted_file.txt"
-    response = input(r"Encrypt\Decrypt [e\d]: ")
+    response = eval(input(r"Encrypt\Decrypt [e\d]: "))
 
     if response.lower().startswith("e"):
         mode = "encrypt"
@@ -127,7 +132,7 @@ def main() -> None:
         if not os.path.exists("rsa_pubkey.txt"):
             rkg.makeKeyFiles("rsa", 1024)
 
-        message = input("\nEnter message: ")
+        message = eval(input("\nEnter message: "))
         pubkey_filename = "rsa_pubkey.txt"
         print("Encrypting and writing to %s..." % (filename))
         encryptedText = encrypt_and_write_to_file(filename, pubkey_filename, message)

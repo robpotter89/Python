@@ -1,7 +1,11 @@
+from __future__ import division
+from __future__ import print_function
 # Implementation of First Come First Served scheduling algorithm
 # In this Algorithm we just care about the order that the processes arrived
 # without carring about their duration time
 # https://en.wikipedia.org/wiki/Scheduling_(computing)#First_come,_first_served
+from builtins import range
+from past.utils import old_div
 from typing import List
 
 
@@ -55,7 +59,7 @@ def calculate_average_turnaround_time(turnaround_times: List[int]) -> float:
     >>> calculate_average_turnaround_time([10, 24])
     17.0
     """
-    return sum(turnaround_times) / len(turnaround_times)
+    return old_div(sum(turnaround_times), len(turnaround_times))
 
 
 def calculate_average_waiting_time(waiting_times: List[int]) -> float:
@@ -69,7 +73,7 @@ def calculate_average_waiting_time(waiting_times: List[int]) -> float:
     >>> calculate_average_waiting_time([10, 24])
     17.0
     """
-    return sum(waiting_times) / len(waiting_times)
+    return old_div(sum(waiting_times), len(waiting_times))
 
 
 if __name__ == "__main__":

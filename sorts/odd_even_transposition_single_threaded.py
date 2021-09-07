@@ -6,8 +6,10 @@ This is a non-parallelized implementation of odd-even transpostiion sort.
 Normally the swaps in each set happen simultaneously, without that the algorithm
 is no better than bubble sort.
 """
+from __future__ import print_function
 
 
+from builtins import range
 def odd_even_transposition(arr: list) -> list:
     """
     >>> odd_even_transposition([5, 4, 3, 2, 1])

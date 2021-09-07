@@ -41,8 +41,12 @@ Consider the following tenth degree polynomial generating function:
 
 Find the sum of FITs for the BOPs.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 from typing import Callable, List, Union
 
 Matrix = List[List[Union[float, int]]]
@@ -88,7 +92,7 @@ def solve(matrix: Matrix, vector: Matrix) -> Matrix:
             augmented[row], augmented[pivot_row] = augmented[pivot_row], augmented[row]
 
         for row2 in range(row + 1, size):
-            ratio = augmented[row2][col] / augmented[row][col]
+            ratio = old_div(augmented[row2][col], augmented[row][col])
             augmented[row2][col] = 0
             for col2 in range(col + 1, size + 1):
                 augmented[row2][col2] -= augmented[row][col2] * ratio
@@ -99,13 +103,13 @@ def solve(matrix: Matrix, vector: Matrix) -> Matrix:
     # back substitution
     for col in range(1, size):
         for row in range(col):
-            ratio = augmented[row][col] / augmented[col][col]
+            ratio = old_div(augmented[row][col], augmented[col][col])
             for col2 in range(col, size + 1):
                 augmented[row][col2] -= augmented[col][col2] * ratio
 
     # round to get rid of numbers like 2.000000000000004
     return [
-        [round(augmented[row][size] / augmented[row][row], 10)] for row in range(size)
+        [round(old_div(augmented[row][size], augmented[row][row]), 10)] for row in range(size)
     ]
 
 

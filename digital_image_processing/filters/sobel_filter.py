@@ -1,6 +1,8 @@
+from __future__ import division
 # @Author  : lightXu
 # @File    : sobel_filter.py
 # @Time    : 2019/7/8 0008 下午 16:26
+from past.utils import old_div
 import numpy as np
 from cv2 import COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey
 
@@ -14,11 +16,11 @@ def sobel_filter(image):
     dst_x = np.abs(img_convolve(image, kernel_x))
     dst_y = np.abs(img_convolve(image, kernel_y))
     # modify the pix within [0, 255]
-    dst_x = dst_x * 255 / np.max(dst_x)
-    dst_y = dst_y * 255 / np.max(dst_y)
+    dst_x = old_div(dst_x * 255, np.max(dst_x))
+    dst_y = old_div(dst_y * 255, np.max(dst_y))
 
     dst_xy = np.sqrt((np.square(dst_x)) + (np.square(dst_y)))
-    dst_xy = dst_xy * 255 / np.max(dst_xy)
+    dst_xy = old_div(dst_xy * 255, np.max(dst_xy))
     dst = dst_xy.astype(np.uint8)
 
     theta = np.arctan2(dst_y, dst_x)

@@ -20,7 +20,9 @@ References:
 - https://en.wikipedia.org/wiki/Deutsch-Jozsa_algorithm
 - https://qiskit.org/textbook/ch-algorithms/deutsch-jozsa.html
 """
+from __future__ import print_function
 
+from builtins import range
 import numpy as np
 import qiskit as q
 
@@ -84,7 +86,7 @@ def dj_algorithm(oracle: q.QuantumCircuit, num_qubits: int) -> q.QuantumCircuit:
     for qubit in range(num_qubits):
         dj_circuit.h(qubit)
     # Let's append the oracle gate to our circuit:
-    dj_circuit.append(oracle, range(num_qubits + 1))
+    dj_circuit.append(oracle, list(range(num_qubits + 1)))
     # Finally, perform the H-gates again and measure:
     for qubit in range(num_qubits):
         dj_circuit.h(qubit)

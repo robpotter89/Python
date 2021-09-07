@@ -6,6 +6,7 @@ For doctests run following command:
 python3 -m doctest -v graham_scan.py
 """
 
+from builtins import range
 from __future__ import annotations
 
 from collections import deque

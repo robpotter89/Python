@@ -1,10 +1,14 @@
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 import math
 from typing import List, Union
 
 
-class SegmentTree:
+class SegmentTree(object):
     def __init__(self, size: int) -> None:
         self.size = size
         # approximate the overall size of segment tree with given value

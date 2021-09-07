@@ -3,7 +3,10 @@ render 3d points for 2d surfaces.
 """
 
 from __future__ import annotations
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 import math
 
 __version__ = "2020.9.26"
@@ -27,12 +30,12 @@ def convert_to_2d(
         ...
     TypeError: Input values must either be float or int: ['1', 2, 3, 10, 10]
     """
-    if not all(isinstance(val, (float, int)) for val in locals().values()):
+    if not all(isinstance(val, (float, int)) for val in list(locals().values())):
         raise TypeError(
             "Input values must either be float or int: " f"{list(locals().values())}"
         )
-    projected_x = ((x * distance) / (z + distance)) * scale
-    projected_y = ((y * distance) / (z + distance)) * scale
+    projected_x = (old_div((x * distance), (z + distance))) * scale
+    projected_y = (old_div((y * distance), (z + distance))) * scale
     return projected_x, projected_y
 
 
@@ -70,12 +73,12 @@ def rotate(
         raise TypeError("Axis must be a str")
     input_variables = locals()
     del input_variables["axis"]
-    if not all(isinstance(val, (float, int)) for val in input_variables.values()):
+    if not all(isinstance(val, (float, int)) for val in list(input_variables.values())):
         raise TypeError(
             "Input values except axis must either be float or int: "
             f"{list(input_variables.values())}"
         )
-    angle = (angle % 360) / 450 * 180 / math.pi
+    angle = old_div(old_div((angle % 360), 450) * 180, math.pi)
     if axis == "z":
         new_x = x * math.cos(angle) - y * math.sin(angle)
         new_y = y * math.cos(angle) + x * math.sin(angle)

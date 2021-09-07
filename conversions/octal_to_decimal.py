@@ -1,3 +1,4 @@
+from builtins import str
 def oct_to_decimal(oct_string: str) -> int:
     """
     Convert a octal value to its decimal equivalent

@@ -51,8 +51,10 @@ n_9 = 6 * 193 + 106 = 1264
 n_10 = 1 * 193 + 1264 = 1457
 1 + 4 + 5 + 7 = 17
 """
+from __future__ import print_function
 
 
+from builtins import range
 def sum_digits(num: int) -> int:
     """
     Returns the sum of every digit in num.

@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 def quick_sort_3partition(sorting: list, left: int, right: int) -> None:
     if right <= left:
         return

@@ -12,8 +12,11 @@ https://mmds.org
 
 Jaccard similarity is widely used with MinHashing.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def jaccard_similariy(setA, setB, alternativeUnion=False):
     """
     Finds the jaccard similarity between two sets.
@@ -59,7 +62,7 @@ def jaccard_similariy(setA, setB, alternativeUnion=False):
         else:
             union = len(setA.union(setB))
 
-        return intersection / union
+        return old_div(intersection, union)
 
     if isinstance(setA, (list, tuple)) and isinstance(setB, (list, tuple)):
 
@@ -70,7 +73,7 @@ def jaccard_similariy(setA, setB, alternativeUnion=False):
         else:
             union = setA + [element for element in setB if element not in setA]
 
-        return len(intersection) / len(union)
+        return old_div(len(intersection), len(union))
 
 
 if __name__ == "__main__":

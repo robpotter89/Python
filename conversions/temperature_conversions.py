@@ -1,6 +1,8 @@
 """ Convert between different units of temperature """
+from __future__ import division
 
 
+from past.utils import old_div
 def celsius_to_fahrenheit(celsius: float, ndigits: int = 2) -> float:
     """
     Convert a given value from Celsius to Fahrenheit and round it to 2 decimal places.
@@ -26,7 +28,7 @@ def celsius_to_fahrenheit(celsius: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'celsius'
     """
-    return round((float(celsius) * 9 / 5) + 32, ndigits)
+    return round((old_div(float(celsius) * 9, 5)) + 32, ndigits)
 
 
 def celsius_to_kelvin(celsius: float, ndigits: int = 2) -> float:
@@ -74,7 +76,7 @@ def celsius_to_rankine(celsius: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'celsius'
     """
-    return round((float(celsius) * 9 / 5) + 491.67, ndigits)
+    return round((old_div(float(celsius) * 9, 5)) + 491.67, ndigits)
 
 
 def fahrenheit_to_celsius(fahrenheit: float, ndigits: int = 2) -> float:
@@ -104,7 +106,7 @@ def fahrenheit_to_celsius(fahrenheit: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'fahrenheit'
     """
-    return round((float(fahrenheit) - 32) * 5 / 9, ndigits)
+    return round(old_div((float(fahrenheit) - 32) * 5, 9), ndigits)
 
 
 def fahrenheit_to_kelvin(fahrenheit: float, ndigits: int = 2) -> float:
@@ -134,7 +136,7 @@ def fahrenheit_to_kelvin(fahrenheit: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'fahrenheit'
     """
-    return round(((float(fahrenheit) - 32) * 5 / 9) + 273.15, ndigits)
+    return round((old_div((float(fahrenheit) - 32) * 5, 9)) + 273.15, ndigits)
 
 
 def fahrenheit_to_rankine(fahrenheit: float, ndigits: int = 2) -> float:
@@ -212,7 +214,7 @@ def kelvin_to_fahrenheit(kelvin: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'kelvin'
     """
-    return round(((float(kelvin) - 273.15) * 9 / 5) + 32, ndigits)
+    return round((old_div((float(kelvin) - 273.15) * 9, 5)) + 32, ndigits)
 
 
 def kelvin_to_rankine(kelvin: float, ndigits: int = 2) -> float:
@@ -236,7 +238,7 @@ def kelvin_to_rankine(kelvin: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'kelvin'
     """
-    return round((float(kelvin) * 9 / 5), ndigits)
+    return round((old_div(float(kelvin) * 9, 5)), ndigits)
 
 
 def rankine_to_celsius(rankine: float, ndigits: int = 2) -> float:
@@ -260,7 +262,7 @@ def rankine_to_celsius(rankine: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'rankine'
     """
-    return round((float(rankine) - 491.67) * 5 / 9, ndigits)
+    return round(old_div((float(rankine) - 491.67) * 5, 9), ndigits)
 
 
 def rankine_to_fahrenheit(rankine: float, ndigits: int = 2) -> float:
@@ -300,7 +302,7 @@ def rankine_to_kelvin(rankine: float, ndigits: int = 2) -> float:
     ...
     ValueError: could not convert string to float: 'rankine'
     """
-    return round((float(rankine) * 5 / 9), ndigits)
+    return round((old_div(float(rankine) * 5, 9)), ndigits)
 
 
 def reaumur_to_kelvin(reaumur: float, ndigits: int = 2) -> float:

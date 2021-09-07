@@ -1,6 +1,9 @@
+from __future__ import print_function
 # factorial of a positive integer -- https://en.wikipedia.org/wiki/Factorial
 
 
+from builtins import input
+from builtins import range
 def factorial(n: int) -> int:
     """
     >>> import math

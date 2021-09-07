@@ -7,11 +7,13 @@ python -m unittest binary_search_tree_recursive.py
 To run an example:
 python binary_search_tree_recursive.py
 """
+from __future__ import print_function
+from builtins import object
 import unittest
 from typing import Iterator, Optional
 
 
-class Node:
+class Node(object):
     def __init__(self, label: int, parent: Optional["Node"]) -> None:
         self.label = label
         self.parent = parent
@@ -19,7 +21,7 @@ class Node:
         self.right: Optional[Node] = None
 
 
-class BinarySearchTree:
+class BinarySearchTree(object):
     def __init__(self) -> None:
         self.root: Optional[Node] = None
 
@@ -588,21 +590,21 @@ def binary_search_tree_example() -> None:
         """
     )
 
-    print("Label 6 exists:", t.exists(6))
-    print("Label 13 exists:", t.exists(13))
-    print("Label -1 exists:", t.exists(-1))
-    print("Label 12 exists:", t.exists(12))
+    print(("Label 6 exists:", t.exists(6)))
+    print(("Label 13 exists:", t.exists(13)))
+    print(("Label -1 exists:", t.exists(-1)))
+    print(("Label 12 exists:", t.exists(12)))
 
     # Prints all the elements of the list in inorder traversal
     inorder_traversal_nodes = [i.label for i in t.inorder_traversal()]
-    print("Inorder traversal:", inorder_traversal_nodes)
+    print(("Inorder traversal:", inorder_traversal_nodes))
 
     # Prints all the elements of the list in preorder traversal
     preorder_traversal_nodes = [i.label for i in t.preorder_traversal()]
-    print("Preorder traversal:", preorder_traversal_nodes)
+    print(("Preorder traversal:", preorder_traversal_nodes))
 
-    print("Max. label:", t.get_max_label())
-    print("Min. label:", t.get_min_label())
+    print(("Max. label:", t.get_max_label()))
+    print(("Min. label:", t.get_min_label()))
 
     # Delete elements
     print("\nDeleting elements 13, 10, 8, 3, 6, 14")
@@ -624,14 +626,14 @@ def binary_search_tree_example() -> None:
 
     # Prints all the elements of the list in inorder traversal after delete
     inorder_traversal_nodes = [i.label for i in t.inorder_traversal()]
-    print("Inorder traversal after delete:", inorder_traversal_nodes)
+    print(("Inorder traversal after delete:", inorder_traversal_nodes))
 
     # Prints all the elements of the list in preorder traversal after delete
     preorder_traversal_nodes = [i.label for i in t.preorder_traversal()]
-    print("Preorder traversal after delete:", preorder_traversal_nodes)
+    print(("Preorder traversal after delete:", preorder_traversal_nodes))
 
-    print("Max. label:", t.get_max_label())
-    print("Min. label:", t.get_min_label())
+    print(("Max. label:", t.get_max_label()))
+    print(("Min. label:", t.get_min_label()))
 
 
 if __name__ == "__main__":

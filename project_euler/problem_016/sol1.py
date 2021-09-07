@@ -5,8 +5,11 @@ Problem 16: https://projecteuler.net/problem=16
 
 What is the sum of the digits of the number 2^1000?
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import input
 def solution(power: int = 1000) -> int:
     """Returns the sum of the digits of the number 2^power.
     >>> solution(1000)
@@ -31,6 +34,6 @@ def solution(power: int = 1000) -> int:
 
 if __name__ == "__main__":
     power = int(input("Enter the power of 2: ").strip())
-    print("2 ^ ", power, " = ", 2 ** power)
+    print(("2 ^ ", power, " = ", 2 ** power))
     result = solution(power)
-    print("Sum of the digits is: ", result)
+    print(("Sum of the digits is: ", result))

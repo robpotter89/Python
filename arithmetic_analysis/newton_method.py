@@ -1,6 +1,9 @@
 """Newton's Method."""
+from __future__ import division
+from __future__ import print_function
 
 # Newton's Method - https://en.wikipedia.org/wiki/Newton%27s_method
+from past.utils import old_div
 from typing import Callable
 
 RealFunc = Callable[[float], float]  # type alias for a real -> real function
@@ -34,7 +37,7 @@ def newton(
     prev_guess = float(starting_int)
     while True:
         try:
-            next_guess = prev_guess - function(prev_guess) / derivative(prev_guess)
+            next_guess = prev_guess - old_div(function(prev_guess), derivative(prev_guess))
         except ZeroDivisionError:
             raise ZeroDivisionError("Could not find root") from None
         if abs(prev_guess - next_guess) < 10 ** -5:

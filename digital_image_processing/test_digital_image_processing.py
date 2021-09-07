@@ -1,6 +1,7 @@
 """
 PyTest's for Digital Image Processing
 """
+from builtins import str
 from cv2 import COLOR_BGR2GRAY, cvtColor, imread
 from numpy import array, uint8
 from PIL import Image

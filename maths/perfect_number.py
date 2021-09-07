@@ -10,8 +10,11 @@ Other examples of Perfect Numbers: 28, 486, ...
 
 https://en.wikipedia.org/wiki/Perfect_number
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def perfect(number: int) -> bool:
     """
     >>> perfect(27)

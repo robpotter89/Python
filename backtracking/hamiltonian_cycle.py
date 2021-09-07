@@ -6,6 +6,7 @@
 
     Wikipedia: https://en.wikipedia.org/wiki/Hamiltonian_path
 """
+from builtins import range
 from typing import List
 
 

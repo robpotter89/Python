@@ -10,7 +10,10 @@ python -m doctest -v merge_insertion_sort.py
 For manual testing run:
 python3 merge_insertion_sort.py
 """
+from __future__ import print_function
 
+from builtins import input
+from builtins import range
 from __future__ import annotations
 
 

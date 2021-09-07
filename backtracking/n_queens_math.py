@@ -75,6 +75,8 @@ Applying this two formulas we can check if a queen in some position is being att
 for another one or vice versa.
 
 """
+from __future__ import print_function
+from builtins import range
 from typing import List
 
 
@@ -148,7 +150,7 @@ def n_queens_solution(n: int) -> None:
             print(column)
         print("")
 
-    print(len(boards), "solutions were found.")
+    print((len(boards), "solutions were found."))
 
 
 if __name__ == "__main__":

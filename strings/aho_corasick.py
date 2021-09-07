@@ -1,8 +1,10 @@
+from builtins import range
+from builtins import object
 from collections import deque
 from typing import Dict, List, Union
 
 
-class Automaton:
+class Automaton(object):
     def __init__(self, keywords: list[str]):
         self.adlist: list[dict] = list()
         self.adlist.append(

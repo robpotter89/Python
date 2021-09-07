@@ -7,7 +7,9 @@ https://noivce.pythonanywhere.com/ Python web app.
 python/black: True
 flake8 : True
 """
+from __future__ import division
 
+from past.utils import old_div
 from PIL import Image
 
 
@@ -15,7 +17,7 @@ def change_contrast(img: Image, level: int) -> Image:
     """
     Function to change contrast
     """
-    factor = (259 * (level + 255)) / (255 * (259 - level))
+    factor = old_div((259 * (level + 255)), (255 * (259 - level)))
 
     def contrast(c: int) -> int:
         """

@@ -12,6 +12,7 @@ daBcd -> capitalize a and c(dABCd) -> remove d (ABC)
 """
 
 
+from builtins import range
 def abbr(a: str, b: str) -> bool:
     """
     >>> abbr("daBcd", "ABC")

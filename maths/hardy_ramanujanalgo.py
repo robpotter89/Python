@@ -1,6 +1,9 @@
+from __future__ import division
+from __future__ import print_function
 # This theorem states that the number of prime factors of n
 # will be approximately log(log(n)) for most natural numbers n
 
+from past.utils import old_div
 import math
 
 
@@ -13,7 +16,7 @@ def exactPrimeFactorCount(n):
     if n % 2 == 0:
         count += 1
         while n % 2 == 0:
-            n = int(n / 2)
+            n = int(old_div(n, 2))
     # the n input value must be odd so that
     # we can skip one element (ie i += 2)
 
@@ -23,7 +26,7 @@ def exactPrimeFactorCount(n):
         if n % i == 0:
             count += 1
             while n % i == 0:
-                n = int(n / i)
+                n = int(old_div(n, i))
         i = i + 2
 
     # this condition checks the prime

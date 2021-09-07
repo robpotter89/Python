@@ -6,6 +6,7 @@
 """
 
 """Calculate Modular Exponential."""
+from __future__ import print_function
 
 
 def modular_exponential(base: int, power: int, mod: int):

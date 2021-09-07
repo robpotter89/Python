@@ -1,3 +1,6 @@
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 import math
 from typing import Callable
 
@@ -33,7 +36,7 @@ def intersection(function: Callable[[float], float], x0: float, x1: float) -> fl
         if x_n == x_n1 or function(x_n1) == function(x_n):
             raise ZeroDivisionError("float division by zero, could not find root")
         x_n2: float = x_n1 - (
-            function(x_n1) / ((function(x_n1) - function(x_n)) / (x_n1 - x_n))
+            old_div(function(x_n1), (old_div((function(x_n1) - function(x_n)), (x_n1 - x_n))))
         )
         if abs(x_n2 - x_n1) < 10 ** -5:
             return x_n2

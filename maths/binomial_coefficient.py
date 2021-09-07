@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 def binomial_coefficient(n, r):
     """
     Find binomial coefficient using pascals triangle.

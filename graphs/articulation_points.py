@@ -1,4 +1,6 @@
+from __future__ import print_function
 # Finding Articulation Points in Undirected Graph
+from builtins import range
 def computeAP(l):  # noqa: E741
     n = len(l)
     outEdgeCount = 0

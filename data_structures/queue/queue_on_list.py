@@ -1,7 +1,10 @@
 """Queue represented by a Python list"""
 
 
-class Queue:
+from builtins import str
+from builtins import range
+from builtins import object
+class Queue(object):
     def __init__(self):
         self.entries = []
         self.length = 0

@@ -1,9 +1,11 @@
+from builtins import range
+from builtins import object
 import random
 import string
 from typing import Optional
 
 
-class ShuffledShiftCipher:
+class ShuffledShiftCipher(object):
     """
     This algorithm uses the Caesar Cipher algorithm but removes the option to
     use brute force to decrypt the message.

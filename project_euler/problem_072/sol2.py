@@ -15,8 +15,12 @@ It can be seen that there are 21 elements in this set.
 How many elements would be contained in the set of reduced proper fractions
 for d ≤ 1,000,000?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def solution(limit: int = 1000000) -> int:
     """
     Return the number of reduced proper fractions with denominator less than limit.
@@ -36,7 +40,7 @@ def solution(limit: int = 1000000) -> int:
 
     for p in primes:
         for n in range(p, limit + 1, p):
-            phi[n] *= 1 - 1 / p
+            phi[n] *= 1 - old_div(1, p)
 
     return int(sum(phi[2:]))
 

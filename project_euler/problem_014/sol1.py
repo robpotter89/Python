@@ -17,8 +17,11 @@ that all starting numbers finish at 1.
 
 Which starting number, under one million, produces the longest chain?
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def solution(n: int = 1000000) -> int:
     """Returns the number under n that generates the longest sequence using the
     formula:

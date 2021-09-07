@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 import math
 
 
@@ -51,7 +54,7 @@ def square_root_iterative(
 
     for i in range(max_iter):
         prev_value = value
-        value = value - fx(value, a) / fx_derivative(value)
+        value = value - old_div(fx(value, a), fx_derivative(value))
         if abs(prev_value - value) < tolerance:
             return value
 

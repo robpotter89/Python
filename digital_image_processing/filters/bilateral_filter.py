@@ -9,6 +9,9 @@ Inputs:
 Output:
     img:A 2d zero padded image with values in between 0 and 1
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 import math
 import sys
 
@@ -19,8 +22,8 @@ import numpy as np
 def vec_gaussian(img: np.ndarray, variance: float) -> np.ndarray:
     # For applying gaussian function for each element in matrix.
     sigma = math.sqrt(variance)
-    cons = 1 / (sigma * math.sqrt(2 * math.pi))
-    return cons * np.exp(-((img / sigma) ** 2) * 0.5)
+    cons = old_div(1, (sigma * math.sqrt(2 * math.pi)))
+    return cons * np.exp(-((old_div(img, sigma)) ** 2) * 0.5)
 
 
 def get_slice(img: np.ndarray, x: int, y: int, kernel_size: int) -> np.ndarray:
@@ -56,7 +59,7 @@ def bilateral_filter(
             imgIG = vec_gaussian(imgI, intensity_variance)
             weights = np.multiply(gaussKer, imgIG)
             vals = np.multiply(imgS, weights)
-            val = np.sum(vals) / np.sum(weights)
+            val = old_div(np.sum(vals), np.sum(weights))
             img2[i, j] = val
     return img2
 
@@ -78,7 +81,7 @@ if __name__ == "__main__":
     img = cv2.imread(filename, 0)
     cv2.imshow("input image", img)
 
-    out = img / 255
+    out = old_div(img, 255)
     out = out.astype("float32")
     out = bilateral_filter(out, spatial_variance, intensity_variance, kernel_size)
     out = out * 255

@@ -1,6 +1,8 @@
 """
 author : Mayank Kumar Jha (mk9440)
 """
+from __future__ import print_function
+from builtins import range
 from __future__ import annotations
 
 
@@ -87,7 +89,7 @@ if __name__ == "__main__":
         tim.append(end - strt)
     print("No of Inputs       Time Taken")
     for i in range(len(inputs)):
-        print(inputs[i], "\t\t", tim[i])
+        print((inputs[i], "\t\t", tim[i]))
     plt.plot(inputs, tim)
     plt.xlabel("Number of Inputs")
     plt.ylabel("Time taken in seconds ")

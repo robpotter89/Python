@@ -10,8 +10,13 @@ goes to infinity).
 (Description adapted from https://en.wikipedia.org/wiki/N-body_simulation )
 (See also http://www.shodor.org/refdesk/Resources/Algorithms/EulersMethod/ )
 """
+from __future__ import division
 
 
+from builtins import zip
+from builtins import range
+from past.utils import old_div
+from builtins import object
 from __future__ import annotations
 
 import random
@@ -20,7 +25,7 @@ from matplotlib import animation
 from matplotlib import pyplot as plt
 
 
-class Body:
+class Body(object):
     def __init__(
         self,
         position_x: float,
@@ -104,7 +109,7 @@ class Body:
         self.position_y += self.velocity_y * delta_time
 
 
-class BodySystem:
+class BodySystem(object):
     """
     This class is used to hold the bodies, the gravitation constant, the time
     factor and the softening factor. The time factor is used to control the speed
@@ -160,15 +165,15 @@ class BodySystem:
                     # Calculation of the distance using Pythagoras's theorem
                     # Extra factor due to the softening technique
                     distance = (dif_x ** 2 + dif_y ** 2 + self.softening_factor) ** (
-                        1 / 2
+                        old_div(1, 2)
                     )
 
                     # Newton's law of universal gravitation.
                     force_x += (
-                        self.gravitation_constant * body2.mass * dif_x / distance ** 3
+                        old_div(self.gravitation_constant * body2.mass * dif_x, distance ** 3)
                     )
                     force_y += (
-                        self.gravitation_constant * body2.mass * dif_y / distance ** 3
+                        old_div(self.gravitation_constant * body2.mass * dif_y, distance ** 3)
                     )
 
             # Update the body's velocity once all the force components have been added
@@ -221,7 +226,7 @@ def plot(
     """
 
     INTERVAL = 20  # Frame rate of the animation
-    DELTA_TIME = INTERVAL / 1000  # Time between time steps in seconds
+    DELTA_TIME = old_div(INTERVAL, 1000)  # Time between time steps in seconds
 
     fig = plt.figure()
     fig.canvas.set_window_title(title)
@@ -293,7 +298,7 @@ def example_2() -> BodySystem:
 
     # Calculation of the respective velocities so that total impulse is zero,
     # i.e. the two bodies together don't move
-    moon_velocity = earth_mass * velocity_dif / (earth_mass + moon_mass)
+    moon_velocity = old_div(earth_mass * velocity_dif, (earth_mass + moon_mass))
     earth_velocity = moon_velocity - velocity_dif
 
     moon = Body(-earth_moon_distance, 0, 0, moon_velocity, moon_mass, 10000000, "grey")

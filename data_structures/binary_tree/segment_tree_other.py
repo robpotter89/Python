@@ -3,11 +3,13 @@ Segment_tree creates a segment tree with a given array and function,
 allowing queries to be done later in log(N) time
 function takes 2 values and returns a same type value
 """
+from __future__ import print_function
+from builtins import object
 from collections.abc import Sequence
 from queue import Queue
 
 
-class SegmentTreeNode:
+class SegmentTreeNode(object):
     def __init__(self, start, end, val, left=None, right=None):
         self.start = start
         self.end = end
@@ -20,7 +22,7 @@ class SegmentTreeNode:
         return f"val: {self.val}, start: {self.start}, end: {self.end}"
 
 
-class SegmentTree:
+class SegmentTree(object):
     """
     >>> import operator
     >>> num_arr = SegmentTree([2, 1, 5, 3, 4], operator.add)

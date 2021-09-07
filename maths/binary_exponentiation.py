@@ -1,9 +1,13 @@
 """Binary Exponentiation."""
+from __future__ import division
+from __future__ import print_function
 
 # Author : Junth Basnet
 # Time Complexity : O(logn)
 
 
+from builtins import input
+from past.utils import old_div
 def binary_exponentiation(a, n):
 
     if n == 0:
@@ -13,7 +17,7 @@ def binary_exponentiation(a, n):
         return binary_exponentiation(a, n - 1) * a
 
     else:
-        b = binary_exponentiation(a, n / 2)
+        b = binary_exponentiation(a, old_div(n, 2))
         return b * b
 
 

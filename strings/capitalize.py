@@ -1,3 +1,4 @@
+from builtins import zip
 from string import ascii_lowercase, ascii_uppercase
 
 

@@ -38,6 +38,7 @@ goldbach(number)  // Goldbach's assumption
 
 """
 
+from builtins import range
 from math import sqrt
 
 

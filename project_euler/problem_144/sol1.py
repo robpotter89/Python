@@ -28,8 +28,11 @@ The animation on the right shows the first 10 reflections of the beam.
 
 How many times does the beam hit the internal surface of the white cell before exiting?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 from math import isclose, sqrt
 
 
@@ -47,12 +50,12 @@ def next_point(
     """
     # normal_gradient = gradient of line through which the beam is reflected
     # outgoing_gradient = gradient of reflected line
-    normal_gradient = point_y / 4 / point_x
-    s2 = 2 * normal_gradient / (1 + normal_gradient * normal_gradient)
-    c2 = (1 - normal_gradient * normal_gradient) / (
+    normal_gradient = old_div(old_div(point_y, 4), point_x)
+    s2 = old_div(2 * normal_gradient, (1 + normal_gradient * normal_gradient))
+    c2 = old_div((1 - normal_gradient * normal_gradient), (
         1 + normal_gradient * normal_gradient
-    )
-    outgoing_gradient = (s2 - c2 * incoming_gradient) / (c2 + s2 * incoming_gradient)
+    ))
+    outgoing_gradient = old_div((s2 - c2 * incoming_gradient), (c2 + s2 * incoming_gradient))
 
     # to find the next point, solve the simultaeneous equations:
     # y^2 + 4x^2 = 100
@@ -62,12 +65,12 @@ def next_point(
     linear_term = 2 * outgoing_gradient * (point_y - outgoing_gradient * point_x)
     constant_term = (point_y - outgoing_gradient * point_x) ** 2 - 100
 
-    x_minus = (
+    x_minus = old_div((
         -linear_term - sqrt(linear_term ** 2 - 4 * quadratic_term * constant_term)
-    ) / (2 * quadratic_term)
-    x_plus = (
+    ), (2 * quadratic_term))
+    x_plus = old_div((
         -linear_term + sqrt(linear_term ** 2 - 4 * quadratic_term * constant_term)
-    ) / (2 * quadratic_term)
+    ), (2 * quadratic_term))
 
     # two solutions, one of which is our input point
     next_x = x_minus if isclose(x_plus, point_x) else x_plus
@@ -88,7 +91,7 @@ def solution(first_x_coord: float = 1.4, first_y_coord: float = -9.6) -> int:
     num_reflections: int = 0
     point_x: float = first_x_coord
     point_y: float = first_y_coord
-    gradient: float = (10.1 - point_y) / (0.0 - point_x)
+    gradient: float = old_div((10.1 - point_y), (0.0 - point_x))
 
     while not (-0.01 <= point_x <= 0.01 and point_y > 0):
         point_x, point_y, gradient = next_point(point_x, point_y, gradient)

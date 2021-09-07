@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Algorithms to determine if a string is palindrome
 
 test_data = {
@@ -11,7 +12,7 @@ test_data = {
     "amanaplanacanalpanama": True,  # "a man a plan a canal panama"
 }
 # Ensure our test data is valid
-assert all((key == key[::-1]) is value for key, value in test_data.items())
+assert all((key == key[::-1]) is value for key, value in list(test_data.items()))
 
 
 def is_palindrome(s: str) -> bool:
@@ -59,7 +60,7 @@ def is_palindrome_slice(s: str) -> bool:
 
 
 if __name__ == "__main__":
-    for key, value in test_data.items():
+    for key, value in list(test_data.items()):
         assert is_palindrome(key) is is_palindrome_recursive(key)
         assert is_palindrome(key) is is_palindrome_slice(key)
         print(f"{key:21} {value}")

@@ -1,11 +1,14 @@
 # https://en.wikipedia.org/wiki/B%C3%A9zier_curve
 # https://www.tutorialspoint.com/computer_graphics/computer_graphics_curves.htm
+from builtins import str
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 from scipy.special import comb  # type: ignore
 
 
-class BezierCurve:
+class BezierCurve(object):
     """
     Bezier curve is a weighted sum of a set of control points.
     Generate Bezier curves from a given set of control points.

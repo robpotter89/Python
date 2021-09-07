@@ -31,8 +31,11 @@ opponent until no stones remain; so the current player loses. To illustrate:
 
 For how many positive integers n <= 2^30 does X(n,2n,3n) = 0?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def solution(exponent: int = 30) -> int:
     """
     For any given exponent x >= 0, 1 <= n <= 2^x.
@@ -48,8 +51,8 @@ def solution(exponent: int = 30) -> int:
     # To find how many total games were lost for a given exponent x,
     # we need to find the Fibonacci number F(x+2).
     fibonacci_index = exponent + 2
-    phi = (1 + 5 ** 0.5) / 2
-    fibonacci = (phi ** fibonacci_index - (phi - 1) ** fibonacci_index) / 5 ** 0.5
+    phi = old_div((1 + 5 ** 0.5), 2)
+    fibonacci = old_div((phi ** fibonacci_index - (phi - 1) ** fibonacci_index), 5 ** 0.5)
 
     return int(fibonacci)
 

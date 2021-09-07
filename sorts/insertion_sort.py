@@ -12,8 +12,10 @@ python3 -m doctest -v insertion_sort.py
 For manual testing run:
 python3 insertion_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
 def insertion_sort(collection: list) -> list:
     """A pure Python implementation of the insertion sort algorithm
 

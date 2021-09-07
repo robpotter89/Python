@@ -15,8 +15,10 @@ Find the product a*b*c.
 References:
     - https://en.wikipedia.org/wiki/Pythagorean_triple
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(n: int = 1000) -> int:
     """
     Return the product of a,b,c which are Pythagorean Triplet that satisfies

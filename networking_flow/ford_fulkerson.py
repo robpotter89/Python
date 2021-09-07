@@ -4,8 +4,10 @@ Description:
     (1) Start with initial flow as 0;
     (2) Choose augmenting path from source to sink and add path to flow;
 """
+from __future__ import print_function
 
 
+from builtins import range
 def BFS(graph, s, t, parent):
     # Return True if there is node that has not iterated.
     visited = [False] * len(graph)

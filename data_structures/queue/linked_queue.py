@@ -1,8 +1,10 @@
 """ A Queue using a linked list like structure """
+from builtins import str
+from builtins import object
 from typing import Any
 
 
-class Node:
+class Node(object):
     def __init__(self, data: Any) -> None:
         self.data = data
         self.next = None
@@ -11,7 +13,7 @@ class Node:
         return f"{self.data}"
 
 
-class LinkedQueue:
+class LinkedQueue(object):
     """
     >>> queue = LinkedQueue()
     >>> queue.is_empty()
@@ -45,7 +47,7 @@ class LinkedQueue:
         node = self.front
         while node:
             yield node.data
-            node = node.next
+            node = node.__next__
 
     def __len__(self) -> int:
         """
@@ -126,7 +128,7 @@ class LinkedQueue:
             raise IndexError("dequeue from empty queue")
         assert isinstance(self.front, Node)
         node = self.front
-        self.front = self.front.next
+        self.front = self.front.__next__
         if self.front is None:
             self.rear = None
         return node.data

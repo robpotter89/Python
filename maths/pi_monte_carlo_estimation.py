@@ -1,7 +1,13 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
+from builtins import object
 import random
 
 
-class Point:
+class Point(object):
     def __init__(self, x: float, y: float) -> None:
         self.x = x
         self.y = y
@@ -53,7 +59,7 @@ def estimate_pi(number_of_simulations: int) -> float:
         if random_point.is_in_unit_circle():
             number_in_unit_circle += 1
 
-    return 4 * number_in_unit_circle / number_of_simulations
+    return old_div(4 * number_in_unit_circle, number_of_simulations)
 
 
 if __name__ == "__main__":

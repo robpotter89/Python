@@ -20,8 +20,10 @@ Sum of phi(d), for all d|n = n. This result can be used to find phi(n) using a s
 
 Time: 3.5 sec
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(limit: int = 1_000_000) -> int:
     """
     Returns an integer, the solution to the problem

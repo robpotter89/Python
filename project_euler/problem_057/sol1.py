@@ -18,8 +18,11 @@ the number of digits in the denominator.
 In the first one-thousand expansions, how many fractions contain a numerator with
 more digits than the denominator?
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def solution(n: int = 1000) -> int:
     """
     returns number of fractions containing a numerator with more digits than

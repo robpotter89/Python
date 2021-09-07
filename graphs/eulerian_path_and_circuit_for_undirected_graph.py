@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Eulerian Path is a path in graph that visits every edge exactly once.
 # Eulerian Circuit is an Eulerian Path which starts and ends on the same
 # vertex.
@@ -6,6 +7,7 @@
 
 
 # using dfs for finding eulerian path traversal
+from builtins import range
 def dfs(u, graph, visited_edge, path=None):
     path = (path or []) + [u]
     for v in graph[u]:
@@ -20,7 +22,7 @@ def check_circuit_or_path(graph, max_node):
     odd_degree_nodes = 0
     odd_node = -1
     for i in range(max_node):
-        if i not in graph.keys():
+        if i not in list(graph.keys()):
             continue
         if len(graph[i]) % 2 == 1:
             odd_degree_nodes += 1

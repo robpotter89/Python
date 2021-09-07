@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,7 +15,7 @@ def horoscope(zodiac_sign: int, day: str) -> str:
 
 if __name__ == "__main__":
     print("Daily Horoscope. \n")
-    print(
+    print((
         "enter your Zodiac sign number:\n",
         "1. Aries\n",
         "2. Taurus\n",
@@ -27,9 +29,9 @@ if __name__ == "__main__":
         "10. Capricorn\n",
         "11. Aquarius\n",
         "12. Pisces\n",
-    )
+    ))
     zodiac_sign = int(input("number> ").strip())
-    print("choose some day:\n", "yesterday\n", "today\n", "tomorrow\n")
-    day = input("enter the day> ")
+    print(("choose some day:\n", "yesterday\n", "today\n", "tomorrow\n"))
+    day = eval(input("enter the day> "))
     horoscope_text = horoscope(zodiac_sign, day)
     print(horoscope_text)

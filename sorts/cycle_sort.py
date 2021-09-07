@@ -4,6 +4,7 @@ Source: https://en.wikipedia.org/wiki/Cycle_sort
 """
 
 
+from builtins import range
 def cycle_sort(array: list) -> list:
     """
     >>> cycle_sort([4, 3, 2, 1])

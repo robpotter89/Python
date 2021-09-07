@@ -37,7 +37,9 @@ So it could be simplified as,
     r = 2pn when n is odd
     r = 2   when n is even.
 """
+from __future__ import print_function
 
+from builtins import next
 from typing import Dict, Generator
 
 

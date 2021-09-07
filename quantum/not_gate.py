@@ -5,6 +5,7 @@ qubit (by default, in state 0) and inverts it. Run the experiment 1000
 times and print the total count of the states finally observed.
 Qiskit Docs: https://qiskit.org/documentation/getting_started.html
 """
+from __future__ import print_function
 
 import qiskit as q
 

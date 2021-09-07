@@ -17,10 +17,13 @@ Time Complexity : O(n/m)
     n=length of main string
     m=length of pattern string
 """
+from __future__ import print_function
+from builtins import range
+from builtins import object
 from typing import List
 
 
-class BoyerMooreSearch:
+class BoyerMooreSearch(object):
     def __init__(self, text: str, pattern: str):
         self.text, self.pattern = text, pattern
         self.textLen, self.patLen = len(text), len(pattern)

@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
 def double_sort(lst):
     """this sorting algorithm sorts an array using the principle of bubble sort,
     but does it both from left to right and right to left,
@@ -16,7 +21,7 @@ def double_sort(lst):
     """
     no_of_elements = len(lst)
     for i in range(
-        0, int(((no_of_elements - 1) / 2) + 1)
+        0, int((old_div((no_of_elements - 1), 2)) + 1)
     ):  # we don't need to traverse to end of list as
         for j in range(0, no_of_elements - 1):
             if (

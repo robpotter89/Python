@@ -1,10 +1,12 @@
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 from collections import Counter
 from random import random
 
 
-class MarkovChainGraphUndirectedUnweighted:
+class MarkovChainGraphUndirectedUnweighted(object):
     """
     Undirected Unweighted Graph for running Markov Chain Algorithm
     """

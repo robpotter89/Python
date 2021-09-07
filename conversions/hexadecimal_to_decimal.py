@@ -1,3 +1,5 @@
+from builtins import hex
+from builtins import range
 hex_table = {hex(i)[2:]: i for i in range(16)}  # Use [:2] to strip off the leading '0x'
 
 

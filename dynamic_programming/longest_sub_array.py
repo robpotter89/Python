@@ -8,9 +8,13 @@ The problem is  :
 Given an array, to find the longest and continuous sub array and get the max sum of the
     sub array in the given array.
 """
+from __future__ import print_function
 
 
-class SubArray:
+from builtins import input
+from builtins import range
+from builtins import object
+class SubArray(object):
     def __init__(self, arr):
         # we need a list not a string, so do something to change the type
         self.array = arr.split(",")
@@ -28,7 +32,7 @@ class SubArray:
 
 
 if __name__ == "__main__":
-    whole_array = input("please input some numbers:")
+    whole_array = eval(input("please input some numbers:"))
     array = SubArray(whole_array)
     re = array.solve_sub_array()
     print(("the results is:", re))

@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import input
+from builtins import str
+from builtins import range
 from typing import List
 
 
@@ -147,7 +151,7 @@ def prime_implicant_chart(
 
 
 def main():
-    no_of_variable = int(input("Enter the no. of variables\n"))
+    no_of_variable = int(eval(input("Enter the no. of variables\n")))
     minterms = [
         int(x)
         for x in input(

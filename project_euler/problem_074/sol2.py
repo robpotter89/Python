@@ -19,7 +19,10 @@
     After generating each chain, the length is checked and the
     counter increases.
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import range
 factorial_cache = {}
 factorial_sum_cache = {}
 

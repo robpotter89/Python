@@ -1,4 +1,6 @@
+from __future__ import division
 # https://en.m.wikipedia.org/wiki/Electric_power
+from past.utils import old_div
 from collections import namedtuple
 from typing import Tuple
 
@@ -37,9 +39,9 @@ def electric_power(voltage: float, current: float, power: float) -> Tuple:
             "Power cannot be negative in any electrical/electronics system"
         )
     elif voltage == 0:
-        return result("voltage", power / current)
+        return result("voltage", old_div(power, current))
     elif current == 0:
-        return result("current", power / voltage)
+        return result("current", old_div(power, voltage))
     elif power == 0:
         return result("power", float(round(abs(voltage * current), 2)))
     else:

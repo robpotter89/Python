@@ -2,7 +2,10 @@
 This is used to convert the currency using the Amdoren Currency API
 https://www.amdoren.com
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import input
 import os
 
 import requests

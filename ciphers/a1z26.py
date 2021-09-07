@@ -5,8 +5,11 @@ corresponding to the character's position in the alphabet.
 https://www.dcode.fr/letter-number-cipher
 http://bestcodes.weebly.com/a1z26.html
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import chr
 def encode(plain: str) -> list[int]:
     """
     >>> encode("myname")
@@ -25,8 +28,8 @@ def decode(encoded: list[int]) -> str:
 
 def main() -> None:
     encoded = encode(input("-> ").strip().lower())
-    print("Encoded: ", encoded)
-    print("Decoded:", decode(encoded))
+    print(("Encoded: ", encoded))
+    print(("Decoded:", decode(encoded)))
 
 
 if __name__ == "__main__":

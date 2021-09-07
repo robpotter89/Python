@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import str
 def get_word_pattern(word: str) -> str:
     """
     >>> get_word_pattern("pattern")

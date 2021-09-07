@@ -1,3 +1,4 @@
+from builtins import str
 def hex_to_bin(hex_num: str) -> int:
     """
     Convert a hexadecimal value to its binary equivalent

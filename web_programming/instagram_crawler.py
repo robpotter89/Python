@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import print_function
+from builtins import object
 from __future__ import annotations
 
 import json
@@ -19,7 +21,7 @@ def extract_user_profile(script) -> dict:
     return info["entry_data"]["ProfilePage"][0]["graphql"]["user"]
 
 
-class InstagramUser:
+class InstagramUser(object):
     """
     Class Instagram crawl instagram user information
 

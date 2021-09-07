@@ -7,6 +7,7 @@ https://www.hackerrank.com/challenges/coin-change/problem
 """
 
 
+from builtins import range
 def dp_count(S, n):
     """
     >>> dp_count([1, 2, 3], 4)

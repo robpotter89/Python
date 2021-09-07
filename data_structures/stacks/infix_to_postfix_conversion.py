@@ -3,6 +3,7 @@ https://en.wikipedia.org/wiki/Infix_notation
 https://en.wikipedia.org/wiki/Reverse_Polish_notation
 https://en.wikipedia.org/wiki/Shunting-yard_algorithm
 """
+from __future__ import print_function
 
 from .balanced_parentheses import balanced_parentheses
 from .stack import Stack

@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 def isSumSubset(arr, arrLen, requiredSum):
     """
     >>> isSumSubset([2, 4, 6, 8], 4, 5)

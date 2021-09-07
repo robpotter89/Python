@@ -12,8 +12,10 @@ squares of positive integers.
 Find the sum of all the numbers less than 10^8 that are both palindromic and can
 be written as the sum of consecutive squares.
 """
+from __future__ import print_function
 
 
+from builtins import str
 def is_palindrome(n: int) -> bool:
     """
     Check if an integer is palindromic.

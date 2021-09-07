@@ -1,5 +1,6 @@
 """Prime Check."""
 
+from builtins import range
 import math
 import unittest
 
@@ -17,7 +18,7 @@ def prime_check(number: int) -> bool:
         # Negatives, 0, 1 and all even numbers are not primes
         return False
 
-    odd_numbers = range(3, int(math.sqrt(number) + 1), 2)
+    odd_numbers = list(range(3, int(math.sqrt(number) + 1), 2))
     return not any(not number % i for i in odd_numbers)
 
 

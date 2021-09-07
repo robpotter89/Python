@@ -17,8 +17,11 @@ d7d8d9=728 is divisible by 13
 d8d9d10=289 is divisible by 17
 Find the sum of all 0 to 9 pandigital numbers with this property.
 """
+from __future__ import print_function
 
 
+from builtins import map
+from builtins import range
 from itertools import permutations
 
 
@@ -49,7 +52,7 @@ def solution(n: int = 10) -> int:
     """
     list_nums = [
         int("".join(map(str, num)))
-        for num in permutations(range(n))
+        for num in permutations(list(range(n)))
         if is_substring_divisible(num)
     ]
 

@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import str
+from past.utils import old_div
 from pathlib import Path
 
 import cv2
@@ -24,7 +27,7 @@ def get_rotation(
 if __name__ == "__main__":
     # read original image
     image = cv2.imread(
-        str(Path(__file__).resolve().parent.parent / "image_data" / "lena.jpg")
+        str(old_div(old_div(Path(__file__).resolve().parent.parent, "image_data"), "lena.jpg"))
     )
     # turn image in gray scale value
     gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

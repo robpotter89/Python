@@ -8,10 +8,13 @@ We have N tasks and M people. Each person in M can do only certain of these task
 a person can do only one task and a task is performed only by one person.
 Find the total no of ways in which the tasks can be distributed.
 """
+from __future__ import print_function
+from builtins import range
+from builtins import object
 from collections import defaultdict
 
 
-class AssignmentUsingBitmask:
+class AssignmentUsingBitmask(object):
     def __init__(self, task_performed, total):
 
         self.total_tasks = total  # total no of tasks (N)

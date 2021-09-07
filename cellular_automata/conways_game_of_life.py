@@ -3,6 +3,7 @@ Conway's Game of Life implemented in Python.
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 """
 
+from builtins import range
 from __future__ import annotations
 
 from typing import List

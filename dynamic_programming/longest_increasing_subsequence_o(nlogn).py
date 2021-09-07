@@ -4,6 +4,7 @@
 # comments: This programme outputs the Longest Strictly Increasing Subsequence in
 #           O(NLogN) Where N is the Number of elements in the list
 #############################
+from builtins import range
 from __future__ import annotations
 
 

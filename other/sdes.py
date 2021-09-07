@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 def apply_table(inp, table):
     """
     >>> apply_table("0123456789", list(range(10)))
@@ -55,8 +58,8 @@ def function(expansion, s0, s1, key, message):
 
 if __name__ == "__main__":
 
-    key = input("Enter 10 bit key: ")
-    message = input("Enter 8 bit message: ")
+    key = eval(input("Enter 10 bit key: "))
+    message = eval(input("Enter 8 bit message: "))
 
     p8_table = [6, 3, 7, 4, 8, 5, 10, 9]
     p10_table = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6]
@@ -86,7 +89,7 @@ if __name__ == "__main__":
     temp = temp[4:] + temp[:4]
     temp = function(expansion, s0, s1, key2, temp)
     CT = apply_table(temp, IP_inv)
-    print("Cipher text is:", CT)
+    print(("Cipher text is:", CT))
 
     # decryption
     temp = apply_table(CT, IP)
@@ -94,4 +97,4 @@ if __name__ == "__main__":
     temp = temp[4:] + temp[:4]
     temp = function(expansion, s0, s1, key1, temp)
     PT = apply_table(temp, IP_inv)
-    print("Plain text after decypting is:", PT)
+    print(("Plain text after decypting is:", PT))

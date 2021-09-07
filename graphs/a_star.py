@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 grid = [
     [0, 1, 0, 0, 0, 0],
     [0, 1, 0, 0, 0, 0],  # 0 are free path whereas 1's are obstacles

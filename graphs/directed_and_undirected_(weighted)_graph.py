@@ -1,3 +1,5 @@
+from builtins import range
+from builtins import object
 from collections import deque
 from math import floor
 from random import random
@@ -6,7 +8,7 @@ from time import time
 # the default weight is 1 if not assigned but all the implementation is weighted
 
 
-class DirectedGraph:
+class DirectedGraph(object):
     def __init__(self):
         self.graph = {}
 
@@ -264,7 +266,7 @@ class DirectedGraph:
         return end - begin
 
 
-class Graph:
+class Graph(object):
     def __init__(self):
         self.graph = {}
 

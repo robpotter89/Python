@@ -1,7 +1,9 @@
+from builtins import range
+from builtins import object
 import math
 
 
-class Graph:
+class Graph(object):
     def __init__(self, N=0):  # a graph with Node 0,1,...,N-1
         self.N = N
         self.W = [

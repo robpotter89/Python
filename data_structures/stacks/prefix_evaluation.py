@@ -1,12 +1,15 @@
 """
 Python3 program to evaluate a prefix expression.
 """
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 calc = {
     "+": lambda x, y: x + y,
     "-": lambda x, y: x - y,
     "*": lambda x, y: x * y,
-    "/": lambda x, y: x / y,
+    "/": lambda x, y: old_div(x, y),
 }
 
 

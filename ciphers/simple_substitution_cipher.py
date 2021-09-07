@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 import random
 import sys
 
@@ -5,9 +7,9 @@ LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def main() -> None:
-    message = input("Enter message: ")
+    message = eval(input("Enter message: "))
     key = "LFWOAYUISVKMNXPBDCRJTQEGHZ"
-    resp = input("Encrypt/Decrypt [e/d]: ")
+    resp = eval(input("Encrypt/Decrypt [e/d]: "))
 
     checkValidKey(key)
 

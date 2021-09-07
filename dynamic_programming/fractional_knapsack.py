@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import zip
+from past.utils import old_div
 from bisect import bisect
 from itertools import accumulate
 
@@ -8,14 +11,14 @@ def fracKnapsack(vl, wt, W, n):
     240.0
     """
 
-    r = list(sorted(zip(vl, wt), key=lambda x: x[0] / x[1], reverse=True))
+    r = list(sorted(zip(vl, wt), key=lambda x: old_div(x[0], x[1]), reverse=True))
     vl, wt = [i[0] for i in r], [i[1] for i in r]
     acc = list(accumulate(wt))
     k = bisect(acc, W)
     return (
         0
         if k == 0
-        else sum(vl[:k]) + (W - acc[k - 1]) * (vl[k]) / (wt[k])
+        else sum(vl[:k]) + old_div((W - acc[k - 1]) * (vl[k]), (wt[k]))
         if k != n
         else sum(vl[:k])
     )

@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 def topologicalSort(graph):
     """
     Kahn's Algorithm is used to find Topological ordering of Directed Acyclic Graph
@@ -8,7 +10,7 @@ def topologicalSort(graph):
     topo = []
     cnt = 0
 
-    for key, values in graph.items():
+    for key, values in list(graph.items()):
         for i in values:
             indegree[i] += 1
 

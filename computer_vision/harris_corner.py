@@ -1,3 +1,5 @@
+from builtins import range
+from builtins import object
 import cv2
 import numpy as np
 
@@ -7,7 +9,7 @@ https://en.wikipedia.org/wiki/Harris_Corner_Detector
 """
 
 
-class Harris_Corner:
+class Harris_Corner(object):
     def __init__(self, k: float, window_size: int):
 
         """

@@ -9,8 +9,11 @@ python3 -m doctest -v heap_sort.py
 For manual testing run:
 python heap_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def heapify(unsorted, index, heap_size):
     largest = index
     left_index = 2 * index + 1

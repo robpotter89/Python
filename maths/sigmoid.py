@@ -7,7 +7,9 @@ After through Sigmoid, the element of the vector mostly 0 between 1. or 1 betwee
 Script inspired from its corresponding Wikipedia article
 https://en.wikipedia.org/wiki/Sigmoid_function
 """
+from __future__ import division
 
+from past.utils import old_div
 import numpy as np
 
 
@@ -30,7 +32,7 @@ def sigmoid(vector: np.array) -> np.array:
     >>> sigmoid(np.array([0.0]))
     array([0.5])
     """
-    return 1 / (1 + np.exp(-vector))
+    return old_div(1, (1 + np.exp(-vector)))
 
 
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 from datetime import datetime
 
 import requests

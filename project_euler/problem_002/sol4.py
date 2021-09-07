@@ -14,6 +14,9 @@ four million, find the sum of the even-valued terms.
 References:
     - https://en.wikipedia.org/wiki/Fibonacci_number
 """
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 import math
 from decimal import Decimal, getcontext
 
@@ -60,10 +63,10 @@ def solution(n: int = 4000000) -> int:
     if n <= 0:
         raise ValueError("Parameter n must be greater than or equal to one.")
     getcontext().prec = 100
-    phi = (Decimal(5) ** Decimal(0.5) + 1) / Decimal(2)
+    phi = old_div((Decimal(5) ** Decimal(0.5) + 1), Decimal(2))
 
     index = (math.floor(math.log(n * (phi + 2), phi) - 1) // 3) * 3 + 2
-    num = Decimal(round(phi ** Decimal(index + 1))) / (phi + 2)
+    num = old_div(Decimal(round(phi ** Decimal(index + 1))), (phi + 2))
     total = num // 2
     return int(total)
 

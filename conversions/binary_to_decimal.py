@@ -1,3 +1,4 @@
+from builtins import str
 def bin_to_decimal(bin_string: str) -> int:
     """
     Convert a binary value to its decimal equivalent

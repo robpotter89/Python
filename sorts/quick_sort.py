@@ -7,6 +7,8 @@ python3 -m doctest -v quick_sort.py
 For manual testing run:
 python3 quick_sort.py
 """
+from __future__ import print_function
+from builtins import input
 from typing import List
 
 

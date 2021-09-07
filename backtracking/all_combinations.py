@@ -3,6 +3,8 @@
         numbers out of 1 ... n. We use backtracking to solve this problem.
         Time complexity: O(C(n,k)) which is O(n choose k) = O((n!/(k! * (n - k)!)))
 """
+from __future__ import print_function
+from builtins import range
 from typing import List
 
 
@@ -36,7 +38,7 @@ def create_all_state(
 
 def print_all_state(total_list: List[List[int]]) -> None:
     for i in total_list:
-        print(*i)
+        print((*i))
 
 
 if __name__ == "__main__":

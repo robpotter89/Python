@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 def max_subarray_sum(nums: list) -> int:
     """
     >>> max_subarray_sum([6 , 9, -1, 3, -7, -5, 10])

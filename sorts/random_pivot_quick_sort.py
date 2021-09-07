@@ -1,6 +1,9 @@
 """
 Picks the random index as the pivot
 """
+from __future__ import print_function
+from builtins import input
+from builtins import range
 import random
 
 

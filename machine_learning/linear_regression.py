@@ -7,6 +7,10 @@ We try to set the weight of these features, over many iterations, so that they b
 fit our dataset. In this particular code, I had used a CSGO dataset (ADR vs
 Rating). We try to best fit a line through dataset and estimate the parameters.
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import numpy as np
 import requests
 
@@ -46,7 +50,7 @@ def run_steep_gradient_descent(data_x, data_y, len_data, alpha, theta):
     prod = np.dot(theta, data_x.transpose())
     prod -= data_y.transpose()
     sum_grad = np.dot(prod, data_x)
-    theta = theta - (alpha / n) * sum_grad
+    theta = theta - (old_div(alpha, n)) * sum_grad
     return theta
 
 
@@ -61,7 +65,7 @@ def sum_of_square_error(data_x, data_y, len_data, theta):
     prod = np.dot(theta, data_x.transpose())
     prod -= data_y.transpose()
     sum_elem = np.sum(np.square(prod))
-    error = sum_elem / (2 * len_data)
+    error = old_div(sum_elem, (2 * len_data))
     return error
 
 

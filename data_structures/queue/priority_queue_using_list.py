@@ -2,8 +2,11 @@
 Pure Python implementations of a Fixed Priority Queue and an Element Priority Queue
 using Python lists.
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import object
 class OverFlowError(Exception):
     pass
 
@@ -12,7 +15,7 @@ class UnderFlowError(Exception):
     pass
 
 
-class FixedPriorityQueue:
+class FixedPriorityQueue(object):
     """
     Tasks can be added to a Priority Queue at any time and in any order but when Tasks
     are removed then the Task with the highest priority is removed in FIFO order.  In
@@ -100,7 +103,7 @@ class FixedPriorityQueue:
         return "\n".join(f"Priority {i}: {q}" for i, q in enumerate(self.queues))
 
 
-class ElementPriorityQueue:
+class ElementPriorityQueue(object):
     """
     Element Priority Queue is the same as Fixed Priority Queue except that the value of
     the element itself is the priority. The rules for priorities are the same the as

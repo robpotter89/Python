@@ -1,6 +1,7 @@
 """
     Implemented an algorithm using opencv to tone an image with sepia technique
 """
+from builtins import range
 from cv2 import destroyAllWindows, imread, imshow, waitKey
 
 
@@ -40,10 +41,10 @@ if __name__ == "__main__":
         percentage: imread("image_data/lena.jpg", 1) for percentage in (10, 20, 30, 40)
     }
 
-    for percentage, img in images.items():
+    for percentage, img in list(images.items()):
         make_sepia(img, percentage)
 
-    for percentage, img in images.items():
+    for percentage, img in list(images.items()):
         imshow(f"Original image with sepia (factor: {percentage})", img)
 
     waitKey(0)

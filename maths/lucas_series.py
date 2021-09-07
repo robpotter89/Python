@@ -1,8 +1,12 @@
 """
 https://en.wikipedia.org/wiki/Lucas_number
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import str
+from builtins import range
 def recursive_lucas_number(n_th_number: int) -> int:
     """
     Returns the nth lucas number

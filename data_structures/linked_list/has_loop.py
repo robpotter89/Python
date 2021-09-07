@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import object
 from typing import Any
 
 
@@ -5,7 +7,7 @@ class ContainsLoopError(Exception):
     pass
 
 
-class Node:
+class Node(object):
     def __init__(self, data: Any) -> None:
         self.data = data
         self.next_node = None

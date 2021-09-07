@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import chr
 def dencrypt(s: str, n: int = 13) -> str:
     """
     https://en.wikipedia.org/wiki/ROT13
@@ -21,13 +24,13 @@ def dencrypt(s: str, n: int = 13) -> str:
 
 
 def main() -> None:
-    s0 = input("Enter message: ")
+    s0 = eval(input("Enter message: "))
 
     s1 = dencrypt(s0, 13)
-    print("Encryption:", s1)
+    print(("Encryption:", s1))
 
     s2 = dencrypt(s1, 13)
-    print("Decryption: ", s2)
+    print(("Decryption: ", s2))
 
 
 if __name__ == "__main__":

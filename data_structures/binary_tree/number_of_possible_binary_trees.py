@@ -14,8 +14,11 @@ Basically we Create the 2 function:
     2. binary_tree_count(node_count: int) -> int
         Returns the number of possible binary trees for n nodes.
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def binomial_coefficient(n: int, k: int) -> int:
     """
     Since Here we Find the Binomial Coefficient:

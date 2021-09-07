@@ -8,6 +8,9 @@ and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 Find the sum of the digits in the number 100!
 """
+from __future__ import print_function
+from builtins import input
+from builtins import str
 from math import factorial
 
 

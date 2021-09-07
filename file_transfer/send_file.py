@@ -1,3 +1,4 @@
+from __future__ import print_function
 def send_file(filename: str = "mytext.txt", testing: bool = False) -> None:
     import socket
 

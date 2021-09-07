@@ -1,6 +1,9 @@
+from __future__ import print_function
 # https://en.wikipedia.org/wiki/Trifid_cipher
 
 
+from builtins import zip
+from builtins import range
 def __encryptPart(messagePart: str, character2Number: dict[str, str]) -> str:
     one, two, three = "", "", ""
     tmp = []

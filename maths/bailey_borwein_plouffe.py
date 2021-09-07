@@ -1,3 +1,7 @@
+from __future__ import division
+from builtins import hex
+from builtins import range
+from past.utils import old_div
 def bailey_borwein_plouffe(digit_position: int, precision: int = 1000) -> str:
     """
     Implement a popular pi-digit-extraction algorithm known as the
@@ -79,7 +83,7 @@ def _subsum(
             )
         else:
             exponential_term = pow(16, digit_pos_to_extract - 1 - sum_index)
-        sum += exponential_term / denominator
+        sum += old_div(exponential_term, denominator)
     return sum
 
 

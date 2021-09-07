@@ -9,8 +9,12 @@ python -m doctest -v geometric_series.py
 For manual testing run:
 python3 geometric_series.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import str
+from builtins import range
 def geometric_series(nth_term: int, start_term_a: int, common_ratio_r: int) -> list:
     """Pure Python implementation of Geometric Series algorithm
     :param nth_term: The last term (nth term of Geometric Series)
@@ -54,10 +58,10 @@ def geometric_series(nth_term: int, start_term_a: int, common_ratio_r: int) -> l
 
 
 if __name__ == "__main__":
-    nth_term = input("Enter the last number (n term) of the Geometric Series")
-    start_term_a = input("Enter the starting term (a) of the Geometric Series")
-    common_ratio_r = input(
+    nth_term = eval(input("Enter the last number (n term) of the Geometric Series"))
+    start_term_a = eval(input("Enter the starting term (a) of the Geometric Series"))
+    common_ratio_r = eval(input(
         "Enter the common ratio between two terms (r) of the Geometric Series"
-    )
+    ))
     print("Formula of Geometric Series => a + ar + ar^2 ... +ar^n")
     print(geometric_series(nth_term, start_term_a, common_ratio_r))

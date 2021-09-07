@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import input
+from builtins import chr
+from builtins import range
 def remove_duplicates(key: str) -> str:
     """
     Removes duplicate alphabetic characters in a keyword (letter is ignored after its
@@ -63,7 +67,7 @@ def decipher(message: str, cipher_map: dict[str, str]) -> str:
     'HELLO WORLD!!'
     """
     # Reverse our cipher mappings
-    rev_cipher_map = {v: k for k, v in cipher_map.items()}
+    rev_cipher_map = {v: k for k, v in list(cipher_map.items())}
     return "".join(rev_cipher_map.get(ch, ch) for ch in message.upper())
 
 

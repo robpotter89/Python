@@ -14,8 +14,10 @@ References:
     - https://en.wikipedia.org/wiki/Euclidean_algorithm
     - https://en.wikipedia.org/wiki/Least_common_multiple
 """
+from __future__ import print_function
 
 
+from builtins import range
 def gcd(x: int, y: int) -> int:
     """
     Euclidean GCD algorithm (Greatest Common Divisor)

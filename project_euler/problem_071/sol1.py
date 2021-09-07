@@ -17,8 +17,10 @@ By listing the set of reduced proper fractions for d ≤ 1,000,000
 in ascending order of size, find the numerator of the fraction
 immediately to the left of 3/7.
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(numerator: int = 3, denominator: int = 7, limit: int = 1000000) -> int:
     """
     Returns the closest numerator of the fraction immediately to the

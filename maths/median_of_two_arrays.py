@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from past.utils import old_div
 from typing import List
 
 
@@ -21,7 +25,7 @@ def median_of_two_arrays(nums1: List[float], nums2: List[float]) -> float:
     if mod == 1:
         return all_numbers[div]
     else:
-        return (all_numbers[div] + all_numbers[div - 1]) / 2
+        return old_div((all_numbers[div] + all_numbers[div - 1]), 2)
 
 
 if __name__ == "__main__":

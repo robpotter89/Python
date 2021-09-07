@@ -18,8 +18,10 @@ min(closest_pair_dis, closest_in_strip) would be the final answer.
 
 Time complexity: O(n * log n)
 """
+from __future__ import print_function
 
 
+from builtins import range
 def euclidean_distance_sqr(point1, point2):
     """
     >>> euclidean_distance_sqr([1,2],[2,4])
@@ -140,4 +142,4 @@ def closest_pair_of_points(points, points_counts):
 
 if __name__ == "__main__":
     points = [(2, 3), (12, 30), (40, 50), (5, 1), (12, 10), (3, 4)]
-    print("Distance:", closest_pair_of_points(points, len(points)))
+    print(("Distance:", closest_pair_of_points(points, len(points))))

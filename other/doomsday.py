@@ -1,6 +1,7 @@
 #!/bin/python3
 # Doomsday algorithm info: https://en.wikipedia.org/wiki/Doomsday_rule
 
+from builtins import str
 DOOMSDAY_LEAP = [4, 1, 7, 4, 2, 6, 4, 1, 5, 3, 7, 5]
 DOOMSDAY_NOT_LEAP = [3, 7, 7, 4, 2, 6, 4, 1, 5, 3, 7, 5]
 WEEK_DAY_NAMES = {

@@ -4,6 +4,7 @@
     * http://colah.github.io/posts/2015-08-Understanding-LSTMs
     * https://en.wikipedia.org/wiki/Long_short-term_memory
 """
+from builtins import range
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler

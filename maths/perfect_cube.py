@@ -1,3 +1,6 @@
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 def perfect_cube(n: int) -> bool:
     """
     Check if a number is a perfect cube or not.
@@ -7,7 +10,7 @@ def perfect_cube(n: int) -> bool:
     >>> perfect_cube(4)
     False
     """
-    val = n ** (1 / 3)
+    val = n ** (old_div(1, 3))
     return (val * val * val) == n
 
 

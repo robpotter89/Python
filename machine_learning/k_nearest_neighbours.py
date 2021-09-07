@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import zip
 from collections import Counter
 
 import numpy as np
@@ -40,7 +42,7 @@ def classifier(train_data, train_target, classes, point, k=5):
     >>> classifier(X_train, y_train, classes,point)
     'A'
     """
-    data = zip(train_data, train_target)
+    data = list(zip(train_data, train_target))
     # List of distances of all points from the point to be classified
     distances = []
     for data_point in data:

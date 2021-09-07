@@ -10,10 +10,12 @@ regular graph-searching algorithm,
 essentially planning ahead at each step so a more optimal decision
 is made.A* also known as the algorithm with brains
 """
+from __future__ import print_function
+from builtins import object
 import numpy as np
 
 
-class Cell:
+class Cell(object):
     """
     Class cell represents a cell in the world which have the property
     position : The position of the represented by  tupleof x and y
@@ -45,7 +47,7 @@ class Cell:
         print(self.position)
 
 
-class Gridworld:
+class Gridworld(object):
     """
     Gridworld class represents the  external world here a grid M*M
     matrix

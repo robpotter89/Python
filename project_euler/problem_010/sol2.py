@@ -10,6 +10,8 @@ Find the sum of all the primes below two million.
 References:
     - https://en.wikipedia.org/wiki/Prime_number
 """
+from __future__ import print_function
+from builtins import range
 import math
 from itertools import takewhile
 from typing import Iterator

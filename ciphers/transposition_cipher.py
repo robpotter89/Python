@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
 import math
 
 """
@@ -9,9 +14,9 @@ text. The type of transposition cipher demonstrated under is the ROUTE cipher.
 
 
 def main() -> None:
-    message = input("Enter message: ")
-    key = int(input("Enter key [2-%s]: " % (len(message) - 1)))
-    mode = input("Encryption/Decryption [e/d]: ")
+    message = eval(input("Enter message: "))
+    key = int(eval(input("Enter key [2-%s]: " % (len(message) - 1))))
+    mode = eval(input("Encryption/Decryption [e/d]: "))
 
     if mode.lower().startswith("e"):
         text = encryptMessage(key, message)
@@ -41,7 +46,7 @@ def decryptMessage(key: int, message: str) -> str:
     >>> decryptMessage(6, 'Hlia rDsahrij')
     'Harshil Darji'
     """
-    numCols = math.ceil(len(message) / key)
+    numCols = math.ceil(old_div(len(message), key))
     numRows = key
     numShadedBoxes = (numCols * numRows) - len(message)
     plainText = [""] * numCols

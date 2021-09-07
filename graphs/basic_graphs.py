@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import map
+from builtins import input
+from builtins import range
 from collections import deque
 
 
@@ -189,7 +193,7 @@ def adjm():
     n = input().strip()
     a = []
     for i in range(n):
-        a.append(map(int, input().strip().split()))
+        a.append(list(map(int, input().strip().split())))
     return a, n
 
 
@@ -262,10 +266,10 @@ def prim(G, s):
 
 
 def edglist():
-    n, m = map(int, input().split(" "))
+    n, m = list(map(int, input().split(" ")))
     edges = []
     for i in range(m):
-        edges.append(map(int, input().split(" ")))
+        edges.append(list(map(int, input().split(" "))))
     return edges, n
 
 

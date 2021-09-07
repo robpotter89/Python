@@ -1,3 +1,5 @@
+from builtins import str
+from builtins import range
 def get_reverse_bit_string(number: int) -> str:
     """
     return the bit string of an integer

@@ -2,6 +2,7 @@
 Get the citation from google scholar
 using title and year of publication, and volume and pages of journal.
 """
+from __future__ import print_function
 
 import requests
 from bs4 import BeautifulSoup

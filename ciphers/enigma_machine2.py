@@ -14,7 +14,9 @@ Module includes:
 
 Created by TrapinchO
 """
+from __future__ import print_function
 
+from builtins import range
 RotorPositionT = tuple[int, int, int]
 RotorSelectionT = tuple[str, str, str]
 
@@ -289,5 +291,5 @@ if __name__ == "__main__":
     rotor_sel = (rotor2, rotor4, rotor8)
     en = enigma(message, rotor_pos, rotor_sel, pb)
 
-    print("Encrypted message:", en)
-    print("Decrypted message:", enigma(en, rotor_pos, rotor_sel, pb))
+    print(("Encrypted message:", en))
+    print(("Decrypted message:", enigma(en, rotor_pos, rotor_sel, pb)))

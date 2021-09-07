@@ -7,6 +7,10 @@
     reference-->Su, Francis E., et al. "Fibonacci Number Formula." Math Fun Facts.
     <http://www.math.hmc.edu/funfacts>
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import functools
 import math
 import time
@@ -111,8 +115,8 @@ def fib_formula(n):
     n = int(n)
     if _check_number_input(n, 2, 1000000):
         sqrt = Decimal(math.sqrt(5))
-        phi_1 = Decimal(1 + sqrt) / Decimal(2)
-        phi_2 = Decimal(1 - sqrt) / Decimal(2)
+        phi_1 = old_div(Decimal(1 + sqrt), Decimal(2))
+        phi_2 = old_div(Decimal(1 - sqrt), Decimal(2))
         for i in range(2, n):
             temp_out = ((phi_1 ** Decimal(i)) - (phi_2 ** Decimal(i))) * (
                 Decimal(sqrt) ** Decimal(-1)

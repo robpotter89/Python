@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from past.utils import old_div
 from decimal import Decimal, getcontext
 from math import ceil, factorial
 
@@ -42,7 +47,7 @@ def pi(precision: int) -> str:
         raise ValueError("Undefined for non-natural numbers")
 
     getcontext().prec = precision
-    num_iterations = ceil(precision / 14)
+    num_iterations = ceil(old_div(precision, 14))
     constant_term = 426880 * Decimal(10005).sqrt()
     exponential_term = 1
     linear_term = 13591409
@@ -51,8 +56,8 @@ def pi(precision: int) -> str:
         multinomial_term = factorial(6 * k) // (factorial(3 * k) * factorial(k) ** 3)
         linear_term += 545140134
         exponential_term *= -262537412640768000
-        partial_sum += Decimal(multinomial_term * linear_term) / exponential_term
-    return str(constant_term / partial_sum)[:-1]
+        partial_sum += old_div(Decimal(multinomial_term * linear_term), exponential_term)
+    return str(old_div(constant_term, partial_sum))[:-1]
 
 
 if __name__ == "__main__":

@@ -12,8 +12,11 @@ For example, the string "()()[()]" is properly nested but "[(()]" is not.
 The function called is_balanced takes as input a string S which is a sequence of
 brackets and returns true if S is nested and false otherwise.
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def is_balanced(S):
 
     stack = []
@@ -36,11 +39,11 @@ def is_balanced(S):
 
 
 def main():
-    s = input("Enter sequence of brackets: ")
+    s = eval(input("Enter sequence of brackets: "))
     if is_balanced(s):
-        print(s, "is balanced")
+        print((s, "is balanced"))
     else:
-        print(s, "is not balanced")
+        print((s, "is not balanced"))
 
 
 if __name__ == "__main__":

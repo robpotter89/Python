@@ -25,8 +25,11 @@ Surprisingly, there are palindromic numbers that are themselves Lychrel numbers;
 the first example is 4994.
 How many Lychrel numbers are there below ten-thousand?
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def is_palindrome(n: int) -> bool:
     """
     Returns True if a number is palindrome.

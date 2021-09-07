@@ -1,3 +1,4 @@
+from builtins import input
 import requests
 
 APPID = ""  # <-- Put your OpenWeatherMap appid here!

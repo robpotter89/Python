@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 
+from builtins import range
 def climb_stairs(n: int) -> int:
     """
     LeetCdoe No.70: Climbing Stairs

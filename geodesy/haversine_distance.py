@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from math import asin, atan, cos, radians, sin, sqrt, tan
 
 
@@ -35,14 +37,14 @@ def haversine_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> fl
     RADIUS = 6378137
     # Equation parameters
     # Equation https://en.wikipedia.org/wiki/Haversine_formula#Formulation
-    flattening = (AXIS_A - AXIS_B) / AXIS_A
+    flattening = old_div((AXIS_A - AXIS_B), AXIS_A)
     phi_1 = atan((1 - flattening) * tan(radians(lat1)))
     phi_2 = atan((1 - flattening) * tan(radians(lat2)))
     lambda_1 = radians(lon1)
     lambda_2 = radians(lon2)
     # Equation
-    sin_sq_phi = sin((phi_2 - phi_1) / 2)
-    sin_sq_lambda = sin((lambda_2 - lambda_1) / 2)
+    sin_sq_phi = sin(old_div((phi_2 - phi_1), 2))
+    sin_sq_lambda = sin(old_div((lambda_2 - lambda_1), 2))
     # Square both values
     sin_sq_phi *= sin_sq_phi
     sin_sq_lambda *= sin_sq_lambda

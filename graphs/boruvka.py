@@ -24,9 +24,12 @@
 
     Details: https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm
 """
+from __future__ import print_function
 
 
-class Graph:
+from builtins import range
+from builtins import object
+class Graph(object):
     def __init__(self, num_of_nodes: int) -> None:
         """
         Arguments:

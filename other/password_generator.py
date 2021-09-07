@@ -1,4 +1,9 @@
 """Password generator allows you to generate a random password of length N."""
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
 from random import choice, shuffle
 from string import ascii_letters, digits, punctuation
 
@@ -28,7 +33,7 @@ def alternative_password_generator(ctbi, i):
     # random_character FUNCTIONS
     # Put your code here...
     i = i - len(ctbi)
-    quotient = int(i / 3)
+    quotient = int(old_div(i, 3))
     remainder = i % 3
     # chars = ctbi + random_letters(ascii_letters, i / 3 + remainder) +
     #     random_number(digits, i / 3) + random_characters(punctuation, i / 3)
@@ -66,10 +71,10 @@ def main():
     ctbi = input(
         "Please indicate the characters that must be in your password: "
     ).strip()
-    print("Password generated:", password_generator(length))
-    print(
+    print(("Password generated:", password_generator(length)))
+    print((
         "Alternative Password generated:", alternative_password_generator(ctbi, length)
-    )
+    ))
     print("[If you are thinking of using this passsword, You better save it.]")
 
 

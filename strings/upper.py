@@ -1,3 +1,4 @@
+from builtins import chr
 def upper(word: str) -> str:
     """
     Will convert the entire string to uppercase letters

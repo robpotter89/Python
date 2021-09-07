@@ -10,8 +10,11 @@ Reference: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 doctest provider: Bruno Simas Hadlich (https://github.com/brunohadlich)
 Also thanks to Dmitry (https://github.com/LizardWizzard) for finding the problem
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 import math
 from typing import List
 

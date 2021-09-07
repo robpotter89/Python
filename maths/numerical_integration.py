@@ -1,7 +1,11 @@
 """
 Approximates the area under the curve using the trapezoidal rule
 """
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 from typing import Callable, Union
 
 
@@ -42,9 +46,9 @@ def trapezoidal_area(
 
         # Approximates small segments of curve as linear and solve
         # for trapezoidal area
-        x2 = (x_end - x_start) / steps + x1
+        x2 = old_div((x_end - x_start), steps) + x1
         fx2 = fnc(x2)
-        area += abs(fx2 + fx1) * (x2 - x1) / 2
+        area += old_div(abs(fx2 + fx1) * (x2 - x1), 2)
 
         # Increment step
         x1 = x2

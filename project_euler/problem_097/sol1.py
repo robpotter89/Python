@@ -8,8 +8,10 @@ However, in 2004 there was found a massive non-Mersenne prime which contains
 
 Find the last ten digits of this prime number.
 """
+from __future__ import print_function
 
 
+from builtins import str
 def solution(n: int = 10) -> str:
     """
     Returns the last n digits of NUMBER.

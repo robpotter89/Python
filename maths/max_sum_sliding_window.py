@@ -6,6 +6,8 @@ Instead of using a nested for loop, in a Brute force approach we will use a tech
 called 'Window sliding technique' where the nested loops can be converted to a single
 loop to reduce time complexity.
 """
+from __future__ import print_function
+from builtins import range
 from typing import List
 
 

@@ -14,8 +14,11 @@ forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
 letters. The use of "and" when writing out numbers is in compliance withBritish
 usage.
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def solution(n: int = 1000) -> int:
     """Returns the number of letters used to write all numbers from 1 to n.
     where n is lower or equals to 1000.

@@ -2,6 +2,10 @@
 Implementation of gradient descent algorithm for minimizing cost of a linear hypothesis
 function.
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import numpy
 
 # List of input, output pairs
@@ -95,7 +99,7 @@ def get_cost_derivative(index):
     Note: If index is -1, this means we are calculating summation wrt to biased
         parameter.
     """
-    cost_derivative_value = summation_of_cost_derivative(index, m) / m
+    cost_derivative_value = old_div(summation_of_cost_derivative(index, m), m)
     return cost_derivative_value
 
 

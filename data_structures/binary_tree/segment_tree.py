@@ -1,7 +1,10 @@
+from __future__ import print_function
+from builtins import range
+from builtins import object
 import math
 
 
-class SegmentTree:
+class SegmentTree(object):
     def __init__(self, A):
         self.N = len(A)
         self.st = [0] * (

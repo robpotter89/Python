@@ -17,8 +17,10 @@ is less than this limit.
 Find the sum of all the positive integers which cannot be written as the sum
 of two abundant numbers.
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(limit=28123):
     """
     Finds the sum of all the positive integers which cannot be written as

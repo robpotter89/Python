@@ -1,7 +1,9 @@
+from __future__ import print_function
+from builtins import object
 from typing import Optional
 
 
-class Node:
+class Node(object):
     """
     A Node has data variable and pointers to Nodes to its left and right.
     """

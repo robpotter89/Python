@@ -3,6 +3,10 @@ Created on Fri Sep 28 15:22:29 2018
 
 @author: Binish125
 """
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import copy
 import os
 
@@ -11,7 +15,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-class contrastStretch:
+class contrastStretch(object):
     def __init__(self):
         self.img = ""
         self.original_image = ""
@@ -29,14 +33,14 @@ class contrastStretch:
         x, _, _ = plt.hist(self.img.ravel(), 256, [0, 256], label="x")
         self.k = np.sum(x)
         for i in range(len(x)):
-            prk = x[i] / self.k
+            prk = old_div(x[i], self.k)
             self.sk += prk
             last = (self.L - 1) * self.sk
             if self.rem != 0:
                 self.rem = int(last % last)
             last = int(last + 1 if self.rem >= 0.5 else last)
             self.last_list.append(last)
-            self.number_of_rows = int(np.ma.count(self.img) / self.img[1].size)
+            self.number_of_rows = int(old_div(np.ma.count(self.img), self.img[1].size))
             self.number_of_cols = self.img[1].size
         for i in range(self.number_of_cols):
             for j in range(self.number_of_rows):

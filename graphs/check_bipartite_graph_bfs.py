@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Check whether Graph is Bipartite or Not using BFS
 
 
@@ -6,6 +7,7 @@
 # from V to U. In other words, for every edge (u, v), either u belongs to U and v to V,
 # or u belongs to V and v to U. We can also say that there is no edge that connects
 # vertices of same set.
+from builtins import range
 def checkBipartite(graph):
     queue = []
     visited = [False] * len(graph)

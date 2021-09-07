@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 import math
 from typing import Generator
 

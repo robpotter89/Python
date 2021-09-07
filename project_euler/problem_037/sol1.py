@@ -8,7 +8,10 @@ and right to left.
 
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import range
 from __future__ import annotations
 
 seive = [True] * 1000001

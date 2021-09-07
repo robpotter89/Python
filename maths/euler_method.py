@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 import numpy as np
 
 
@@ -22,7 +25,7 @@ def explicit_euler(ode_func, y0, x0, step_size, x_end):
     >>> y[-1]
     144.77277243257308
     """
-    N = int(np.ceil((x_end - x0) / step_size))
+    N = int(np.ceil(old_div((x_end - x0), step_size)))
     y = np.zeros((N + 1,))
     y[0] = y0
     x = x0

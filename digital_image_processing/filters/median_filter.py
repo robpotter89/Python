@@ -1,6 +1,9 @@
 """
 Implementation of median filter algorithm
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 from cv2 import COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey
 from numpy import divide, int8, multiply, ravel, sort, zeros_like
 
@@ -12,7 +15,7 @@ def median_filter(gray_img, mask=3):
     :return: image with median filter
     """
     # set image borders
-    bd = int(mask / 2)
+    bd = int(old_div(mask, 2))
     # copy image size
     median_img = zeros_like(gray_img)
     for i in range(bd, gray_img.shape[0] - bd):

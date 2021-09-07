@@ -23,13 +23,17 @@ state. After the last block is processed the current hash state is returned as
 the final hash.
 Reference: https://deadhacker.com/2006/02/21/sha-1-illustrated/
 """
+from __future__ import print_function
+from builtins import bytes
+from builtins import range
+from builtins import object
 import argparse
 import hashlib  # hashlib is only used inside the Test class
 import struct
 import unittest
 
 
-class SHA1Hash:
+class SHA1Hash(object):
     """
     Class to contain the entire pipeline for SHA1 Hashing Algorithm
     >>> SHA1Hash(bytes('Allan', 'utf-8')).final_hash()

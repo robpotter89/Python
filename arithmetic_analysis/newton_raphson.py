@@ -1,7 +1,11 @@
+from __future__ import division
+from __future__ import print_function
 # Implementing Newton Raphson method in Python
 # Author: Syed Haseeb Shah (github.com/QuantumNovice)
 # The Newton-Raphson method (also known as Newton's method) is a way to
 # quickly find a good approximation for the root of a real-valued function
+from builtins import str
+from past.utils import old_div
 from decimal import Decimal
 from math import *  # noqa: F401, F403
 from typing import Union
@@ -24,7 +28,7 @@ def newton_raphson(
     """
     x = a
     while True:
-        x = Decimal(x) - (Decimal(eval(func)) / Decimal(eval(str(diff(func)))))
+        x = Decimal(x) - (old_div(Decimal(eval(func)), Decimal(eval(str(diff(func))))))
         # This number dictates the accuracy of the answer
         if abs(eval(func)) < precision:
             return float(x)

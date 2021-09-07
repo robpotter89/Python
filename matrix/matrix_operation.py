@@ -3,8 +3,14 @@ Functions for 2D matrix operations
 """
 
 from __future__ import annotations
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import map
+from builtins import zip
+from builtins import range
+from past.utils import old_div
 def add(*matrix_s: list[list]) -> list[list]:
     """
     >>> add([[1,2],[3,4]],[[2,3],[4,5]])
@@ -88,9 +94,9 @@ def transpose(matrix: list[list], return_map: bool = True) -> list[list]:
     """
     if _check_not_integer(matrix):
         if return_map:
-            return map(list, zip(*matrix))
+            return list(map(list, list(zip(*matrix))))
         else:
-            return list(map(list, zip(*matrix)))
+            return list(map(list, list(zip(*matrix))))
 
 
 def minor(matrix: list[list], row: int, column: int) -> list[list]:
@@ -139,7 +145,7 @@ def inverse(matrix: list[list]) -> list[list]:
         for row in range(len(matrix))
     ]
     adjugate = transpose(cofactors)
-    return scalar_multiply(adjugate, 1 / det)
+    return scalar_multiply(adjugate, old_div(1, det))
 
 
 def _check_not_integer(matrix: list[list]) -> bool:
@@ -168,9 +174,9 @@ def main():
     matrix_c = [[11, 12, 13, 14], [21, 22, 23, 24], [31, 32, 33, 34], [41, 42, 43, 44]]
     matrix_d = [[3, 0, 2], [2, 0, -2], [0, 1, 1]]
     print(f"Add Operation, {add(matrix_a, matrix_b) = } \n")
-    print(
+    print((
         f"Multiply Operation, {multiply(matrix_a, matrix_b) = } \n",
-    )
+    ))
     print(f"Identity: {identity(5)}\n")
     print(f"Minor of {matrix_c} = {minor(matrix_c, 1, 2)} \n")
     print(f"Determinant of {matrix_b} = {determinant(matrix_b)} \n")

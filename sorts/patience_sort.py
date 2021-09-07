@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 from bisect import bisect_left
 from functools import total_ordering
 from heapq import merge

@@ -1,13 +1,16 @@
+from builtins import str
+from builtins import range
+from builtins import object
 from typing import Any
 
 
-class Node:
+class Node(object):
     def __init__(self, data: Any):
         self.data = data
         self.next = None
 
 
-class CircularLinkedList:
+class CircularLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
@@ -16,7 +19,7 @@ class CircularLinkedList:
         node = self.head
         while self.head:
             yield node.data
-            node = node.next
+            node = node.__next__
             if node == self.head:
                 break
 
@@ -41,12 +44,12 @@ class CircularLinkedList:
             self.tail = self.head = new_node
         elif index == 0:  # insert at head
             new_node.next = self.head
-            self.head = self.tail.next = new_node
+            self.head = self.tail.__next__ = new_node
         else:
             temp = self.head
             for _ in range(index - 1):
-                temp = temp.next
-            new_node.next = temp.next
+                temp = temp.__next__
+            new_node.next = temp.__next__
             temp.next = new_node
             if index == len(self) - 1:  # insert at tail
                 self.tail = new_node
@@ -64,14 +67,14 @@ class CircularLinkedList:
         if self.head == self.tail:  # just one node
             self.head = self.tail = None
         elif index == 0:  # delete head node
-            self.tail.next = self.tail.next.next
-            self.head = self.head.next
+            self.tail.next = self.tail.next.__next__
+            self.head = self.head.__next__
         else:
             temp = self.head
             for _ in range(index - 1):
-                temp = temp.next
-            delete_node = temp.next
-            temp.next = temp.next.next
+                temp = temp.__next__
+            delete_node = temp.__next__
+            temp.next = temp.next.__next__
             if index == len(self) - 1:  # delete at tail
                 self.tail = temp
         return delete_node.data

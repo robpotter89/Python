@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from past.utils import old_div
 def stooge_sort(arr):
     """
     Examples:
@@ -22,7 +26,7 @@ def stooge(arr, i, h):
 
     # If there are more than 2 elements in the array
     if h - i + 1 > 2:
-        t = (int)((h - i + 1) / 3)
+        t = (int)(old_div((h - i + 1), 3))
 
         # Recursively sort first 2/3 elements
         stooge(arr, i, (h - t))

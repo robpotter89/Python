@@ -1,3 +1,4 @@
+from __future__ import print_function
 import unittest
 from timeit import timeit
 
@@ -56,14 +57,14 @@ def benchmark():
     setup = (
         "from __main__ import least_common_multiple_slow, least_common_multiple_fast"
     )
-    print(
+    print((
         "least_common_multiple_slow():",
         timeit("least_common_multiple_slow(1000, 999)", setup=setup),
-    )
-    print(
+    ))
+    print((
         "least_common_multiple_fast():",
         timeit("least_common_multiple_fast(1000, 999)", setup=setup),
-    )
+    ))
 
 
 class TestLeastCommonMultiple(unittest.TestCase):

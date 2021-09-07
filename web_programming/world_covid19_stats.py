@@ -4,7 +4,9 @@
 Provide the current worldwide COVID-19 statistics.
 This data is being scrapped from 'https://www.worldometers.info/coronavirus/'.
 """
+from __future__ import print_function
 
+from builtins import zip
 import requests
 from bs4 import BeautifulSoup
 
@@ -23,5 +25,5 @@ def world_covid19_stats(url: str = "https://www.worldometers.info/coronavirus") 
 
 if __name__ == "__main__":
     print("\033[1m" + "COVID-19 Status of the World" + "\033[0m\n")
-    for key, value in world_covid19_stats().items():
+    for key, value in list(world_covid19_stats().items()):
         print(f"{key}\n{value}\n")

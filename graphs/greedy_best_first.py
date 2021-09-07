@@ -1,7 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Best-first_search#Greedy_BFS
 """
+from __future__ import print_function
 
+from builtins import object
 from __future__ import annotations
 
 from typing import Optional
@@ -21,7 +23,7 @@ grid = [
 delta = ([-1, 0], [0, -1], [1, 0], [0, 1])  # up, left, down, right
 
 
-class Node:
+class Node(object):
     """
     >>> k = Node(0, 0, 4, 5, 0, None)
     >>> k.calculate_heuristic()
@@ -68,7 +70,7 @@ class Node:
         return self.f_cost < other.f_cost
 
 
-class GreedyBestFirst:
+class GreedyBestFirst(object):
     """
     >>> gbf = GreedyBestFirst((0, 0), (len(grid) - 1, len(grid[0]) - 1))
     >>> [x.pos for x in gbf.get_successors(gbf.start)]

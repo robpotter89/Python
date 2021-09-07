@@ -8,7 +8,10 @@ For manual testing run:
 python radix_sort.py
 """
 from __future__ import annotations
+from __future__ import division
 
+from builtins import range
+from past.utils import old_div
 from typing import List
 
 
@@ -33,7 +36,7 @@ def radix_sort(list_of_ints: List[int]) -> List[int]:
         buckets: List[list] = [list() for _ in range(RADIX)]
         # split list_of_ints between the buckets
         for i in list_of_ints:
-            tmp = int((i / placement) % RADIX)
+            tmp = int((old_div(i, placement)) % RADIX)
             buckets[tmp].append(i)
         # put each buckets' contents into list_of_ints
         a = 0

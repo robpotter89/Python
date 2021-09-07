@@ -5,6 +5,8 @@ Problem Statement:
 Work out the first ten digits of the sum of the following one-hundred 50-digit
 numbers.
 """
+from __future__ import print_function
+from builtins import str
 import os
 
 

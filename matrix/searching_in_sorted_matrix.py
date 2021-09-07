@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 from __future__ import annotations
 
 from typing import Union
@@ -34,7 +36,7 @@ def search_in_a_sorted_matrix(
 
 def main():
     mat = [[2, 5, 7], [4, 8, 13], [9, 11, 15], [12, 17, 20]]
-    x = int(input("Enter the element to be searched:"))
+    x = int(eval(input("Enter the element to be searched:")))
     print(mat)
     search_in_a_sorted_matrix(mat, len(mat), len(mat[0]), x)
 

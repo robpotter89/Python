@@ -3,9 +3,12 @@ Tree_sort algorithm.
 
 Build a BST and in order traverse.
 """
+from __future__ import print_function
 
 
-class node:
+from builtins import range
+from builtins import object
+class node(object):
     # BST data structure
     def __init__(self, val):
         self.val = val

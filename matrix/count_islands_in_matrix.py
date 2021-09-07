@@ -3,7 +3,9 @@
 # connections.
 
 
-class matrix:  # Public class to implement a graph
+from builtins import range
+from builtins import object
+class matrix(object):  # Public class to implement a graph
     def __init__(self, row: int, col: int, graph: list):
         self.ROW = row
         self.COL = col

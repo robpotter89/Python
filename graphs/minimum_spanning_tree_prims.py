@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
 import sys
 from collections import defaultdict
 
@@ -40,9 +45,9 @@ def PrimsAlgorithm(l):  # noqa: E741
 
         while index != 0:
             if index % 2 == 0:
-                parent = int((index - 2) / 2)
+                parent = int(old_div((index - 2), 2))
             else:
-                parent = int((index - 1) / 2)
+                parent = int(old_div((index - 1), 2))
 
             if val < heap[parent]:
                 heap[index] = heap[parent]

@@ -1,8 +1,11 @@
 """
 Partition a set into two subsets such that the difference of subset sums is minimum
 """
+from __future__ import division
 
 
+from builtins import range
+from past.utils import old_div
 def findMin(arr):
     n = len(arr)
     s = sum(arr)
@@ -22,7 +25,7 @@ def findMin(arr):
             if arr[i - 1] <= j:
                 dp[i][j] = dp[i][j] or dp[i - 1][j - arr[i - 1]]
 
-    for j in range(int(s / 2), -1, -1):
+    for j in range(int(old_div(s, 2)), -1, -1):
         if dp[n][j] is True:
             diff = s - 2 * j
             break

@@ -1,8 +1,11 @@
 """For reference
 https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def odd_even_sort(input_list: list) -> list:
     """this algorithm uses the same idea of bubblesort,
     but by first dividing in two phase (odd and even).

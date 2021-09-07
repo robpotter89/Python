@@ -6,16 +6,18 @@ Nodes contain data and also may link to other nodes:
     - Last node: points to null
 """
 
+from builtins import str
+from builtins import object
 from typing import Any
 
 
-class Node:
+class Node(object):
     def __init__(self, item: Any, next: Any) -> None:
         self.item = item
         self.next = next
 
 
-class LinkedList:
+class LinkedList(object):
     def __init__(self) -> None:
         self.head = None
         self.size = 0
@@ -29,7 +31,7 @@ class LinkedList:
             return None
         else:
             item = self.head.item
-            self.head = self.head.next
+            self.head = self.head.__next__
             self.size -= 1
             return item
 
@@ -53,7 +55,7 @@ class LinkedList:
             item_list = []
             while iterate:
                 item_list.append(str(iterate.item))
-                iterate = iterate.next
+                iterate = iterate.__next__
 
             item_str = " --> ".join(item_list)
 

@@ -1,6 +1,7 @@
 """Convert a Decimal Number to a Binary Number."""
 
 
+from builtins import str
 def decimal_to_binary(num: int) -> str:
 
     """

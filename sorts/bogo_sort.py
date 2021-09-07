@@ -12,7 +12,10 @@ python3 -m doctest -v bogo_sort.py
 For manual testing run:
 python bogo_sort.py
 """
+from __future__ import print_function
 
+from builtins import input
+from builtins import range
 import random
 
 

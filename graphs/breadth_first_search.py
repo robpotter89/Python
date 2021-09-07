@@ -1,11 +1,14 @@
 #!/usr/bin/python
 
 """ Author: OMKAR PATHAK """
+from __future__ import print_function
 
+from builtins import str
+from builtins import object
 from typing import Dict, List, Set
 
 
-class Graph:
+class Graph(object):
     def __init__(self) -> None:
         self.vertices: Dict[int, List[int]] = {}
 
@@ -19,7 +22,7 @@ class Graph:
         0  :  1
         """
         for i in self.vertices:
-            print(i, " : ", " -> ".join([str(j) for j in self.vertices[i]]))
+            print((i, " : ", " -> ".join([str(j) for j in self.vertices[i]])))
 
     def add_edge(self, from_vertex: int, to_vertex: int) -> None:
         """

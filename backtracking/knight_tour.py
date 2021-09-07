@@ -1,5 +1,6 @@
 # Knight Tour Intro: https://www.youtube.com/watch?v=ab_dY3dZFHM
 
+from builtins import range
 from typing import List, Tuple
 
 

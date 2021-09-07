@@ -24,8 +24,12 @@ Total no of steps=n*(1/1+1/2+1/3+1/4..+1/n)
 ,so roughly O(nlogn) time complexity.
 
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def solution(limit: int = 1000000) -> int:
     """
     returns the values of n less than or equal to the limit
@@ -41,7 +45,7 @@ def solution(limit: int = 1000000) -> int:
     frequency = [0] * limit
     for first_term in range(1, limit):
         for n in range(first_term, limit, first_term):
-            common_difference = first_term + n / first_term
+            common_difference = first_term + old_div(n, first_term)
             if common_difference % 4:  # d must be divisble by 4
                 continue
             else:

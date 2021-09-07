@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from collections import deque
 
 from .hash_table import HashTable
@@ -14,8 +16,7 @@ class HashTableWithLinkedList(HashTable):
 
     def balanced_factor(self):
         return (
-            sum([self.charge_factor - len(slot) for slot in self.values])
-            / self.size_table
+            old_div(sum([self.charge_factor - len(slot) for slot in self.values]), self.size_table)
             * self.charge_factor
         )
 

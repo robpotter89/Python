@@ -2,10 +2,14 @@
 python/black : true
 flake8 : passed
 """
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from builtins import object
 from typing import Iterator, Optional
 
 
-class RedBlackTree:
+class RedBlackTree(object):
     """
     A Red-Black tree, which is a self-balancing BST (binary search
     tree).
@@ -679,7 +683,7 @@ def test_tree_chaining() -> bool:
 
 
 def print_results(msg: str, passes: bool) -> None:
-    print(str(msg), "works!" if passes else "doesn't work :(")
+    print((str(msg), "works!" if passes else "doesn't work :("))
 
 
 def pytests() -> None:

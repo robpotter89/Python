@@ -40,12 +40,14 @@ Similar problem on codewars:
 https://www.codewars.com/kata/ranking-poker-hands
 https://www.codewars.com/kata/sortable-poker-hands
 """
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 import os
 
 
-class PokerHand:
+class PokerHand(object):
     """Create an object representing a Poker Hand based on an input of a
     string which represents the best 5 card combination from the player's hand
     and board cards.

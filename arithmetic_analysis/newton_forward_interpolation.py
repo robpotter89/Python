@@ -1,5 +1,11 @@
+from __future__ import division
+from __future__ import print_function
 # https://www.geeksforgeeks.org/newton-forward-backward-interpolation/
 
+from builtins import map
+from builtins import input
+from builtins import range
+from past.utils import old_div
 import math
 from typing import List
 
@@ -21,7 +27,7 @@ def ucal(u: float, p: int) -> float:
 
 
 def main() -> None:
-    n = int(input("enter the numbers of values: "))
+    n = int(eval(input("enter the numbers of values: ")))
     y: List[List[float]] = []
     for i in range(n):
         y.append([])
@@ -35,10 +41,10 @@ def main() -> None:
 
     print("enter the values of corresponding parameters: ")
     for i in range(n):
-        y[i][0] = float(input())
+        y[i][0] = float(eval(input()))
 
-    value = int(input("enter the value to interpolate: "))
-    u = (value - x[0]) / (x[1] - x[0])
+    value = int(eval(input("enter the value to interpolate: ")))
+    u = old_div((value - x[0]), (x[1] - x[0]))
 
     # for calculating forward difference table
 
@@ -48,7 +54,7 @@ def main() -> None:
 
     summ = y[0][0]
     for i in range(1, n):
-        summ += (ucal(u, i) * y[0][i]) / math.factorial(i)
+        summ += old_div((ucal(u, i) * y[0][i]), math.factorial(i))
 
     print(f"the value at {value} is {summ}")
 

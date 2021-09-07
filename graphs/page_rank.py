@@ -10,11 +10,17 @@ B 0 0 1
 C 1 0 0
 
 """
+from __future__ import division
+from __future__ import print_function
 
+from builtins import input
+from builtins import range
+from past.utils import old_div
+from builtins import object
 graph = [[0, 1, 1], [0, 0, 1], [1, 0, 0]]
 
 
-class Node:
+class Node(object):
     def __init__(self, name):
         self.name = name
         self.inbound = []
@@ -43,7 +49,7 @@ def page_rank(nodes, limit=3, d=0.85):
         print(f"======= Iteration {i + 1} =======")
         for j, node in enumerate(nodes):
             ranks[node.name] = (1 - d) + d * sum(
-                [ranks[ib] / outbounds[ib] for ib in node.inbound]
+                [old_div(ranks[ib], outbounds[ib]) for ib in node.inbound]
             )
         print(ranks)
 

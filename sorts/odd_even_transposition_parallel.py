@@ -10,6 +10,8 @@ comparisons.
 They are synchronized with locks and message passing but other forms of
 synchronization could be used.
 """
+from __future__ import print_function
+from builtins import range
 from multiprocessing import Lock, Pipe, Process
 
 # lock used to ensure that two processes do not access a pipe at the same time
@@ -134,10 +136,10 @@ def OddEvenTransposition(arr):
 def main():
     arr = list(range(10, 0, -1))
     print("Initial List")
-    print(*arr)
+    print((*arr))
     arr = OddEvenTransposition(arr)
     print("Sorted List\n")
-    print(*arr)
+    print((*arr))
 
 
 if __name__ == "__main__":

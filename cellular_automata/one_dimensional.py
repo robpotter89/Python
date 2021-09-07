@@ -4,6 +4,8 @@ ruleset number
 https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
 """
 
+from builtins import input
+from builtins import range
 from __future__ import annotations
 
 from PIL import Image

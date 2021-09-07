@@ -3,6 +3,8 @@ Resources:
 - https://en.wikipedia.org/wiki/Conjugate_gradient_method
 - https://en.wikipedia.org/wiki/Definite_symmetric_matrix
 """
+from __future__ import division
+from past.utils import old_div
 from typing import Any
 
 import numpy as np
@@ -122,13 +124,13 @@ def conjugate_gradient(
         # The main algorithm.
 
         # Update search direction magnitude.
-        alpha = np.dot(r0.T, r0) / np.dot(p0.T, w)
+        alpha = old_div(np.dot(r0.T, r0), np.dot(p0.T, w))
         # Update solution guess.
         x = x0 + alpha * p0
         # Calculate new residual.
         r = r0 - alpha * w
         # Calculate new Krylov subspace scale.
-        beta = np.dot(r.T, r) / np.dot(r0.T, r0)
+        beta = old_div(np.dot(r.T, r), np.dot(r0.T, r0))
         # Calculate new A conjuage search direction.
         p = r + beta * p0
 

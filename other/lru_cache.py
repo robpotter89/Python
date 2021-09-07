@@ -1,7 +1,8 @@
+from builtins import object
 from typing import Callable, Optional
 
 
-class DoubleLinkedListNode:
+class DoubleLinkedListNode(object):
     """
     Double Linked List Node built specifically for LRU Cache
     """
@@ -13,7 +14,7 @@ class DoubleLinkedListNode:
         self.prev = None
 
 
-class DoubleLinkedList:
+class DoubleLinkedList(object):
     """
     Double Linked List built specifically for LRU Cache
     """
@@ -37,14 +38,14 @@ class DoubleLinkedList:
         Removes and returns the given node from the list
         """
 
-        temp_last, temp_next = node.prev, node.next
+        temp_last, temp_next = node.prev, node.__next__
         node.prev, node.next = None, None
         temp_last.next, temp_next.prev = temp_next, temp_last
 
         return node
 
 
-class LRUCache:
+class LRUCache(object):
     """
     LRU Cache to store a given capacity of data. Can be used as a stand-alone object
     or as a function decorator.

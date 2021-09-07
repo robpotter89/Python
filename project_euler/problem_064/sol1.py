@@ -12,7 +12,11 @@ How many continued fractions for N<=10000 have an odd period?
 References:
 - https://en.wikipedia.org/wiki/Continued_fraction
 """
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 from math import floor, sqrt
 
 
@@ -38,8 +42,8 @@ def continuous_fraction_period(n: int) -> int:
     period = 0
     while integer_part != 2 * ROOT:
         numerator = denominator * integer_part - numerator
-        denominator = (n - numerator ** 2) / denominator
-        integer_part = int((ROOT + numerator) / denominator)
+        denominator = old_div((n - numerator ** 2), denominator)
+        integer_part = int(old_div((ROOT + numerator), denominator))
         period += 1
     return period
 

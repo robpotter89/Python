@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import str
+from builtins import input
+from builtins import range
 import random
 
 from .binary_exp_mod import bin_exp_mod

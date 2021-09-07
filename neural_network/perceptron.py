@@ -7,10 +7,14 @@
     p1 = -1
     p2 = 1
 """
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from builtins import object
 import random
 
 
-class Perceptron:
+class Perceptron(object):
     def __init__(
         self,
         sample: list[list[float]],

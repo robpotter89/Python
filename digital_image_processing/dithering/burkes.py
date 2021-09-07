@@ -1,11 +1,15 @@
 """
 Implementation Burke's algorithm (dithering)
 """
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import numpy as np
 from cv2 import destroyAllWindows, imread, imshow, waitKey
 
 
-class Burkes:
+class Burkes(object):
     """
     Burke's algorithm is using for converting grayscale image to black and white version
     Source: Source: https://en.wikipedia.org/wiki/Dither
@@ -58,13 +62,13 @@ class Burkes:
                                  *          8/32        4/32
                 2/32    4/32    8/32    4/32    2/32
                 """
-                self.error_table[y][x + 1] += int(8 / 32 * current_error)
-                self.error_table[y][x + 2] += int(4 / 32 * current_error)
-                self.error_table[y + 1][x] += int(8 / 32 * current_error)
-                self.error_table[y + 1][x + 1] += int(4 / 32 * current_error)
-                self.error_table[y + 1][x + 2] += int(2 / 32 * current_error)
-                self.error_table[y + 1][x - 1] += int(4 / 32 * current_error)
-                self.error_table[y + 1][x - 2] += int(2 / 32 * current_error)
+                self.error_table[y][x + 1] += int(old_div(8, 32) * current_error)
+                self.error_table[y][x + 2] += int(old_div(4, 32) * current_error)
+                self.error_table[y + 1][x] += int(old_div(8, 32) * current_error)
+                self.error_table[y + 1][x + 1] += int(old_div(4, 32) * current_error)
+                self.error_table[y + 1][x + 2] += int(old_div(2, 32) * current_error)
+                self.error_table[y + 1][x - 1] += int(old_div(4, 32) * current_error)
+                self.error_table[y + 1][x - 2] += int(old_div(2, 32) * current_error)
 
 
 if __name__ == "__main__":

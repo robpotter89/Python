@@ -1,4 +1,6 @@
+from __future__ import print_function
 # Finding Bridges in Undirected Graph
+from builtins import range
 def computeBridges(graph):
     id = 0
     n = len(graph)  # No of vertices in graph

@@ -10,6 +10,7 @@ What is the largest prime factor of the number 600851475143?
 References:
     - https://en.wikipedia.org/wiki/Prime_number#Unique_factorization
 """
+from __future__ import print_function
 
 
 def solution(n: int = 600851475143) -> int:

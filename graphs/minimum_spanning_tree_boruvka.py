@@ -1,4 +1,6 @@
-class Graph:
+from builtins import range
+from builtins import object
+class Graph(object):
     """
     Data structure to store graphs (based on adjacency lists)
     """
@@ -80,7 +82,7 @@ class Graph:
         """
         Returns all vertices in the graph
         """
-        return self.adjacency.keys()
+        return list(self.adjacency.keys())
 
     @staticmethod
     def build(vertices=None, edges=None):
@@ -99,7 +101,7 @@ class Graph:
             g.add_edge(*edge)
         return g
 
-    class UnionFind:
+    class UnionFind(object):
         """
         Disjoint set Union and Find for Boruvka's algorithm
         """

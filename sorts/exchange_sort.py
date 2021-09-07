@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 def exchange_sort(numbers: list[int]) -> list[int]:
     """
     Uses exchange sort to sort a list of numbers.

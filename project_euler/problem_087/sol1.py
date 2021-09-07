@@ -13,8 +13,12 @@ expressed in such a way:
 How many numbers below fifty million can be expressed as the sum of a prime square,
 prime cube, and prime fourth power?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def solution(limit: int = 50000000) -> int:
     """
     Return the number of integers less than limit which can be expressed as the sum
@@ -23,7 +27,7 @@ def solution(limit: int = 50000000) -> int:
     4
     """
     ret = set()
-    prime_square_limit = int((limit - 24) ** (1 / 2))
+    prime_square_limit = int((limit - 24) ** (old_div(1, 2)))
 
     primes = set(range(3, prime_square_limit + 1, 2))
     primes.add(2)

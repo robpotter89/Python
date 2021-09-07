@@ -23,6 +23,8 @@ Additionally, a few rules of thumb are:
     2. non-gaussian (non-normal) distributions work better with normalization
     3. If a column or list of values has extreme values / outliers, use standardization
 """
+from __future__ import division
+from past.utils import old_div
 from statistics import mean, stdev
 
 
@@ -41,7 +43,7 @@ def normalization(data: list, ndigits: int = 3) -> list:
     x_min = min(data)
     x_max = max(data)
     # normalize data
-    return [round((x - x_min) / (x_max - x_min), ndigits) for x in data]
+    return [round(old_div((x - x_min), (x_max - x_min)), ndigits) for x in data]
 
 
 def standardization(data: list, ndigits: int = 3) -> list:
@@ -59,4 +61,4 @@ def standardization(data: list, ndigits: int = 3) -> list:
     mu = mean(data)
     sigma = stdev(data)
     # standardize data
-    return [round((x - mu) / (sigma), ndigits) for x in data]
+    return [round(old_div((x - mu), (sigma)), ndigits) for x in data]

@@ -8,8 +8,10 @@ number itself.
 For example: 145 = 1! + 4! + 5!
     So, 145 is a Krishnamurthy Number
 """
+from __future__ import print_function
 
 
+from builtins import input
 def factorial(digit: int) -> int:
     """
     >>> factorial(3)

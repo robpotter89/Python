@@ -1,7 +1,9 @@
+from __future__ import print_function
+from builtins import object
 END = "#"
 
 
-class Trie:
+class Trie(object):
     def __init__(self):
         self._trie = {}
 
@@ -24,7 +26,7 @@ class Trie:
 
     def _elements(self, d):
         result = []
-        for c, v in d.items():
+        for c, v in list(d.items()):
             if c == END:
                 sub_result = [" "]
             else:

@@ -1,6 +1,9 @@
 """
 Implementation of gaussian filter algorithm
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 from itertools import product
 
 from cv2 import COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey
@@ -10,7 +13,7 @@ from numpy import dot, exp, mgrid, pi, ravel, square, uint8, zeros
 def gen_gaussian_kernel(k_size, sigma):
     center = k_size // 2
     x, y = mgrid[0 - center : k_size - center, 0 - center : k_size - center]
-    g = 1 / (2 * pi * sigma) * exp(-(square(x) + square(y)) / (2 * square(sigma)))
+    g = old_div(1, (2 * pi * sigma)) * exp(old_div(-(square(x) + square(y)), (2 * square(sigma))))
     return g
 
 
@@ -23,7 +26,7 @@ def gaussian_filter(image, k_size, sigma):
     # im2col, turn the k_size*k_size pixels into a row and np.vstack all rows
     image_array = zeros((dst_height * dst_width, k_size * k_size))
     row = 0
-    for i, j in product(range(dst_height), range(dst_width)):
+    for i, j in product(list(range(dst_height)), list(range(dst_width))):
         window = ravel(image[i : i + k_size, j : j + k_size])
         image_array[row, :] = window
         row += 1

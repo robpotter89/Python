@@ -10,8 +10,12 @@ It can be seen that P4 + P7 = 22 + 70 = 92 = P8. However, their difference,
 Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference
 are pentagonal and D = |Pk − Pj| is minimised; what is the value of D?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def is_pentagonal(n: int) -> bool:
     """
     Returns True if n is pentagonal, False otherwise.
@@ -23,7 +27,7 @@ def is_pentagonal(n: int) -> bool:
     True
     """
     root = (1 + 24 * n) ** 0.5
-    return ((1 + root) / 6) % 1 == 0
+    return (old_div((1 + root), 6)) % 1 == 0
 
 
 def solution(limit: int = 5000) -> int:

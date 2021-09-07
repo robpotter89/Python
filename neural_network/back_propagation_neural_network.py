@@ -17,15 +17,20 @@ Github : https://github.com/RiptideBo
 Date: 2017.11.23
 
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import numpy as np
 from matplotlib import pyplot as plt
 
 
 def sigmoid(x):
-    return 1 / (1 + np.exp(-1 * x))
+    return old_div(1, (1 + np.exp(-1 * x)))
 
 
-class DenseLayer:
+class DenseLayer(object):
     """
     Layers of BP neural network
     """
@@ -94,7 +99,7 @@ class DenseLayer:
         return self.gradient
 
 
-class BPNN:
+class BPNN(object):
     """
     Back Propagation Neural Network model
     """
@@ -118,8 +123,8 @@ class BPNN:
     def summary(self):
         for i, layer in enumerate(self.layers[:]):
             print("------- layer %d -------" % i)
-            print("weight.shape ", np.shape(layer.weight))
-            print("bias.shape ", np.shape(layer.bias))
+            print(("weight.shape ", np.shape(layer.weight)))
+            print(("bias.shape ", np.shape(layer.bias)))
 
     def train(self, xdata, ydata, train_round, accuracy):
         self.train_round = train_round
@@ -145,7 +150,7 @@ class BPNN:
                 for layer in self.layers[:0:-1]:
                     gradient = layer.back_propagation(gradient)
 
-            mse = all_loss / x_shape[0]
+            mse = old_div(all_loss, x_shape[0])
             self.train_mse.append(mse)
 
             self.plot_loss()

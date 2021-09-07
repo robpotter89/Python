@@ -16,8 +16,12 @@ non-bouncy numbers below 10^10.
 
 How many numbers below a googol (10^100) are not bouncy?
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def choose(n: int, r: int) -> int:
     """
     Calculate the binomial coefficient c(n,r) using the multiplicative formula.
@@ -30,7 +34,7 @@ def choose(n: int, r: int) -> int:
     """
     ret = 1.0
     for i in range(1, r + 1):
-        ret *= (n + 1 - i) / i
+        ret *= old_div((n + 1 - i), i)
     return round(ret)
 
 

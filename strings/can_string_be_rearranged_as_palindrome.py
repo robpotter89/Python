@@ -1,5 +1,7 @@
+from __future__ import print_function
 # Created by susmith98
 
+from builtins import input
 from collections import Counter
 from timeit import timeit
 
@@ -23,7 +25,7 @@ def can_string_be_rearranged_as_palindrome_counter(
     >>> can_string_be_rearranged_as_palindrome_counter("A man a plan a canal Panama")
     True
     """
-    return sum(c % 2 for c in Counter(input_str.replace(" ", "").lower()).values()) < 2
+    return sum(c % 2 for c in list(Counter(input_str.replace(" ", "").lower()).values())) < 2
 
 
 def can_string_be_rearranged_as_palindrome(input_str: str = "") -> bool:
@@ -69,7 +71,7 @@ def can_string_be_rearranged_as_palindrome(input_str: str = "") -> bool:
     """
     oddChar = 0
 
-    for character_count in character_freq_dict.values():
+    for character_count in list(character_freq_dict.values()):
         if character_count % 2:
             oddChar += 1
     if oddChar > 1:
@@ -81,8 +83,8 @@ def benchmark(input_str: str = "") -> None:
     """
     Benchmark code for comparing above 2 functions
     """
-    print("\nFor string = ", input_str, ":")
-    print(
+    print(("\nFor string = ", input_str, ":"))
+    print((
         "> can_string_be_rearranged_as_palindrome_counter()",
         "\tans =",
         can_string_be_rearranged_as_palindrome_counter(input_str),
@@ -92,8 +94,8 @@ def benchmark(input_str: str = "") -> None:
             setup="import __main__ as z",
         ),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> can_string_be_rearranged_as_palindrome()",
         "\tans =",
         can_string_be_rearranged_as_palindrome(input_str),
@@ -103,7 +105,7 @@ def benchmark(input_str: str = "") -> None:
             setup="import __main__ as z",
         ),
         "seconds",
-    )
+    ))
 
 
 if __name__ == "__main__":

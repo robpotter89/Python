@@ -27,14 +27,17 @@ Solution:
     We use Prim's algorithm to find a Minimum Spanning Tree.
     Reference: https://en.wikipedia.org/wiki/Prim%27s_algorithm
 """
+from __future__ import print_function
 
+from builtins import range
+from builtins import object
 import os
 from typing import Dict, List, Mapping, Set, Tuple
 
 EdgeT = Tuple[int, int]
 
 
-class Graph:
+class Graph(object):
     """
     A class representing an undirected weighted graph.
     """
@@ -42,7 +45,7 @@ class Graph:
     def __init__(self, vertices: Set[int], edges: Mapping[EdgeT, int]) -> None:
         self.vertices: Set[int] = vertices
         self.edges: Dict[EdgeT, int] = {
-            (min(edge), max(edge)): weight for edge, weight in edges.items()
+            (min(edge), max(edge)): weight for edge, weight in list(edges.items())
         }
 
     def add_edge(self, edge: EdgeT, weight: int) -> None:
@@ -78,7 +81,7 @@ class Graph:
 
         while len(subgraph.vertices) < len(self.vertices):
             min_weight = max(self.edges.values()) + 1
-            for edge, weight in self.edges.items():
+            for edge, weight in list(self.edges.items()):
                 if (edge[0] in subgraph.vertices) ^ (edge[1] in subgraph.vertices):
                     if weight < min_weight:
                         min_edge = edge

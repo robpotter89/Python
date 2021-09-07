@@ -14,6 +14,9 @@ obtain a score of 938 × 53 = 49714.
 
 What is the total of all the name scores in the file?
 """
+from __future__ import print_function
+from builtins import str
+from builtins import range
 import os
 
 

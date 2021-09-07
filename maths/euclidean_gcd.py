@@ -1,4 +1,5 @@
 """ https://en.wikipedia.org/wiki/Euclidean_algorithm """
+from __future__ import print_function
 
 
 def euclidean_gcd(a: int, b: int) -> int:

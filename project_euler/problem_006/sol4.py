@@ -15,8 +15,11 @@ natural numbers and the square of the sum is 3025 - 385 = 2640.
 Find the difference between the sum of the squares of the first one
 hundred natural numbers and the square of the sum.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def solution(n: int = 100) -> int:
     """
     Returns the difference between the sum of the squares of the first n
@@ -32,8 +35,8 @@ def solution(n: int = 100) -> int:
     1582700
     """
 
-    sum_of_squares = n * (n + 1) * (2 * n + 1) / 6
-    square_of_sum = (n * (n + 1) / 2) ** 2
+    sum_of_squares = old_div(n * (n + 1) * (2 * n + 1), 6)
+    square_of_sum = (old_div(n * (n + 1), 2)) ** 2
     return int(square_of_sum - sum_of_squares)
 
 

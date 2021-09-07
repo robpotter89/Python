@@ -1,7 +1,13 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import chr
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import random
 
 
-class Onepad:
+class Onepad(object):
     @staticmethod
     def encrypt(text: str) -> tuple[list[int], list[int]]:
         """Function to encrypt text using pseudo-random numbers"""
@@ -20,12 +26,12 @@ class Onepad:
         """Function to decrypt text using pseudo-random numbers."""
         plain = []
         for i in range(len(key)):
-            p = int((cipher[i] - (key[i]) ** 2) / key[i])
+            p = int(old_div((cipher[i] - (key[i]) ** 2), key[i]))
             plain.append(chr(p))
         return "".join([i for i in plain])
 
 
 if __name__ == "__main__":
     c, k = Onepad().encrypt("Hello")
-    print(c, k)
+    print((c, k))
     print(Onepad().decrypt(c, k))

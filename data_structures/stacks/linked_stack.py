@@ -1,8 +1,10 @@
 """ A Stack using a linked list like structure """
+from builtins import str
+from builtins import object
 from typing import Any, Optional
 
 
-class Node:
+class Node(object):
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -11,7 +13,7 @@ class Node:
         return f"{self.data}"
 
 
-class LinkedStack:
+class LinkedStack(object):
     """
     Linked List Stack implementing push (to top),
     pop (from top) and is_empty
@@ -48,7 +50,7 @@ class LinkedStack:
         node = self.top
         while node:
             yield node.data
-            node = node.next
+            node = node.__next__
 
     def __str__(self):
         """
@@ -120,7 +122,7 @@ class LinkedStack:
             raise IndexError("pop from empty stack")
         assert isinstance(self.top, Node)
         pop_node = self.top
-        self.top = self.top.next
+        self.top = self.top.__next__
         return pop_node.data
 
     def peek(self) -> Any:

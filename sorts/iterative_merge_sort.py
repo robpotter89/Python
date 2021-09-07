@@ -8,7 +8,10 @@ python3 -m doctest -v iterative_merge_sort.py
 For manual testing run:
 python3 iterative_merge_sort.py
 """
+from __future__ import print_function
 
+from builtins import input
+from builtins import range
 from __future__ import annotations
 
 

@@ -14,7 +14,11 @@ before deciding whether allocation should be allowed to continue.
 [Credit] Rosetta Code C implementation helped very much.
  (https://rosettacode.org/wiki/Banker%27s_algorithm)
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 import time
@@ -38,7 +42,7 @@ test_maximum_claim_table = [
 ]
 
 
-class BankersAlgorithm:
+class BankersAlgorithm(object):
     def __init__(
         self,
         claim_vector: list[int],
@@ -154,7 +158,7 @@ class BankersAlgorithm:
         alloc_resources_table = self.__allocated_resources_table
         available_resources = self.__available_resources()
         need_index_manager = self.__need_index_manager()
-        for kw, val in kwargs.items():
+        for kw, val in list(kwargs.items()):
             if kw and val is True:
                 self.__pretty_data()
         print("_" * 50 + "\n")
@@ -169,7 +173,7 @@ class BankersAlgorithm:
                 if execution:
                     safe = True
                     # get the original index of the process from ind_ctrl db
-                    for original_need_index, need_clone in need_index_manager.items():
+                    for original_need_index, need_clone in list(need_index_manager.items()):
                         if each_need == need_clone:
                             process_number = original_need_index
                     print(f"Process {process_number + 1} is executing.")

@@ -2,6 +2,7 @@
 Problem Description:
 Given a binary tree, return it's mirror.
 """
+from __future__ import print_function
 
 
 def binary_tree_mirror_dict(binary_tree_mirror_dictionary: dict, root: int):

@@ -3,6 +3,8 @@ Round Robin is a scheduling algorithm.
 In Round Robin each process is assigned a fixed time slot in a cyclic way.
 https://en.wikipedia.org/wiki/Round-robin_scheduling
 """
+from __future__ import print_function
+from builtins import zip
 from statistics import mean
 from typing import List
 

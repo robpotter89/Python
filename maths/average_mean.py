@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from typing import List
 
 
@@ -19,7 +21,7 @@ def mean(nums: List) -> float:
     """
     if not nums:
         raise ValueError("List is empty")
-    return sum(nums) / len(nums)
+    return old_div(sum(nums), len(nums))
 
 
 if __name__ == "__main__":

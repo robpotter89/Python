@@ -2,8 +2,11 @@
 Gaussian elimination method for solving a system of linear equations.
 Gaussian elimination - https://en.wikipedia.org/wiki/Gaussian_elimination
 """
+from __future__ import division
 
 
+from builtins import range
+from past.utils import old_div
 import numpy as np
 
 
@@ -28,12 +31,12 @@ def retroactive_resolution(coefficients: np.matrix, vector: np.ndarray) -> np.nd
     rows, columns = np.shape(coefficients)
 
     x = np.zeros((rows, 1), dtype=float)
-    for row in reversed(range(rows)):
+    for row in reversed(list(range(rows))):
         sum = 0
         for col in range(row + 1, columns):
             sum += coefficients[row, col] * x[col]
 
-        x[row, 0] = (vector[row] - sum) / coefficients[row, row]
+        x[row, 0] = old_div((vector[row] - sum), coefficients[row, row])
 
     return x
 
@@ -67,7 +70,7 @@ def gaussian_elimination(coefficients: np.matrix, vector: np.ndarray) -> np.ndar
     for row in range(rows - 1):
         pivot = augmented_mat[row, row]
         for col in range(row + 1, columns):
-            factor = augmented_mat[col, row] / pivot
+            factor = old_div(augmented_mat[col, row], pivot)
             augmented_mat[col, :] -= factor * augmented_mat[row, :]
 
     x = retroactive_resolution(

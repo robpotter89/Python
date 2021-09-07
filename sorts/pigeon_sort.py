@@ -9,6 +9,9 @@
     For manual testing run:
     python pigeon_sort.py
 """
+from __future__ import print_function
+from builtins import input
+from builtins import range
 from typing import List
 
 
@@ -55,6 +58,6 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    user_input = input("Enter numbers separated by comma:\n")
+    user_input = eval(input("Enter numbers separated by comma:\n"))
     unsorted = [int(x) for x in user_input.split(",")]
     print(pigeon_sort(unsorted))

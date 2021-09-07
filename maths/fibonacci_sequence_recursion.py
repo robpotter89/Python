@@ -1,6 +1,9 @@
+from __future__ import print_function
 # Fibonacci Sequence Using Recursion
 
 
+from builtins import input
+from builtins import range
 def recur_fibo(n: int) -> int:
     """
     >>> [recur_fibo(i) for i in range(12)]
@@ -10,7 +13,7 @@ def recur_fibo(n: int) -> int:
 
 
 def main() -> None:
-    limit = int(input("How many terms to include in fibonacci series: "))
+    limit = int(eval(input("How many terms to include in fibonacci series: ")))
     if limit > 0:
         print(f"The first {limit} terms of the fibonacci series are as follows:")
         print([recur_fibo(n) for n in range(limit)])

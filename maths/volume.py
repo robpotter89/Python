@@ -3,6 +3,10 @@ Find Volumes of Various Shapes.
 
 Wikipedia reference: https://en.wikipedia.org/wiki/Volume
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import str
+from past.utils import old_div
 from math import pi, pow
 from typing import Union
 
@@ -99,7 +103,7 @@ def vol_sphere(radius: float) -> float:
     >>> vol_sphere(1)
     4.1887902047863905
     """
-    return 4 / 3 * pi * pow(radius, 3)
+    return old_div(4, 3) * pi * pow(radius, 3)
 
 
 def vol_circular_cylinder(radius: float, height: float) -> float:

@@ -5,8 +5,11 @@ by swapping only two elements.
 More information:
 https://en.wikipedia.org/wiki/Heap%27s_algorithm.
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def heaps(arr: list) -> list:
     """
     Pure python implementation of the Heap's algorithm (recursive version),

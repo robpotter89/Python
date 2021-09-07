@@ -7,6 +7,7 @@ at a time, from an arbitrary starting vertex, at each step adding the cheapest p
 connection from the tree to another vertex.
 """
 
+from builtins import str
 from sys import maxsize
 from typing import Generic, Optional, TypeVar
 
@@ -243,7 +244,7 @@ def prims_algo(
     parent: dict[T, Optional[T]] = {node: None for node in graph.connections}
 
     priority_queue: MinPriorityQueue[T] = MinPriorityQueue()
-    for node, weight in dist.items():
+    for node, weight in list(dist.items()):
         priority_queue.push(node, weight)
 
     if priority_queue.is_empty():

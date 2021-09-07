@@ -1,4 +1,8 @@
+from __future__ import division
+from __future__ import print_function
 # https://en.wikipedia.org/wiki/Simulated_annealing
+from builtins import range
+from past.utils import old_div
 import math
 import random
 
@@ -71,7 +75,7 @@ def simulated_annealing(
                 next_state = picked_neighbor
             else:
                 probability = (math.e) ** (
-                    change / current_temp
+                    old_div(change, current_temp)
                 )  # probability generation function
                 if random.random() < probability:  # random number within probability
                     next_state = picked_neighbor
@@ -86,7 +90,7 @@ def simulated_annealing(
     if visualization:
         from matplotlib import pyplot as plt
 
-        plt.plot(range(iterations), scores)
+        plt.plot(list(range(iterations)), scores)
         plt.xlabel("Iterations")
         plt.ylabel("Function values")
         plt.show()

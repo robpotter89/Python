@@ -14,6 +14,10 @@ Helpful resources:
 Coursera ML course
 https://medium.com/@martinpella/logistic-regression-from-scratch-in-python-124c5636b8ac
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn import datasets
@@ -28,7 +32,7 @@ from sklearn import datasets
 
 
 def sigmoid_function(z):
-    return 1 / (1 + np.exp(-z))
+    return old_div(1, (1 + np.exp(-z)))
 
 
 def cost_function(h, y):
@@ -47,7 +51,7 @@ def logistic_reg(alpha, X, y, max_iterations=70000):
     for iterations in range(max_iterations):
         z = np.dot(X, theta)
         h = sigmoid_function(z)
-        gradient = np.dot(X.T, h - y) / y.size
+        gradient = old_div(np.dot(X.T, h - y), y.size)
         theta = theta - alpha * gradient  # updating the weights
         z = np.dot(X, theta)
         h = sigmoid_function(z)
@@ -66,7 +70,7 @@ if __name__ == "__main__":
 
     alpha = 0.1
     theta = logistic_reg(alpha, X, y, max_iterations=70000)
-    print("theta: ", theta)  # printing the theta i.e our weights vector
+    print(("theta: ", theta))  # printing the theta i.e our weights vector
 
     def predict_prob(X):
         return sigmoid_function(

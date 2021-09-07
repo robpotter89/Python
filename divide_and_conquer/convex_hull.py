@@ -12,11 +12,14 @@ There are other several other algorithms for the convex hull problem
 which have not been implemented here, yet.
 
 """
+from __future__ import print_function
 
+from builtins import range
+from builtins import object
 from typing import Iterable, List, Set, Union
 
 
-class Point:
+class Point(object):
     """
     Defines a 2-d point for use by all convex-hull algorithms.
 

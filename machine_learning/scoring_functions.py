@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 import numpy as np
 
 """ Here I implemented the scoring functions.
@@ -129,8 +131,8 @@ def mbd(predict, actual):
     actual = np.array(actual)
 
     difference = predict - actual
-    numerator = np.sum(difference) / len(predict)
-    denumerator = np.sum(actual) / len(predict)
+    numerator = old_div(np.sum(difference), len(predict))
+    denumerator = old_div(np.sum(actual), len(predict))
     # print(numerator, denumerator)
     score = float(numerator) / denumerator * 100
 

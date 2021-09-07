@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import str
 from timeit import timeit
 
 
@@ -60,83 +62,83 @@ def benchmark() -> None:
     Benchmark code for comparing 3 functions,
     with 3 different length int values.
     """
-    print("\nFor small_num = ", small_num, ":")
-    print(
+    print(("\nFor small_num = ", small_num, ":"))
+    print((
         "> sum_of_digits()",
         "\t\tans =",
         sum_of_digits(small_num),
         "\ttime =",
         timeit("z.sum_of_digits(z.small_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_recursion()",
         "\tans =",
         sum_of_digits_recursion(small_num),
         "\ttime =",
         timeit("z.sum_of_digits_recursion(z.small_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_compact()",
         "\tans =",
         sum_of_digits_compact(small_num),
         "\ttime =",
         timeit("z.sum_of_digits_compact(z.small_num)", setup="import __main__ as z"),
         "seconds",
-    )
+    ))
 
-    print("\nFor medium_num = ", medium_num, ":")
-    print(
+    print(("\nFor medium_num = ", medium_num, ":"))
+    print((
         "> sum_of_digits()",
         "\t\tans =",
         sum_of_digits(medium_num),
         "\ttime =",
         timeit("z.sum_of_digits(z.medium_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_recursion()",
         "\tans =",
         sum_of_digits_recursion(medium_num),
         "\ttime =",
         timeit("z.sum_of_digits_recursion(z.medium_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_compact()",
         "\tans =",
         sum_of_digits_compact(medium_num),
         "\ttime =",
         timeit("z.sum_of_digits_compact(z.medium_num)", setup="import __main__ as z"),
         "seconds",
-    )
+    ))
 
-    print("\nFor large_num = ", large_num, ":")
-    print(
+    print(("\nFor large_num = ", large_num, ":"))
+    print((
         "> sum_of_digits()",
         "\t\tans =",
         sum_of_digits(large_num),
         "\ttime =",
         timeit("z.sum_of_digits(z.large_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_recursion()",
         "\tans =",
         sum_of_digits_recursion(large_num),
         "\ttime =",
         timeit("z.sum_of_digits_recursion(z.large_num)", setup="import __main__ as z"),
         "seconds",
-    )
-    print(
+    ))
+    print((
         "> sum_of_digits_compact()",
         "\tans =",
         sum_of_digits_compact(large_num),
         "\ttime =",
         timeit("z.sum_of_digits_compact(z.large_num)", setup="import __main__ as z"),
         "seconds",
-    )
+    ))
 
 
 if __name__ == "__main__":

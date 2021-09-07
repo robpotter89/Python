@@ -5,6 +5,9 @@ Starting in the top left corner of a 2×2 grid, and only being able to move to
 the right and down, there are exactly 6 routes to the bottom right corner.
 How many such routes are there through a 20×20 grid?
 """
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 from math import factorial
 
 
@@ -26,9 +29,9 @@ def solution(n: int = 20) -> int:
     """
     n = 2 * n  # middle entry of odd rows starting at row 3 is the solution for n = 1,
     # 2, 3,...
-    k = n / 2
+    k = old_div(n, 2)
 
-    return int(factorial(n) / (factorial(k) * factorial(n - k)))
+    return int(old_div(factorial(n), (factorial(k) * factorial(n - k))))
 
 
 if __name__ == "__main__":

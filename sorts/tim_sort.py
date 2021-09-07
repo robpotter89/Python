@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 def binary_search(lst, item, start, end):
     if start == end:
         return start if lst[start] > item else start + 1

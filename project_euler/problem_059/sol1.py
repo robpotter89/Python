@@ -25,8 +25,11 @@ file containing the encrypted ASCII codes, and the knowledge that the plain text
 must contain common English words, decrypt the message and find the sum of the ASCII
 values in the original text.
 """
+from __future__ import print_function
 
 
+from builtins import zip
+from builtins import chr
 import string
 from itertools import cycle, product
 from pathlib import Path

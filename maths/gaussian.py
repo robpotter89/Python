@@ -1,6 +1,8 @@
 """
 Reference: https://en.wikipedia.org/wiki/Gaussian_function
 """
+from __future__ import division
+from past.utils import old_div
 from numpy import exp, pi, sqrt
 
 
@@ -52,7 +54,7 @@ def gaussian(x, mu: float = 0.0, sigma: float = 1.0) -> int:
     >>> gaussian(2523, mu=234234, sigma=3425)
     0.0
     """
-    return 1 / sqrt(2 * pi * sigma ** 2) * exp(-((x - mu) ** 2) / (2 * sigma ** 2))
+    return old_div(1, sqrt(2 * pi * sigma ** 2)) * exp(old_div(-((x - mu) ** 2), (2 * sigma ** 2)))
 
 
 if __name__ == "__main__":

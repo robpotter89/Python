@@ -6,7 +6,10 @@ Reference: Advanced Data Structures, Peter Brass
 """
 
 
-class Node:
+from builtins import str
+from builtins import range
+from builtins import object
+class Node(object):
     """
     Node in a doubly-linked binomial tree, containing:
         - value
@@ -47,7 +50,7 @@ class Node:
             return other
 
 
-class BinomialHeap:
+class BinomialHeap(object):
     r"""
     Min-oriented priority queue implemented with the Binomial Heap data
     structure implemented with the BinomialHeap class. It supports:

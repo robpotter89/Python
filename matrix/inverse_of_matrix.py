@@ -1,5 +1,7 @@
 from __future__ import annotations
+from __future__ import division
 
+from past.utils import old_div
 from decimal import Decimal
 
 
@@ -37,4 +39,4 @@ def inverse_of_matrix(matrix: list[list[float]]) -> list[list[float]]:
     swapped_matrix[0][0], swapped_matrix[1][1] = matrix[1][1], matrix[0][0]
     swapped_matrix[1][0], swapped_matrix[0][1] = -matrix[1][0], -matrix[0][1]
     # Calculate the inverse of the matrix
-    return [[float(D(n) / determinant) or 0.0 for n in row] for row in swapped_matrix]
+    return [[float(old_div(D(n), determinant)) or 0.0 for n in row] for row in swapped_matrix]

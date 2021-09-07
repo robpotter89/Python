@@ -31,6 +31,7 @@ last digit of the base is always a 3 or 7.
 The solution does option 2 because the answer happens to be much closer to the
 starting point.
 """
+from __future__ import print_function
 
 
 def is_square_form(num: int) -> bool:

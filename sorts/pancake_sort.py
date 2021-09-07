@@ -7,8 +7,10 @@ python -m doctest -v pancake_sort.py
 For manual testing run:
 python pancake_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
 def pancake_sort(arr):
     """Sort Array with Pancake Sort.
     :param arr: Collection containing comparable items

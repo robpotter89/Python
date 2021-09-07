@@ -14,6 +14,10 @@ and denominator.
 If the product of these four fractions is given in its lowest common
 terms, find the value of the denominator.
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 from fractions import Fraction
 from typing import List
 
@@ -21,7 +25,7 @@ from typing import List
 def is_digit_cancelling(num: int, den: int) -> bool:
     if num != den:
         if num % 10 == den // 10:
-            if (num // 10) / (den % 10) == num / den:
+            if old_div((num // 10), (den % 10)) == old_div(num, den):
                 return True
     return False
 
@@ -60,7 +64,7 @@ def solution(n: int = 2) -> int:
     result = 1.0
     for fraction in fraction_list(n):
         frac = Fraction(fraction)
-        result *= frac.denominator / frac.numerator
+        result *= old_div(frac.denominator, frac.numerator)
     return int(result)
 
 

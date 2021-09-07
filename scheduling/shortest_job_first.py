@@ -3,6 +3,14 @@ Shortest job remaining first
 Please note arrival time and burst
 Please use spaces to separate times entered.
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import str
+from builtins import map
+from builtins import zip
+from builtins import input
+from builtins import range
+from past.utils import old_div
 from typing import List
 
 import pandas as pd
@@ -111,20 +119,20 @@ def calculate_average_times(
     for i in range(no_of_processes):
         total_waiting_time = total_waiting_time + waiting_time[i]
         total_turn_around_time = total_turn_around_time + turn_around_time[i]
-    print("Average waiting time = %.5f" % (total_waiting_time / no_of_processes))
-    print("Average turn around time =", total_turn_around_time / no_of_processes)
+    print("Average waiting time = %.5f" % (old_div(total_waiting_time, no_of_processes)))
+    print(("Average turn around time =", old_div(total_turn_around_time, no_of_processes)))
 
 
 if __name__ == "__main__":
     print("Enter how many process you want to analyze")
-    no_of_processes = int(input())
+    no_of_processes = int(eval(input()))
     burst_time = [0] * no_of_processes
     arrival_time = [0] * no_of_processes
     processes = list(range(1, no_of_processes + 1))
 
     for i in range(no_of_processes):
         print("Enter the arrival time and brust time for process:--" + str(i + 1))
-        arrival_time[i], burst_time[i] = map(int, input().split())
+        arrival_time[i], burst_time[i] = list(map(int, input().split()))
 
     waiting_time = calculate_waitingtime(arrival_time, burst_time, no_of_processes)
 

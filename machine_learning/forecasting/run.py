@@ -10,6 +10,7 @@ missing (the amount of data that u expected are not supposed to be)
          for the next 3 months sales or something,
          u can just adjust it for ur own purpose
 """
+from __future__ import print_function
 
 import numpy as np
 import pandas as pd

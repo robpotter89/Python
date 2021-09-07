@@ -1,4 +1,7 @@
-class Heap:
+from __future__ import division
+from builtins import object
+from past.utils import old_div
+class Heap(object):
     """
     A generic Heap class, can be used as min or max by passing the key function
     accordingly.
@@ -17,7 +20,7 @@ class Heap:
 
     def _parent(self, i):
         """Returns parent index of given index if exists else None"""
-        return int((i - 1) / 2) if i > 0 else None
+        return int(old_div((i - 1), 2)) if i > 0 else None
 
     def _left(self, i):
         """Returns left-child-index of given index if exists else None"""

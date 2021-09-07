@@ -11,8 +11,10 @@ For example:
   GITHUB.COM/MAYUR200
 
 """
+from __future__ import print_function
 
 
+from builtins import input
 def swap_case(sentence: str) -> str:
     """
     This function will convert all lowercase letters to uppercase letters
@@ -34,4 +36,4 @@ def swap_case(sentence: str) -> str:
 
 
 if __name__ == "__main__":
-    print(swap_case(input("Please input sentence: ")))
+    print(swap_case(eval(input("Please input sentence: "))))

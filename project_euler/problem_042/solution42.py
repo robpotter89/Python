@@ -13,6 +13,9 @@ Using words.txt (right click and 'Save Link/Target As...'), a 16K text file
 containing nearly two-thousand common English words, how many are triangle
 words?
 """
+from __future__ import print_function
+from builtins import filter
+from builtins import range
 import os
 
 # Precomputes a list of the 100 first triangular numbers
@@ -33,11 +36,11 @@ def solution():
     with open(wordsFilePath) as f:
         words = f.readline()
 
-    words = list(map(lambda word: word.strip('"'), words.strip("\r\n").split(",")))
+    words = list([word.strip('"') for word in words.strip("\r\n").split(",")])
     words = list(
         filter(
             lambda word: word in TRIANGULAR_NUMBERS,
-            map(lambda word: sum(map(lambda x: ord(x) - 64, word)), words),
+            [sum([ord(x) - 64 for x in word]) for word in words],
         )
     )
     return len(words)

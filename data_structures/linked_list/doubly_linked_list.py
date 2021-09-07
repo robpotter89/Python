@@ -3,7 +3,10 @@ https://en.wikipedia.org/wiki/Doubly_linked_list
 """
 
 
-class Node:
+from builtins import str
+from builtins import range
+from builtins import object
+class Node(object):
     def __init__(self, data):
         self.data = data
         self.previous = None
@@ -13,7 +16,7 @@ class Node:
         return f"{self.data}"
 
 
-class DoublyLinkedList:
+class DoublyLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
@@ -30,7 +33,7 @@ class DoublyLinkedList:
         node = self.head
         while node:
             yield node.data
-            node = node.next
+            node = node.__next__
 
     def __str__(self):
         """
@@ -97,7 +100,7 @@ class DoublyLinkedList:
         else:
             temp = self.head
             for i in range(0, index):
-                temp = temp.next
+                temp = temp.__next__
             temp.previous.next = new_node
             new_node.previous = temp.previous
             new_node.next = temp
@@ -137,7 +140,7 @@ class DoublyLinkedList:
         if len(self) == 1:
             self.head = self.tail = None
         elif index == 0:
-            self.head = self.head.next
+            self.head = self.head.__next__
             self.head.previous = None
         elif index == len(self) - 1:
             delete_node = self.tail
@@ -146,18 +149,18 @@ class DoublyLinkedList:
         else:
             temp = self.head
             for i in range(0, index):
-                temp = temp.next
+                temp = temp.__next__
             delete_node = temp
             temp.next.previous = temp.previous
-            temp.previous.next = temp.next
+            temp.previous.next = temp.__next__
         return delete_node.data
 
     def delete(self, data) -> str:
         current = self.head
 
         while current.data != data:  # Find the position to delete
-            if current.next:
-                current = current.next
+            if current.__next__:
+                current = current.__next__
             else:  # We have reached the end an no value matches
                 return "No data matching given value"
 
@@ -168,7 +171,7 @@ class DoublyLinkedList:
             self.delete_tail()
 
         else:  # Before: 1 <--> 2(current) <--> 3
-            current.previous.next = current.next  # 1 --> 3
+            current.previous.next = current.__next__  # 1 --> 3
             current.next.previous = current.previous  # 1 <--> 3
         return data
 

@@ -5,8 +5,10 @@ Wikipedia reference: https://en.wikipedia.org/wiki/Greatest_common_divisor
 
 gcd(a, b) = gcd(a, -b) = gcd(-a, b) = gcd(-a, -b) by definition of divisibility
 """
+from __future__ import print_function
 
 
+from builtins import input
 def greatest_common_divisor(a: int, b: int) -> int:
     """
     Calculate Greatest Common Divisor (GCD).

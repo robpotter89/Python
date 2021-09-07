@@ -16,7 +16,9 @@ N(15) = 832.
 
 What is ∑ N(n) for 1 ≤ n ≤ 10?
 """
+from __future__ import print_function
 
+from builtins import range
 from collections import defaultdict
 from math import ceil, sqrt
 
@@ -45,7 +47,7 @@ def solution(t_limit: int = 1000000, n_limit: int = 10) -> int:
         for hole_width in range(hole_width_lower_bound, outer_width - 1, 2):
             count[outer_width * outer_width - hole_width * hole_width] += 1
 
-    return sum(1 for n in count.values() if 1 <= n <= 10)
+    return sum(1 for n in list(count.values()) if 1 <= n <= 10)
 
 
 if __name__ == "__main__":

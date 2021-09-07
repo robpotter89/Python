@@ -1,6 +1,10 @@
 """
 @author: MatteoRaso
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 from math import pi, sqrt
 from random import uniform
 from statistics import mean
@@ -88,7 +92,7 @@ def area_under_line_estimator_check(
     estimated_value = area_under_curve_estimator(
         iterations, identity_function, min_value, max_value
     )
-    expected_value = (max_value * max_value - min_value * min_value) / 2
+    expected_value = old_div((max_value * max_value - min_value * min_value), 2)
 
     print("******************")
     print(f"Estimating area under y=x where x varies from {min_value} to {max_value}")

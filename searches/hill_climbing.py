@@ -1,8 +1,12 @@
+from __future__ import print_function
 # https://en.wikipedia.org/wiki/Hill_climbing
+from builtins import str
+from builtins import range
+from builtins import object
 import math
 
 
-class SearchProblem:
+class SearchProblem(object):
     """
     An interface to define search problems.
     The interface will be illustrated using the example of mathematical function.
@@ -152,7 +156,7 @@ def hill_climbing(
     if visualization:
         from matplotlib import pyplot as plt
 
-        plt.plot(range(iterations), scores)
+        plt.plot(list(range(iterations)), scores)
         plt.xlabel("Iterations")
         plt.ylabel("Function values")
         plt.show()

@@ -20,12 +20,16 @@ Overview:
 """
 
 
+from builtins import map
+from builtins import str
+from builtins import range
+from builtins import object
 import math
 import random
 from typing import Collection, Optional, Union, overload
 
 
-class Vector:
+class Vector(object):
     """
     This class represents a vector of arbitrary size.
     You need to give the vector components.
@@ -213,7 +217,7 @@ def randomVector(N: int, a: int, b: int) -> Vector:
     return Vector(ans)
 
 
-class Matrix:
+class Matrix(object):
     """
     class: Matrix
     This class represents a arbitrary matrix.

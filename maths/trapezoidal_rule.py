@@ -7,12 +7,15 @@ method 1:
 "extended trapezoidal rule"
 
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def method_1(boundary, steps):
     # "extended trapezoidal rule"
     # int(f) = dx/2 * (f1 + 2f2 + ... + fn)
-    h = (boundary[1] - boundary[0]) / steps
+    h = old_div((boundary[1] - boundary[0]), steps)
     a = boundary[0]
     b = boundary[1]
     x_i = make_points(a, b, h)

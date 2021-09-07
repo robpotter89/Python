@@ -2,6 +2,7 @@
 # https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder
 # https://en.wikipedia.org/wiki/Controlled_NOT_gate
 
+from builtins import range
 from qiskit import Aer, QuantumCircuit, execute
 from qiskit.providers import BaseBackend
 

@@ -10,8 +10,10 @@ possible to form forty-one different square laminae.
 
 Using up to one million tiles how many different square laminae can be formed?
 """
+from __future__ import print_function
 
 
+from builtins import range
 from math import ceil, sqrt
 
 

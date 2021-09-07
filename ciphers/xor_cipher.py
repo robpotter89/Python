@@ -18,7 +18,9 @@
 """
 
 
-class XORCipher:
+from builtins import chr
+from builtins import object
+class XORCipher(object):
     def __init__(self, key: int = 0):
         """
         simple constructor that receives a key or uses

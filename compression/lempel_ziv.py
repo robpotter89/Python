@@ -2,7 +2,9 @@
     One of the several implementations of Lempel–Ziv–Welch compression algorithm
     https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch
 """
+from __future__ import print_function
 
+from builtins import range
 import math
 import os
 import sys

@@ -1,8 +1,10 @@
 """
 wiki: https://en.wikipedia.org/wiki/Anagram
 """
+from __future__ import print_function
 
 
+from builtins import input
 def check_anagrams(first_str: str, second_str: str) -> bool:
     """
     Two strings are anagrams if they are made of the same letters

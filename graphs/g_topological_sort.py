@@ -1,5 +1,7 @@
+from __future__ import print_function
 # Author: Phyllipe Bezerra (https://github.com/pmba)
 
+from builtins import range
 clothes = {
     0: "underwear",
     1: "pants",
@@ -22,7 +24,7 @@ def print_stack(stack, clothes):
     order = 1
     while stack:
         current_clothing = stack.pop()
-        print(order, clothes[current_clothing])
+        print((order, clothes[current_clothing]))
         order += 1
 
 

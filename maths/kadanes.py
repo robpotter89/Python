@@ -3,6 +3,8 @@ Kadane's algorithm to get maximum subarray sum
 https://medium.com/@rsinghal757/kadanes-algorithm-dynamic-programming-how-and-why-does-it-work-3fd8849ed73d
 https://en.wikipedia.org/wiki/Maximum_subarray_problem
 """
+from __future__ import print_function
+from builtins import input
 test_data: tuple = ([-2, -8, -9], [2, 8, 9], [-1, 0, 1], [0, 0], [])
 
 

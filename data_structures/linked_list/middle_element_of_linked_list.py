@@ -1,10 +1,14 @@
-class Node:
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from builtins import object
+class Node(object):
     def __init__(self, data: int) -> int:
         self.data = data
         self.next = None
 
 
-class LinkedList:
+class LinkedList(object):
     def __init__(self):
         self.head = None
 
@@ -48,9 +52,9 @@ class LinkedList:
         slow_pointer = self.head
         fast_pointer = self.head
         if self.head:
-            while fast_pointer and fast_pointer.next:
-                fast_pointer = fast_pointer.next.next
-                slow_pointer = slow_pointer.next
+            while fast_pointer and fast_pointer.__next__:
+                fast_pointer = fast_pointer.next.__next__
+                slow_pointer = slow_pointer.__next__
             return slow_pointer.data
         else:
             print("No element found.")

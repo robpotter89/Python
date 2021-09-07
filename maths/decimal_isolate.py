@@ -2,6 +2,7 @@
 Isolate the Decimal part of a Number
 https://stackoverflow.com/questions/3886402/how-to-get-numbers-after-decimal-point
 """
+from __future__ import print_function
 
 
 def decimal_isolate(number, digitAmount):

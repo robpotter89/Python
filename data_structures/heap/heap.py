@@ -1,7 +1,11 @@
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from builtins import object
 from typing import Iterable, List, Optional
 
 
-class Heap:
+class Heap(object):
     """A Max Heap Implementation
 
     >>> unsorted = [103, 9, 1, 7, 11, 15, 25, 201, 209, 107, 5]

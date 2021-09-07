@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 def decrypt(message: str) -> None:
     """
     >>> decrypt('TMDETUX PMDVU')
@@ -44,7 +47,7 @@ def decrypt(message: str) -> None:
 
 
 def main() -> None:
-    message = input("Encrypted message: ")
+    message = eval(input("Encrypted message: "))
     message = message.upper()
     decrypt(message)
 

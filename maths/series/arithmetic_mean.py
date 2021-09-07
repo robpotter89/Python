@@ -2,8 +2,11 @@
 ARITHMETIC MEAN : https://en.wikipedia.org/wiki/Arithmetic_mean
 
 """
+from __future__ import division
 
 
+from builtins import range
+from past.utils import old_div
 def is_arithmetic_series(series: list) -> bool:
     """
     checking whether the input series is arithmetic series or not
@@ -57,7 +60,7 @@ def arithmetic_mean(series: list) -> float:
     answer = 0
     for val in series:
         answer += val
-    return answer / len(series)
+    return old_div(answer, len(series))
 
 
 if __name__ == "__main__":

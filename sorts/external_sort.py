@@ -3,11 +3,16 @@
 #
 # Sort large text files in a minimum amount of memory
 #
+from __future__ import division
+from builtins import map
+from builtins import range
+from past.utils import old_div
+from builtins import object
 import argparse
 import os
 
 
-class FileSplitter:
+class FileSplitter(object):
     BLOCK_FILENAME_FORMAT = "block_{0}.dat"
 
     def __init__(self, filename):
@@ -41,10 +46,10 @@ class FileSplitter:
                 i += 1
 
     def cleanup(self):
-        map(lambda f: os.remove(f), self.block_filenames)
+        list(map(lambda f: os.remove(f), self.block_filenames))
 
 
-class NWayMerge:
+class NWayMerge(object):
     def select(self, choices):
         min_index = -1
         min_str = None
@@ -56,7 +61,7 @@ class NWayMerge:
         return min_index
 
 
-class FilesArray:
+class FilesArray(object):
     def __init__(self, files):
         self.files = files
         self.empty = set()
@@ -89,7 +94,7 @@ class FilesArray:
         return value
 
 
-class FileMerger:
+class FileMerger(object):
     def __init__(self, merge_strategy):
         self.merge_strategy = merge_strategy
 
@@ -109,7 +114,7 @@ class FileMerger:
         return files
 
 
-class ExternalSort:
+class ExternalSort(object):
     def __init__(self, block_size):
         self.block_size = block_size
 
@@ -119,13 +124,13 @@ class ExternalSort:
         splitter.split(self.block_size, sort_key)
 
         merger = FileMerger(NWayMerge())
-        buffer_size = self.block_size / (num_blocks + 1)
+        buffer_size = old_div(self.block_size, (num_blocks + 1))
         merger.merge(splitter.get_block_filenames(), filename + ".out", buffer_size)
 
         splitter.cleanup()
 
     def get_number_blocks(self, filename, block_size):
-        return (os.stat(filename).st_size / block_size) + 1
+        return (old_div(os.stat(filename).st_size, block_size)) + 1
 
 
 def parse_memory(string):

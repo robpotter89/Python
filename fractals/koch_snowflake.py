@@ -22,7 +22,11 @@ Requirements (pip):
 
 
 from __future__ import annotations
+from __future__ import division
 
+from builtins import zip
+from builtins import range
+from past.utils import old_div
 import matplotlib.pyplot as plt  # type: ignore
 import numpy
 
@@ -66,11 +70,11 @@ def iteration_step(vectors: list[numpy.ndarray]) -> list[numpy.ndarray]:
         end_vector = vectors[i + 1]
         new_vectors.append(start_vector)
         difference_vector = end_vector - start_vector
-        new_vectors.append(start_vector + difference_vector / 3)
+        new_vectors.append(start_vector + old_div(difference_vector, 3))
         new_vectors.append(
-            start_vector + difference_vector / 3 + rotate(difference_vector / 3, 60)
+            start_vector + old_div(difference_vector, 3) + rotate(old_div(difference_vector, 3), 60)
         )
-        new_vectors.append(start_vector + difference_vector * 2 / 3)
+        new_vectors.append(start_vector + old_div(difference_vector * 2, 3))
     new_vectors.append(vectors[-1])
     return new_vectors
 
@@ -102,7 +106,7 @@ def plot(vectors: list[numpy.ndarray]) -> None:
     # matplotlib.pyplot.plot takes a list of all x-coordinates and a list of all
     # y-coordinates as inputs, which are constructed from the vector-list using
     # zip()
-    x_coordinates, y_coordinates = zip(*vectors)
+    x_coordinates, y_coordinates = list(zip(*vectors))
     plt.plot(x_coordinates, y_coordinates)
     plt.show()
 

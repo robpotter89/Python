@@ -1,6 +1,8 @@
 """Convert a positive Decimal Number to Any Other Representation"""
 
 
+from builtins import str
+from builtins import range
 def decimal_to_any(num: int, base: int) -> str:
     """
     Convert a positive integer to another base as str.

@@ -3,6 +3,9 @@
 Reference:
 - https://en.wikipedia.org/wiki/LU_decomposition
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 from typing import Tuple
 
 import numpy as np
@@ -47,7 +50,7 @@ def lower_upper_decomposition(table: np.ndarray) -> Tuple[np.ndarray, np.ndarray
             total = 0
             for k in range(j):
                 total += lower[i][k] * upper[k][j]
-            lower[i][j] = (table[i][j] - total) / upper[j][j]
+            lower[i][j] = old_div((table[i][j] - total), upper[j][j])
         lower[i][i] = 1
         for j in range(i, columns):
             total = 0

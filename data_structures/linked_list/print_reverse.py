@@ -1,7 +1,10 @@
+from __future__ import print_function
+from builtins import range
+from builtins import object
 from typing import List
 
 
-class Node:
+class Node(object):
     def __init__(self, data=None):
         self.data = data
         self.next = None
@@ -12,7 +15,7 @@ class Node:
         temp = self
         while temp:
             string_rep.append(f"{temp.data}")
-            temp = temp.next
+            temp = temp.__next__
         return "->".join(string_rep)
 
 
@@ -36,7 +39,7 @@ def make_linked_list(elements_list: List):
     current = head = Node(elements_list[0])
     for i in range(1, len(elements_list)):
         current.next = Node(elements_list[i])
-        current = current.next
+        current = current.__next__
     return head
 
 
@@ -50,7 +53,7 @@ def print_reverse(head_node: Node) -> None:
     69
     """
     if head_node is not None and isinstance(head_node, Node):
-        print_reverse(head_node.next)
+        print_reverse(head_node.__next__)
         print(head_node.data)
 
 

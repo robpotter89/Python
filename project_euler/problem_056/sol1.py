@@ -10,6 +10,8 @@ what is the maximum digital sum?
 """
 
 
+from builtins import str
+from builtins import range
 def solution(a: int = 100, b: int = 100) -> int:
     """
     Considering natural numbers of the form, a**b, where a, b < 100,

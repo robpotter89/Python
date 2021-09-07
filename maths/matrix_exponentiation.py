@@ -1,5 +1,10 @@
 """Matrix Exponentiation"""
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
+from builtins import object
 import timeit
 
 """
@@ -10,7 +15,7 @@ https://www.hackerearth.com/practice/notes/matrix-exponentiation-1/
 """
 
 
-class Matrix:
+class Matrix(object):
     def __init__(self, arg):
         if isinstance(arg, list):  # Initializes a matrix identical to the one provided.
             self.t = arg
@@ -74,7 +79,7 @@ from __main__ import fibonacci_with_matrix_exponentiation
 """
     code = "fibonacci_with_matrix_exponentiation(randint(1,70000), 1, 1)"
     exec_time = timeit.timeit(setup=setup, stmt=code, number=100)
-    print("With matrix exponentiation the average execution time is ", exec_time / 100)
+    print(("With matrix exponentiation the average execution time is ", old_div(exec_time, 100)))
     return exec_time
 
 
@@ -85,9 +90,9 @@ from __main__ import simple_fibonacci
 """
     code = "simple_fibonacci(randint(1,70000), 1, 1)"
     exec_time = timeit.timeit(setup=setup, stmt=code, number=100)
-    print(
-        "Without matrix exponentiation the average execution time is ", exec_time / 100
-    )
+    print((
+        "Without matrix exponentiation the average execution time is ", old_div(exec_time, 100)
+    ))
     return exec_time
 
 

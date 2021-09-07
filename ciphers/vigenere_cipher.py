@@ -1,10 +1,12 @@
+from __future__ import print_function
+from builtins import input
 LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def main() -> None:
-    message = input("Enter message: ")
-    key = input("Enter key [alphanumeric]: ")
-    mode = input("Encrypt/Decrypt [e/d]: ")
+    message = eval(input("Enter message: "))
+    key = eval(input("Enter key [alphanumeric]: "))
+    mode = eval(input("Encrypt/Decrypt [e/d]: "))
 
     if mode.lower().startswith("e"):
         mode = "encrypt"

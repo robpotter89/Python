@@ -11,7 +11,9 @@ You are given a(10^6) = 31054319.
 
 Find a(10^15)
 """
+from __future__ import print_function
 
+from builtins import range
 ks = [k for k in range(2, 20 + 1)]
 base = [10 ** k for k in range(ks[-1] + 1)]
 memo = {}

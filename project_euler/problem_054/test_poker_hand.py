@@ -1,3 +1,4 @@
+from builtins import range
 import os
 from itertools import chain
 from random import randrange, shuffle

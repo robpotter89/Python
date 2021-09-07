@@ -9,9 +9,14 @@ The problem is :
 Given two strings A and B. Find the minimum number of operations to string B such that
 A = B. The permitted operations are removal,  insertion, and substitution.
 """
+from __future__ import print_function
 
 
-class EditDistance:
+from builtins import input
+from builtins import str
+from builtins import range
+from builtins import object
+class EditDistance(object):
     """
     Use :
     solver              = EditDistance()

@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 from random import randint
 from tempfile import TemporaryFile
 

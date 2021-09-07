@@ -20,8 +20,11 @@ and also 59049*3=1,77,147 (which exceeds the criteria of number being 3 digit)
 So, n>999
 and hence a bound between (1000,1000000)
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def digitsum(s: str) -> int:
     """
     >>> all(digitsum(str(i)) == (1 if i == 1 else 0) for i in range(100))

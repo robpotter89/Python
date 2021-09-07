@@ -9,8 +9,11 @@ python3 -m doctest -v selection_sort.py
 For manual testing run:
 python selection_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def selection_sort(collection):
     """Pure implementation of the selection sort algorithm in Python
     :param collection: some mutable ordered collection with heterogeneous

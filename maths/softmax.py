@@ -9,7 +9,10 @@ vector always sum up to 1.
 Script inspired from its corresponding Wikipedia article
 https://en.wikipedia.org/wiki/Softmax_function
 """
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 import numpy as np
 
 
@@ -47,7 +50,7 @@ def softmax(vector):
     sumOfExponents = np.sum(exponentVector)
 
     # Divide every exponent by the sum of all exponents
-    softmax_vector = exponentVector / sumOfExponents
+    softmax_vector = old_div(exponentVector, sumOfExponents)
 
     return softmax_vector
 

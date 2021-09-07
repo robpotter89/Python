@@ -1,5 +1,7 @@
+from __future__ import print_function
 # Minimum cut on Ford_Fulkerson algorithm.
 
+from builtins import range
 test_graph = [
     [0, 16, 13, 0, 0, 0],
     [0, 0, 10, 12, 0, 0],

@@ -18,6 +18,8 @@ ValueError: Non-binary value was passed to the function
 """
 
 
+from builtins import str
+from builtins import range
 def bin_to_octal(bin_string: str) -> str:
     if not all(char in "01" for char in bin_string):
         raise ValueError("Non-binary value was passed to the function")

@@ -11,8 +11,11 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 References:
     - https://en.wikipedia.org/wiki/Palindromic_number
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def solution(n: int = 998001) -> int:
     """
     Returns the largest palindrome made from the product of two 3-digit

@@ -26,8 +26,11 @@ non-repeating chain with a starting number below one million is sixty terms.
 How many chains, with a starting number below one million, contain exactly sixty
 non-repeating terms?
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 DIGIT_FACTORIALS = {
     "0": 1,
     "1": 1,

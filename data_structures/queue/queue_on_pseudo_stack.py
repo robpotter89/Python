@@ -1,7 +1,10 @@
 """Queue represented by a pseudo stack (represented by a list with pop and append)"""
 
 
-class Queue:
+from builtins import str
+from builtins import range
+from builtins import object
+class Queue(object):
     def __init__(self):
         self.stack = []
         self.length = 0

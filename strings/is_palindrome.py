@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 def is_palindrome(s: str) -> bool:
     """
     Determine whether the string is palindrome

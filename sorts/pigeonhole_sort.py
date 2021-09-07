@@ -1,8 +1,10 @@
+from __future__ import print_function
 # Python program to implement Pigeonhole Sorting in python
 
 # Algorithm for the pigeonhole sorting
 
 
+from builtins import range
 def pigeonhole_sort(a):
     """
     >>> a = [8, 3, 2, 7, 4, 6, 8]
@@ -38,7 +40,7 @@ def pigeonhole_sort(a):
 def main():
     a = [8, 3, 2, 7, 4, 6, 8]
     pigeonhole_sort(a)
-    print("Sorted order is:", " ".join(a))
+    print(("Sorted order is:", " ".join(a)))
 
 
 if __name__ == "__main__":

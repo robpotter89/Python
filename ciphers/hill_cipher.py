@@ -35,6 +35,10 @@ https://www.youtube.com/watch?v=kfmNeskzs2o
 https://www.youtube.com/watch?v=4RhLNDqcjpA
 
 """
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from builtins import object
 import string
 
 import numpy
@@ -54,7 +58,7 @@ def greatest_common_divisor(a: int, b: int) -> int:
     return b if a == 0 else greatest_common_divisor(b % a, a)
 
 
-class HillCipher:
+class HillCipher(object):
     key_string = string.ascii_uppercase + string.digits
     # This cipher takes alphanumerics into account
     # i.e. a total of 36 characters
@@ -201,7 +205,7 @@ class HillCipher:
 
 
 def main() -> None:
-    N = int(input("Enter the order of the encryption key: "))
+    N = int(eval(input("Enter the order of the encryption key: ")))
     hill_matrix = []
 
     print("Enter each row of the encryption key with space separated integers")
@@ -212,13 +216,13 @@ def main() -> None:
     hc = HillCipher(numpy.array(hill_matrix))
 
     print("Would you like to encrypt or decrypt some text? (1 or 2)")
-    option = input("\n1. Encrypt\n2. Decrypt\n")
+    option = eval(input("\n1. Encrypt\n2. Decrypt\n"))
     if option == "1":
-        text_e = input("What text would you like to encrypt?: ")
+        text_e = eval(input("What text would you like to encrypt?: "))
         print("Your encrypted text is:")
         print(hc.encrypt(text_e))
     elif option == "2":
-        text_d = input("What text would you like to decrypt?: ")
+        text_d = eval(input("What text would you like to decrypt?: "))
         print("Your decrypted text is:")
         print(hc.decrypt(text_d))
 

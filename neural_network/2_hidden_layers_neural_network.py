@@ -4,11 +4,16 @@ References:
     - https://en.wikipedia.org/wiki/Sigmoid_function (Sigmoid activation function)
     - https://en.wikipedia.org/wiki/Feedforward_neural_network (Feedforward)
 """
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
+from builtins import object
 import numpy
 
 
-class TwoHiddenLayerNeuralNetwork:
+class TwoHiddenLayerNeuralNetwork(object):
     def __init__(self, input_array: numpy.ndarray, output_array: numpy.ndarray) -> None:
         """
         This function initializes the TwoHiddenLayerNeuralNetwork class with random
@@ -234,7 +239,7 @@ def sigmoid(value: numpy.ndarray) -> numpy.ndarray:
     array([[0.73105858, 0.5       , 0.88079708],
            [0.73105858, 0.5       , 0.5       ]])
     """
-    return 1 / (1 + numpy.exp(-value))
+    return old_div(1, (1 + numpy.exp(-value)))
 
 
 def sigmoid_derivative(value: numpy.ndarray) -> numpy.ndarray:

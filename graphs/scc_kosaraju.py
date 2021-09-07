@@ -1,3 +1,7 @@
+from __future__ import print_function
+from builtins import map
+from builtins import input
+from builtins import range
 from typing import List
 
 

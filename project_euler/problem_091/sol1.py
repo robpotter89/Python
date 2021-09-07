@@ -10,8 +10,10 @@ when each coordinate lies between 0 and 2 inclusive; that is,
 ￼
 Given that 0 ≤ x1, y1, x2, y2 ≤ 50, how many right triangles can be formed?
 """
+from __future__ import print_function
 
 
+from builtins import range
 from itertools import combinations, product
 
 
@@ -50,7 +52,7 @@ def solution(limit: int = 50) -> int:
     """
     return sum(
         1
-        for pt1, pt2 in combinations(product(range(limit + 1), repeat=2), 2)
+        for pt1, pt2 in combinations(product(list(range(limit + 1)), repeat=2), 2)
         if is_right(*pt1, *pt2)
     )
 

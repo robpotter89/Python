@@ -1,3 +1,4 @@
+from builtins import zip
 from __future__ import annotations
 
 import csv
@@ -22,7 +23,7 @@ def write_movies(filename: str = "IMDb_Top_250_Movies.csv") -> None:
     with open(filename, "w", newline="") as out_file:
         writer = csv.writer(out_file)
         writer.writerow(["Movie title", "IMDb rating"])
-        for title, rating in movies.items():
+        for title, rating in list(movies.items()):
             writer.writerow([title, rating])
 
 

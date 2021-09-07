@@ -6,6 +6,8 @@
         Summation of the chosen numbers must be equal to given number M and one number
         can be used only once.
 """
+from __future__ import print_function
+from builtins import range
 from typing import List
 
 
@@ -62,4 +64,4 @@ max_sum = int(input())
 nums = [3, 34, 4, 12, 5, 2]
 max_sum = 9
 result = generate_sum_of_subsets_soln(nums, max_sum)
-print(*result)
+print((*result))

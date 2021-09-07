@@ -5,7 +5,9 @@ until the element compared is bigger than the one searched.
 It will then perform a linear search until it matches the wanted number.
 If not found, it returns -1.
 """
+from __future__ import print_function
 
+from builtins import input
 import math
 
 
@@ -44,7 +46,7 @@ def jump_search(arr: list, x: int) -> int:
 if __name__ == "__main__":
     user_input = input("Enter numbers separated by a comma:\n").strip()
     arr = [int(item) for item in user_input.split(",")]
-    x = int(input("Enter the number to be searched:\n"))
+    x = int(eval(input("Enter the number to be searched:\n")))
     res = jump_search(arr, x)
     if res == -1:
         print("Number not found!")

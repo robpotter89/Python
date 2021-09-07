@@ -18,7 +18,10 @@ the number of triangles for which the interior contains the origin.
 NOTE: The first two examples in the file represent the triangles in the
 example given above.
 """
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 from pathlib import Path
 from typing import List, Tuple
 
@@ -46,12 +49,12 @@ def contains_origin(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int) -> boo
     point_a: Tuple[int, int] = (x1, y1)
     point_a_to_b: Tuple[int, int] = (x2 - x1, y2 - y1)
     point_a_to_c: Tuple[int, int] = (x3 - x1, y3 - y1)
-    a: float = -vector_product(point_a, point_a_to_b) / vector_product(
+    a: float = old_div(-vector_product(point_a, point_a_to_b), vector_product(
         point_a_to_c, point_a_to_b
-    )
-    b: float = +vector_product(point_a, point_a_to_c) / vector_product(
+    ))
+    b: float = old_div(+vector_product(point_a, point_a_to_c), vector_product(
         point_a_to_c, point_a_to_b
-    )
+    ))
 
     return a > 0 and b > 0 and a + b < 1
 

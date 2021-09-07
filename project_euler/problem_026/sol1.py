@@ -24,6 +24,7 @@ in its decimal fraction part.
 """
 
 
+from builtins import range
 def solution(numerator: int = 1, digit: int = 1000) -> int:
     """
     Considering any range can be provided,

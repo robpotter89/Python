@@ -1,7 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Bidirectional_search
 """
+from __future__ import print_function
 
+from builtins import object
 from __future__ import annotations
 
 import time
@@ -22,7 +24,7 @@ grid = [
 delta = [[-1, 0], [0, -1], [1, 0], [0, 1]]  # up, left, down, right
 
 
-class Node:
+class Node(object):
     def __init__(
         self, pos_x: int, pos_y: int, goal_x: int, goal_y: int, parent: Optional[Node]
     ):
@@ -34,7 +36,7 @@ class Node:
         self.parent = parent
 
 
-class BreadthFirstSearch:
+class BreadthFirstSearch(object):
     """
     >>> bfs = BreadthFirstSearch((0, 0), (len(grid) - 1, len(grid[0]) - 1))
     >>> (bfs.start.pos_y + delta[3][0], bfs.start.pos_x + delta[3][1])
@@ -106,7 +108,7 @@ class BreadthFirstSearch:
         return path
 
 
-class BidirectionalBreadthFirstSearch:
+class BidirectionalBreadthFirstSearch(object):
     """
     >>> bd_bfs = BidirectionalBreadthFirstSearch((0, 0), (len(grid) - 1,
     ...                                                   len(grid[0]) - 1))
@@ -176,11 +178,11 @@ if __name__ == "__main__":
     path = bfs.search()
     bfs_time = time.time() - start_bfs_time
 
-    print("Unidirectional BFS computation time : ", bfs_time)
+    print(("Unidirectional BFS computation time : ", bfs_time))
 
     start_bd_bfs_time = time.time()
     bd_bfs = BidirectionalBreadthFirstSearch(init, goal)
     bd_path = bd_bfs.search()
     bd_bfs_time = time.time() - start_bd_bfs_time
 
-    print("Bidirectional BFS computation time : ", bd_bfs_time)
+    print(("Bidirectional BFS computation time : ", bd_bfs_time))

@@ -15,8 +15,13 @@ weight[i] >= 0
 Calculate the maximum profit that the shopkeeper can make given maxmum weight that can
 be carried.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import zip
+from builtins import input
+from past.utils import old_div
 def calc_profit(profit: list, weight: list, max_weight: int) -> int:
     """
     Function description is as follows-
@@ -41,7 +46,7 @@ def calc_profit(profit: list, weight: list, max_weight: int) -> int:
 
     # List created to store profit gained for the 1kg in case of each weight
     # respectively.  Calculate and append profit/weight for each element.
-    profit_by_weight = [p / w for p, w in zip(profit, weight)]
+    profit_by_weight = [old_div(p, w) for p, w in zip(profit, weight)]
 
     # Creating a copy of the list and sorting profit/weight in ascending order
     sorted_profit_by_weight = sorted(profit_by_weight)
@@ -78,7 +83,7 @@ def calc_profit(profit: list, weight: list, max_weight: int) -> int:
             # Since the weight encountered is greater than limit, therefore take the
             # required number of remaining kgs and calculate profit for it.
             # weight remaining / weight[index]
-            gain += (max_weight - limit) / weight[index] * profit[index]
+            gain += old_div((max_weight - limit), weight[index]) * profit[index]
             break
         i += 1
     return gain
@@ -92,7 +97,7 @@ if __name__ == "__main__":
 
     profit = [int(x) for x in input("Input profits separated by spaces: ").split()]
     weight = [int(x) for x in input("Input weights separated by spaces: ").split()]
-    max_weight = int(input("Max weight allowed: "))
+    max_weight = int(eval(input("Max weight allowed: ")))
 
     # Function Call
     calc_profit(profit, weight, max_weight)

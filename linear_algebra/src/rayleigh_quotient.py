@@ -1,6 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Rayleigh_quotient
 """
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 from typing import Any
 
 import numpy as np
@@ -47,7 +50,7 @@ def rayleigh_quotient(A: np.ndarray, v: np.ndarray) -> Any:
     v_star = v.conjugate().T
     v_star_dot = v_star.dot(A)
     assert isinstance(v_star_dot, np.ndarray)
-    return (v_star_dot.dot(v)) / (v_star.dot(v))
+    return old_div((v_star_dot.dot(v)), (v_star.dot(v)))
 
 
 def tests() -> None:

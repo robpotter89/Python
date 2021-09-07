@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from builtins import object
+from past.utils import old_div
 from .number_theory.prime_numbers import next_prime
 
 
-class HashTable:
+class HashTable(object):
     """
     Basic Hash Table example with open addressing and linear probing
     """
@@ -19,9 +24,9 @@ class HashTable:
         return self._keys
 
     def balanced_factor(self):
-        return sum([1 for slot in self.values if slot is not None]) / (
+        return old_div(sum([1 for slot in self.values if slot is not None]), (
             self.size_table * self.charge_factor
-        )
+        ))
 
     def hash_function(self, key):
         return key % self.size_table

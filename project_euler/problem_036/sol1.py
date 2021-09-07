@@ -14,7 +14,11 @@ base 10 and base 2.
 (Please note that the palindromic number, in either base, may not include
 leading zeros.)
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import input
+from builtins import range
 from typing import Union
 
 

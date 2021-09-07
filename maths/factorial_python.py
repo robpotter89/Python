@@ -1,3 +1,4 @@
+from builtins import range
 def factorial(input_number: int) -> int:
     """
     Calculate the factorial of specified number

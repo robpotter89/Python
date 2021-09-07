@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Python program to implement Morse Code Translator
 
 # Dictionary representing the morse code chart

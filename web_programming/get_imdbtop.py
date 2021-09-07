@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,4 +19,4 @@ def imdb_top(imdb_top_n):
 
 
 if __name__ == "__main__":
-    imdb_top(input("How many movies would you like to see? "))
+    imdb_top(eval(input("How many movies would you like to see? ")))

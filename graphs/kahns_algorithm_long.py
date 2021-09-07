@@ -1,10 +1,12 @@
+from __future__ import print_function
 # Finding longest distance in Directed Acyclic Graph using KahnsAlgorithm
+from builtins import range
 def longestDistance(graph):
     indegree = [0] * len(graph)
     queue = []
     longDist = [1] * len(graph)
 
-    for key, values in graph.items():
+    for key, values in list(graph.items()):
         for i in values:
             indegree[i] += 1
 

@@ -30,8 +30,13 @@ Reference:
     https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-98-14.pdf
     http://web.cs.iastate.edu/~honavar/smo-svm.pdf
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import os
 import sys
 import urllib.request
@@ -48,7 +53,7 @@ CANCER_DATASET_URL = (
 )
 
 
-class SmoSVM:
+class SmoSVM(object):
     def __init__(
         self,
         train,
@@ -326,7 +331,7 @@ class SmoSVM:
 
         # select the new alpha2 which could get the minimal objectives
         if eta > 0.0:
-            a2_new_unc = a2 + (y2 * (e1 - e2)) / eta
+            a2_new_unc = a2 + old_div((y2 * (e1 - e2)), eta)
             # a2_new has a boundary
             if a2_new_unc >= H:
                 a2_new = H
@@ -345,15 +350,15 @@ class SmoSVM:
             ol = (
                 l1 * f1
                 + L * f2
-                + 1 / 2 * l1 ** 2 * K(i1, i1)
-                + 1 / 2 * L ** 2 * K(i2, i2)
+                + old_div(1, 2) * l1 ** 2 * K(i1, i1)
+                + old_div(1, 2) * L ** 2 * K(i2, i2)
                 + s * L * l1 * K(i1, i2)
             )
             oh = (
                 h1 * f1
                 + H * f2
-                + 1 / 2 * h1 ** 2 * K(i1, i1)
-                + 1 / 2 * H ** 2 * K(i2, i2)
+                + old_div(1, 2) * h1 ** 2 * K(i1, i1)
+                + old_div(1, 2) * H ** 2 * K(i2, i2)
                 + s * H * h1 * K(i1, i2)
             )
             """
@@ -385,9 +390,9 @@ class SmoSVM:
             self._min = np.min(data, axis=0)
             self._max = np.max(data, axis=0)
             self._init = False
-            return (data - self._min) / (self._max - self._min)
+            return old_div((data - self._min), (self._max - self._min))
         else:
-            return (data - self._min) / (self._max - self._min)
+            return old_div((data - self._min), (self._max - self._min))
 
     def _is_unbound(self, index):
         if 0.0 < self.alphas[index] < self._c:
@@ -414,7 +419,7 @@ class SmoSVM:
         return self.samples.shape[0]
 
 
-class Kernel:
+class Kernel(object):
     def __init__(self, kernel, degree=1.0, coef0=0.0, gamma=1.0):
         self.degree = np.float64(degree)
         self.coef0 = np.float64(coef0)

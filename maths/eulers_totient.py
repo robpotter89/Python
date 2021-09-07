@@ -1,4 +1,5 @@
 # Eulers Totient function finds the number of relative primes of a number n from 1 to n
+from builtins import range
 def totient(n: int) -> list:
     is_prime = [True for i in range(n + 1)]
     totients = [i - 1 for i in range(n + 1)]

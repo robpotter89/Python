@@ -10,8 +10,11 @@ python3 -m doctest -v p_series.py
 For manual testing run:
 python3 p_series.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def p_series(nth_term: int, power: int) -> list:
     """Pure Python implementation of P-Series algorithm
 
@@ -42,7 +45,7 @@ def p_series(nth_term: int, power: int) -> list:
 
 
 if __name__ == "__main__":
-    nth_term = input("Enter the last number (nth term) of the P-Series")
-    power = input("Enter the power for  P-Series")
+    nth_term = eval(input("Enter the last number (nth term) of the P-Series"))
+    power = eval(input("Enter the power for  P-Series"))
     print("Formula of P-Series => 1+1/2^p+1/3^p ..... 1/n^p")
     print(p_series(nth_term, power))

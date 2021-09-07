@@ -10,8 +10,11 @@ python3 -m doctest -v harmonic_series.py
 For manual testing run:
 python3 harmonic_series.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def harmonic_series(n_term: str) -> list:
     """Pure Python implementation of Harmonic Series algorithm
 
@@ -41,6 +44,6 @@ def harmonic_series(n_term: str) -> list:
 
 
 if __name__ == "__main__":
-    nth_term = input("Enter the last number (nth term) of the Harmonic Series")
+    nth_term = eval(input("Enter the last number (nth term) of the Harmonic Series"))
     print("Formula of Harmonic Series => 1+1/2+1/3 ..... 1/n")
     print(harmonic_series(nth_term))

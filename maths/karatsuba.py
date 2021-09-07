@@ -1,6 +1,8 @@
 """ Multiply two numbers using Karatsuba algorithm """
+from __future__ import print_function
 
 
+from builtins import str
 def karatsuba(a, b):
     """
     >>> karatsuba(15463, 23489) == 15463 * 23489

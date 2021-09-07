@@ -13,13 +13,19 @@
     Date: 2017.9.20
     - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import map
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import pickle
 
 import numpy as np
 from matplotlib import pyplot as plt
 
 
-class CNN:
+class CNN(object):
     def __init__(
         self, conv1_get, size_p1, bp_num1, bp_num2, bp_num3, rate_w=0.2, rate_t=0.2
     ):
@@ -99,7 +105,7 @@ class CNN:
         return conv_ins
 
     def sig(self, x):
-        return 1 / (1 + np.exp(-1 * x))
+        return old_div(1, (1 + np.exp(-1 * x)))
 
     def do_round(self, x):
         return round(x, 3)
@@ -119,7 +125,7 @@ class CNN:
                 data_focus.append(focus)
         # calculate the feature map of every single kernel, and saved as list of matrix
         data_featuremap = []
-        Size_FeatureMap = int((size_data - size_conv) / conv_step + 1)
+        Size_FeatureMap = int(old_div((size_data - size_conv), conv_step) + 1)
         for i_map in range(num_conv):
             featuremap = []
             for i_focus in range(len(data_focus)):
@@ -143,7 +149,7 @@ class CNN:
     def pooling(self, featuremaps, size_pooling, type="average_pool"):
         # pooling process
         size_map = len(featuremaps[0])
-        size_pooled = int(size_map / size_pooling)
+        size_pooled = int(old_div(size_map, size_pooling))
         featuremap_pooled = []
         for i_map in range(len(featuremaps)):
             map = featuremaps[i_map]
@@ -256,7 +262,7 @@ class CNN:
                 )
                 pd_i_all = np.dot(pd_j_all, self.vji)
 
-                pd_conv1_pooled = pd_i_all / (self.size_pooling1 * self.size_pooling1)
+                pd_conv1_pooled = old_div(pd_i_all, (self.size_pooling1 * self.size_pooling1))
                 pd_conv1_pooled = pd_conv1_pooled.T.getA().tolist()
                 pd_conv1_all = self._calculate_gradient_from_pool(
                     data_conved1,
@@ -290,7 +296,7 @@ class CNN:
                 # print('   ----Teach      ',data_teach)
                 # print('   ----BP_output  ',bp_out3)
             rp = rp + 1
-            mse = error_count / patterns
+            mse = old_div(error_count, patterns)
             all_mse.append(mse)
 
         def draw_error():

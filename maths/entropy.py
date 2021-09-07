@@ -5,7 +5,11 @@ Implementation of entropy of information
 https://en.wikipedia.org/wiki/Entropy_(information_theory)
 """
 from __future__ import annotations
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 import math
 from collections import Counter
 from string import ascii_lowercase
@@ -64,7 +68,7 @@ def calculate_prob(text: str) -> None:
     for ch in my_alphas:
         if ch in single_char_strings:
             my_str = single_char_strings[ch]
-            prob = my_str / all_sum
+            prob = old_div(my_str, all_sum)
             my_fir_sum += prob * math.log2(prob)  # entropy formula.
 
     # print entropy
@@ -79,7 +83,7 @@ def calculate_prob(text: str) -> None:
             sequence = ch0 + ch1
             if sequence in two_char_strings:
                 my_str = two_char_strings[sequence]
-                prob = int(my_str) / all_sum
+                prob = old_div(int(my_str), all_sum)
                 my_sec_sum += prob * math.log2(prob)
 
     # print second entropy

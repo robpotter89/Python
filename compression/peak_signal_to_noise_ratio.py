@@ -4,7 +4,10 @@ Peak signal-to-noise ratio - PSNR
 Source:
 https://tutorials.techonical.com/how-to-calculate-psnr-value-of-two-images-using-python
 """
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 import math
 import os
 
@@ -17,7 +20,7 @@ def psnr(original, contrast):
     if mse == 0:
         return 100
     PIXEL_MAX = 255.0
-    PSNR = 20 * math.log10(PIXEL_MAX / math.sqrt(mse))
+    PSNR = 20 * math.log10(old_div(PIXEL_MAX, math.sqrt(mse)))
     return PSNR
 
 

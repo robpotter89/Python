@@ -9,7 +9,10 @@ with this property is 614656 = 28^4. We shall define an to be the nth term of
 this sequence and insist that a number must contain at least two digits to have a sum.
 You are given that a2 = 512 and a10 = 614656. Find a30
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import range
 import math
 
 

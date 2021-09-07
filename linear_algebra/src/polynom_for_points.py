@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from past.utils import old_div
 def points_to_polynomial(coordinates: list[list[int]]) -> str:
     """
     coordinates is a two dimensional matrix: [[x, y], [x, y], ...]
@@ -80,7 +85,7 @@ def points_to_polynomial(coordinates: list[list[int]]) -> str:
                     zahlen += 1
                 if zahlen == x:
                     break
-                bruch = matrix[zahlen][count] / matrix[count][count]
+                bruch = old_div(matrix[zahlen][count], matrix[count][count])
                 for counting_columns, item in enumerate(matrix[count]):
                     # manipulating all the values in the matrix
                     matrix[zahlen][counting_columns] -= item * bruch
@@ -93,7 +98,7 @@ def points_to_polynomial(coordinates: list[list[int]]) -> str:
         # make solutions
         solution: list[str] = []
         while count < x:
-            solution.append(str(vector[count] / matrix[count][count]))
+            solution.append(str(old_div(vector[count], matrix[count][count])))
             count += 1
 
         count = 0

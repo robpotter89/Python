@@ -26,7 +26,9 @@ keep track of the frequencies of the perimeters.
 
 Reference: https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple
 """
+from __future__ import print_function
 
+from builtins import range
 from collections import defaultdict
 from math import gcd
 from typing import DefaultDict
@@ -53,7 +55,7 @@ def solution(limit: int = 1500000) -> int:
             for perimeter in range(primitive_perimeter, limit + 1, primitive_perimeter):
                 frequencies[perimeter] += 1
         euclid_m += 1
-    return sum(1 for frequency in frequencies.values() if frequency == 1)
+    return sum(1 for frequency in list(frequencies.values()) if frequency == 1)
 
 
 if __name__ == "__main__":

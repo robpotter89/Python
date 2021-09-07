@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 from __future__ import annotations
 
 
@@ -61,7 +64,7 @@ if __name__ == "__main__":
     graph: list[dict[str, int]] = [dict() for j in range(E)]
 
     for i in range(E):
-        print("Edge ", i + 1)
+        print(("Edge ", i + 1))
         src, dest, weight = [
             int(x)
             for x in input("Enter source, destination, weight: ").strip().split(" ")

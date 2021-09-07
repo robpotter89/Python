@@ -1,3 +1,5 @@
+from builtins import bytes
+from builtins import range
 B64_CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
 

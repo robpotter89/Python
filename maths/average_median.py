@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from typing import Union
 
 
@@ -23,7 +25,7 @@ def median(nums: list) -> Union[int, float]:
     length = len(sorted_list)
     mid_index = length >> 1
     return (
-        (sorted_list[mid_index] + sorted_list[mid_index - 1]) / 2
+        old_div((sorted_list[mid_index] + sorted_list[mid_index - 1]), 2)
         if length % 2 == 0
         else sorted_list[mid_index]
     )

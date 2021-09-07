@@ -2,6 +2,7 @@
    boston dataset which is very popular for regression problem to
    predict house price.
 """
+from __future__ import print_function
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -15,7 +16,7 @@ def main():
 
     # loading the dataset from the sklearn
     df = load_boston()
-    print(df.keys())
+    print(list(df.keys()))
     # now let construct a data frame
     df_boston = pd.DataFrame(df.data, columns=df.feature_names)
     # let add the target to the dataframe
@@ -41,8 +42,8 @@ def main():
     # to see how good the model fit the data
     training_score = model.score(X_train, y_train).round(3)
     test_score = model.score(X_test, y_test).round(3)
-    print("Training score of GradientBoosting is :", training_score)
-    print("The test score of GradientBoosting is :", test_score)
+    print(("Training score of GradientBoosting is :", training_score))
+    print(("The test score of GradientBoosting is :", test_score))
     # Let us evaluation the model by finding the errors
     y_pred = model.predict(X_test)
 

@@ -22,9 +22,11 @@ python3 -m doctest -v dutch_national_flag_sort.py
 For manual testing run:
 python dnf_sort.py
 """
+from __future__ import print_function
 
 
 # Python program to sort a sequence containing only 0, 1 and 2 in a single pass.
+from builtins import input
 red = 0  # The first color of the flag.
 white = 1  # The second color of the flag.
 blue = 2  # The third color of the flag.

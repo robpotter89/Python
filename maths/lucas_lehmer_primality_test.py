@@ -9,10 +9,12 @@
         The Lucas–Lehmer test is the primality test used by the
         Great Internet Mersenne Prime Search (GIMPS) to locate large primes.
 """
+from __future__ import print_function
 
 
 # Primality test 2^p - 1
 # Return true if 2^p - 1 is prime
+from builtins import range
 def lucas_lehmer_test(p: int) -> bool:
     """
     >>> lucas_lehmer_test(p=7)

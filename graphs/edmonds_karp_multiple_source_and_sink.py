@@ -1,4 +1,7 @@
-class FlowNetwork:
+from __future__ import print_function
+from builtins import range
+from builtins import object
+class FlowNetwork(object):
     def __init__(self, graph, sources, sinks):
         self.sourceIndex = None
         self.sinkIndex = None
@@ -57,7 +60,7 @@ class FlowNetwork:
         self.maximumFlowAlgorithm = Algorithm(self)
 
 
-class FlowNetworkAlgorithmExecutor:
+class FlowNetworkAlgorithmExecutor(object):
     def __init__(self, flowNetwork):
         self.flowNetwork = flowNetwork
         self.verticesCount = flowNetwork.verticesCount

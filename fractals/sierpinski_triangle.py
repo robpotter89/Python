@@ -27,6 +27,8 @@ Credits: This code was written by editing the code from
 http://www.riannetrujillo.com/blog/python-fractal/
 
 """
+from __future__ import division
+from past.utils import old_div
 import sys
 import turtle
 
@@ -36,7 +38,7 @@ points = [[-175, -125], [0, 175], [175, -125]]  # size of triangle
 
 
 def getMid(p1, p2):
-    return ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)  # find midpoint
+    return (old_div((p1[0] + p2[0]), 2), old_div((p1[1] + p2[1]), 2))  # find midpoint
 
 
 def triangle(points, depth):

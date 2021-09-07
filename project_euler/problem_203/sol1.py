@@ -27,7 +27,10 @@ Pascal's triangle.
 References:
 - https://en.wikipedia.org/wiki/Pascal%27s_triangle
 """
+from __future__ import print_function
 
+from builtins import zip
+from builtins import range
 import math
 from typing import List, Set
 

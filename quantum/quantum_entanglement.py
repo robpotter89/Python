@@ -7,7 +7,9 @@ where entangled particles stay connected (in some sense) so that
 the actions performed on one of the particles affects the other,
 no matter the distance between two particles.
 """
+from __future__ import print_function
 
+from builtins import range
 import qiskit
 
 

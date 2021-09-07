@@ -10,6 +10,7 @@ Script inspired from its corresponding Wikipedia article
 https://en.wikipedia.org/wiki/Rectifier_(neural_networks)
 """
 from __future__ import annotations
+from __future__ import print_function
 
 import numpy as np
 

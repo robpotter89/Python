@@ -1,6 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Computus#Gauss'_Easter_algorithm
 """
+from __future__ import division
+from __future__ import print_function
+from past.utils import old_div
 import math
 from datetime import datetime, timedelta
 
@@ -24,9 +27,9 @@ def gauss_easter(year: int) -> datetime:
     metonic_cycle = year % 19
     julian_leap_year = year % 4
     non_leap_year = year % 7
-    leap_day_inhibits = math.floor(year / 100)
-    lunar_orbit_correction = math.floor((13 + 8 * leap_day_inhibits) / 25)
-    leap_day_reinstall_number = leap_day_inhibits / 4
+    leap_day_inhibits = math.floor(old_div(year, 100))
+    lunar_orbit_correction = math.floor(old_div((13 + 8 * leap_day_inhibits), 25))
+    leap_day_reinstall_number = old_div(leap_day_inhibits, 4)
     secular_moon_shift = (
         15 - lunar_orbit_correction + leap_day_inhibits - leap_day_reinstall_number
     ) % 30

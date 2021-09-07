@@ -14,8 +14,10 @@ four million, find the sum of the even-valued terms.
 References:
     - https://en.wikipedia.org/wiki/Fibonacci_number
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(n: int = 4000000) -> int:
     """
     Returns the sum of all even fibonacci sequence elements that are lower

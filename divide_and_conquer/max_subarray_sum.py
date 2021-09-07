@@ -8,6 +8,7 @@ Ref : INTRODUCTION TO ALGORITHMS THIRD EDITION
 (section : 4, sub-section : 4.1, page : 70)
 
 """
+from __future__ import print_function
 
 
 def max_sum_from_start(array):
@@ -71,6 +72,6 @@ def max_subarray_sum(array, left, right):
 
 array = [-2, -5, 6, -2, -3, 1, 5, -6]
 array_length = len(array)
-print(
+print((
     "Maximum sum of contiguous subarray:", max_subarray_sum(array, 0, array_length - 1)
-)
+))

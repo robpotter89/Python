@@ -14,8 +14,11 @@ the boundary of the Mandelbrot set a fractal curve.
 (description adapted from https://en.wikipedia.org/wiki/Mandelbrot_set )
 (see also https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set )
 """
+from __future__ import division
 
 
+from builtins import range
+from past.utils import old_div
 import colorsys
 
 from PIL import Image  # type: ignore
@@ -45,7 +48,7 @@ def get_distance(x: float, y: float, max_step: int) -> float:
         # greater than 4
         if a * a + b * b > 4:
             break
-    return step / (max_step - 1)
+    return old_div(step, (max_step - 1))
 
 
 def get_black_and_white_rgb(distance: float) -> tuple:
@@ -114,9 +117,9 @@ def get_image(
         for image_y in range(image_height):
 
             # determine the figure-coordinates based on the image-coordinates
-            figure_height = figure_width / image_width * image_height
-            figure_x = figure_center_x + (image_x / image_width - 0.5) * figure_width
-            figure_y = figure_center_y + (image_y / image_height - 0.5) * figure_height
+            figure_height = old_div(figure_width, image_width) * image_height
+            figure_x = figure_center_x + (old_div(image_x, image_width) - 0.5) * figure_width
+            figure_y = figure_center_y + (old_div(image_y, image_height) - 0.5) * figure_height
 
             distance = get_distance(figure_x, figure_y, max_step)
 

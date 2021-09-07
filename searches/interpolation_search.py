@@ -1,6 +1,7 @@
 """
 This is pure Python implementation of interpolation search algorithm
 """
+from __future__ import print_function
 
 
 def interpolation_search(sorted_collection, item):

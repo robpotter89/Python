@@ -3,6 +3,7 @@
 """
 
 
+from builtins import range
 def miller_rabin(n: int, allow_probable: bool = False) -> bool:
     """Deterministic Miller-Rabin algorithm for primes ~< 3.32e24.
 

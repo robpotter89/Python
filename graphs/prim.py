@@ -5,12 +5,15 @@
     Details: https://en.wikipedia.org/wiki/Prim%27s_algorithm
 """
 
+from builtins import str
+from builtins import range
+from builtins import object
 import heapq as hq
 import math
 from typing import Iterator
 
 
-class Vertex:
+class Vertex(object):
     """Class Vertex."""
 
     def __init__(self, id):

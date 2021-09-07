@@ -16,7 +16,9 @@ up to 1000 is 34825.
 
 What is the sum of all semidivisible numbers not exceeding 999966663333 ?
 """
+from __future__ import print_function
 
+from builtins import range
 import math
 
 

@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 import os
 import sys
 import time
@@ -8,15 +10,15 @@ from . import transposition_cipher as transCipher
 def main() -> None:
     inputFile = "Prehistoric Men.txt"
     outputFile = "Output.txt"
-    key = int(input("Enter key: "))
-    mode = input("Encrypt/Decrypt [e/d]: ")
+    key = int(eval(input("Enter key: ")))
+    mode = eval(input("Encrypt/Decrypt [e/d]: "))
 
     if not os.path.exists(inputFile):
         print("File %s does not exist. Quitting..." % inputFile)
         sys.exit()
     if os.path.exists(outputFile):
         print("Overwrite %s? [y/n]" % outputFile)
-        response = input("> ")
+        response = eval(input("> "))
         if not response.lower().startswith("y"):
             sys.exit()
 

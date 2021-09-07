@@ -1,9 +1,12 @@
 """
 A binary search Tree
 """
+from __future__ import print_function
 
 
-class Node:
+from builtins import str
+from builtins import object
+class Node(object):
     def __init__(self, value, parent):
         self.value = value
         self.parent = parent  # Added in order to delete a node easier
@@ -18,7 +21,7 @@ class Node:
         return pformat({"%s" % (self.value): (self.left, self.right)}, indent=1)
 
 
-class BinarySearchTree:
+class BinarySearchTree(object):
     def __init__(self, root=None):
         self.root = root
 
@@ -206,8 +209,8 @@ def binary_search_tree():
         print("The value -1 doesn't exist")
 
     if not t.empty():
-        print("Max Value: ", t.get_max().value)
-        print("Min Value: ", t.get_min().value)
+        print(("Max Value: ", t.get_max().value))
+        print(("Min Value: ", t.get_min().value))
 
     for i in testlist:
         t.remove(i)

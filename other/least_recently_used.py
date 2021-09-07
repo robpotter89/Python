@@ -1,9 +1,11 @@
+from __future__ import print_function
+from builtins import object
 import sys
 from abc import abstractmethod
 from collections import deque
 
 
-class LRUCache:
+class LRUCache(object):
     """Page Replacement Algorithm, Least Recently Used (LRU) Caching."""
 
     dq_store = object()  # Cache store of keys

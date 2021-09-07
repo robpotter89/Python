@@ -24,8 +24,12 @@ Thus the weights for each column are as follows:
 >>> procentual_proximity([[20, 60, 2012],[23, 90, 2015],[22, 50, 2011]], [0, 0, 1])
 [[20, 60, 2012, 2.0], [23, 90, 2015, 1.0], [22, 50, 2011, 1.3333333333333335]]
 """
+from __future__ import division
 
 
+from builtins import zip
+from builtins import range
+from past.utils import old_div
 def procentual_proximity(source_data: list, weights: list) -> list:
 
     """
@@ -57,14 +61,14 @@ def procentual_proximity(source_data: list, weights: list) -> list:
         if weight == 0:
             for item in dlist:
                 try:
-                    score.append(1 - ((item - mind) / (maxd - mind)))
+                    score.append(1 - (old_div((item - mind), (maxd - mind))))
                 except ZeroDivisionError:
                     score.append(1)
 
         elif weight == 1:
             for item in dlist:
                 try:
-                    score.append((item - mind) / (maxd - mind))
+                    score.append(old_div((item - mind), (maxd - mind)))
                 except ZeroDivisionError:
                     score.append(0)
 

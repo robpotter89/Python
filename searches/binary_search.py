@@ -9,6 +9,8 @@ python3 -m doctest -v binary_search.py
 For manual testing run:
 python3 binary_search.py
 """
+from __future__ import print_function
+from builtins import input
 import bisect
 from typing import List, Optional
 
@@ -300,7 +302,7 @@ def binary_search_by_recursion(
 if __name__ == "__main__":
     user_input = input("Enter numbers separated by comma:\n").strip()
     collection = sorted(int(item) for item in user_input.split(","))
-    target = int(input("Enter a single number to be found in the list:\n"))
+    target = int(eval(input("Enter a single number to be found in the list:\n")))
     result = binary_search(collection, target)
     if result is None:
         print(f"{target} was not found in {collection}.")

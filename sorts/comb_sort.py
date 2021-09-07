@@ -18,8 +18,12 @@ python3 -m doctest -v comb_sort.py
 For manual testing run:
 python comb_sort.py
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import input
+from past.utils import old_div
 def comb_sort(data: list) -> list:
     """Pure implementation of comb sort algorithm in Python
     :param data: mutable collection with comparable items
@@ -39,7 +43,7 @@ def comb_sort(data: list) -> list:
     while not completed:
 
         # Update the gap value for a next comb
-        gap = int(gap / shrink_factor)
+        gap = int(old_div(gap, shrink_factor))
         if gap <= 1:
             completed = True
 

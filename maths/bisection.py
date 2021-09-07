@@ -6,8 +6,11 @@ Find root of function in interval [a, b] (Or find a value of x such that f(x) is
 
 https://en.wikipedia.org/wiki/Bisection_method
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def equation(x: float) -> float:
     """
     >>> equation(5)
@@ -42,7 +45,7 @@ def bisection(a: float, b: float) -> float:
     c = a
     while (b - a) >= 0.01:
         # Find middle point
-        c = (a + b) / 2
+        c = old_div((a + b), 2)
         # Check if middle point is root
         if equation(c) == 0.0:
             break

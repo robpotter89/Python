@@ -27,6 +27,7 @@ Game-Of-Life Rules:
  Any dead cell with exactly three live neighbours be-
  comes a live cell, as if by reproduction.
  """
+from builtins import range
 import random
 import sys
 

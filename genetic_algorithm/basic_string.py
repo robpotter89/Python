@@ -6,7 +6,11 @@ Author: D4rkia
 """
 
 from __future__ import annotations
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 import random
 
 # Maximum size of the population.  bigger could be faster but is more memory expensive
@@ -113,12 +117,12 @@ def basic(target: str, genes: list[str], debug: bool = True) -> tuple[int, int, 
 
         # Flush the old population keeping some of the best evolutions
         # Keeping this avoid regression of evolution
-        population_best = population[: int(N_POPULATION / 3)]
+        population_best = population[: int(old_div(N_POPULATION, 3))]
         population.clear()
         population.extend(population_best)
         # Normalize population score from 0 to 1
         population_score = [
-            (item, score / len(target)) for item, score in population_score
+            (item, old_div(score, len(target))) for item, score in population_score
         ]
 
         # Select, Crossover and Mutate a new population

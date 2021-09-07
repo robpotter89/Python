@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 from typing import Tuple
 
 
@@ -24,7 +28,7 @@ def diophantine(a: int, b: int, c: int) -> Tuple[float, float]:
         c % greatest_common_divisor(a, b) == 0
     )  # greatest_common_divisor(a,b) function implemented below
     (d, x, y) = extended_gcd(a, b)  # extended_gcd(a,b) function implemented below
-    r = c / d
+    r = old_div(c, d)
     return (r * x, r * y)
 
 
@@ -66,7 +70,7 @@ def diophantine_all_soln(a: int, b: int, c: int, n: int = 2) -> None:
     for i in range(n):
         x = x0 + i * q
         y = y0 - i * p
-        print(x, y)
+        print((x, y))
 
 
 def greatest_common_divisor(a: int, b: int) -> int:

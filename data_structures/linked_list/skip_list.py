@@ -2,7 +2,11 @@
 Based on "Skip Lists: A Probabilistic Alternative to Balanced Trees" by William Pugh
 https://epaperpress.com/sortsearch/download/skiplist.pdf
 """
+from __future__ import print_function
 
+from builtins import zip
+from builtins import str
+from builtins import range
 from __future__ import annotations
 
 from random import random
@@ -137,7 +141,7 @@ class SkipList(Generic[KT, VT]):
 
         node = self.head
 
-        for i in reversed(range(self.level)):
+        for i in reversed(list(range(self.level))):
             # i < node.level - When node level is lesser than `i` decrement `i`.
             # node.forward[i].key < key - Jumping to node with key value higher
             #                             or equal to searched key would result

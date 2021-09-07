@@ -23,8 +23,11 @@ The 12th term, F12, is the first term to contain three digits.
 What is the index of the first term in the Fibonacci sequence to contain 1000
 digits?
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import input
 def solution(n: int = 1000) -> int:
     """Returns the index of the first term in the Fibonacci sequence to contain
     n digits.
@@ -53,4 +56,4 @@ def solution(n: int = 1000) -> int:
 
 
 if __name__ == "__main__":
-    print(solution(int(str(input()).strip())))
+    print(solution(int(str(eval(input())).strip())))

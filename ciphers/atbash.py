@@ -1,4 +1,6 @@
 """ https://en.wikipedia.org/wiki/Atbash """
+from __future__ import print_function
+from builtins import chr
 import string
 
 
@@ -42,22 +44,22 @@ def benchmark() -> None:
     from timeit import timeit
 
     print("Running performance benchmarks...")
-    print(
+    print((
         "> atbash_slow()",
         timeit(
             "atbash_slow(printable)",
             setup="from string import printable ; from __main__ import atbash_slow",
         ),
         "seconds",
-    )
-    print(
+    ))
+    print((
         ">      atbash()",
         timeit(
             "atbash(printable)",
             setup="from string import printable ; from __main__ import atbash",
         ),
         "seconds",
-    )
+    ))
 
 
 if __name__ == "__main__":

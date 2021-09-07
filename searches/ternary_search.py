@@ -6,6 +6,11 @@ This is a type of divide and conquer algorithm which divides the search space in
 Time Complexity  : O(log3 N)
 Space Complexity : O(1)
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from builtins import range
+from past.utils import old_div
 from typing import List
 
 # This is the precision for this function which can be altered.
@@ -89,8 +94,8 @@ def ite_ternary_search(array: List[int], target: int) -> int:
         if right - left < precision:
             return lin_search(left, right, array, target)
 
-        one_third = (left + right) / 3 + 1
-        two_third = 2 * (left + right) / 3 + 1
+        one_third = old_div((left + right), 3) + 1
+        two_third = old_div(2 * (left + right), 3) + 1
 
         if array[one_third] == target:
             return one_third
@@ -138,8 +143,8 @@ def rec_ternary_search(left: int, right: int, array: List[int], target: int) -> 
     if left < right:
         if right - left < precision:
             return lin_search(left, right, array, target)
-        one_third = (left + right) / 3 + 1
-        two_third = 2 * (left + right) / 3 + 1
+        one_third = old_div((left + right), 3) + 1
+        two_third = old_div(2 * (left + right), 3) + 1
 
         if array[one_third] == target:
             return one_third

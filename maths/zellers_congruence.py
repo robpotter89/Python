@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import str
+from past.utils import old_div
 import argparse
 import datetime
 
@@ -124,8 +127,8 @@ def zeller(date_input: str) -> str:
     c: int = int(str(y)[:2])
     k: int = int(str(y)[2:])
     t: int = int(2.6 * m - 5.39)
-    u: int = int(c / 4)
-    v: int = int(k / 4)
+    u: int = int(old_div(c, 4))
+    v: int = int(old_div(k, 4))
     x: int = int(d + k)
     z: int = int(t + u + v + x)
     w: int = int(z - (2 * c))

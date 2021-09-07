@@ -1,8 +1,11 @@
+from __future__ import print_function
 # Min heap data structure
 # with decrease key functionality - in O(log(n)) time
 
 
-class Node:
+from builtins import range
+from builtins import object
+class Node(object):
     def __init__(self, name, val):
         self.name = name
         self.val = val
@@ -14,7 +17,7 @@ class Node:
         return self.val < other.val
 
 
-class MinHeap:
+class MinHeap(object):
     """
     >>> r = Node("R", -1)
     >>> b = Node("B", 6)

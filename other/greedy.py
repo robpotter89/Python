@@ -1,4 +1,8 @@
-class things:
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
+class things(object):
     def __init__(self, name, value, weight):
         self.name = name
         self.value = value
@@ -17,7 +21,7 @@ class things:
         return self.weight
 
     def value_Weight(self):
-        return self.value / self.weight
+        return old_div(self.value, self.weight)
 
 
 def build_menu(name, value, weight):

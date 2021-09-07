@@ -6,6 +6,7 @@ Created on Mon Feb 26 15:40:07 2018
 
 This file contains the test-suite for the linear algebra library.
 """
+from builtins import str
 import unittest
 
 from .lib import Matrix, Vector, axpy, squareZeroMatrix, unitBasisVector, zeroVector

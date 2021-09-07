@@ -1,3 +1,5 @@
+from builtins import range
+from builtins import object
 from collections import deque
 from collections.abc import Iterator
 from dataclasses import dataclass
@@ -11,14 +13,14 @@ Link: https://codeforces.com/blog/entry/22276
 
 
 @dataclass
-class Edge:
+class Edge(object):
     """Weighted directed graph edge."""
 
     destination_vertex: int
     weight: int
 
 
-class AdjacencyList:
+class AdjacencyList(object):
     """Graph adjacency list."""
 
     def __init__(self, size: int):

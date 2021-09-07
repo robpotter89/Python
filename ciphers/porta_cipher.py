@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import input
 alphabet = {
     "A": ("ABCDEFGHIJKLM", "NOPQRSTUVWXYZ"),
     "B": ("ABCDEFGHIJKLM", "NOPQRSTUVWXYZ"),

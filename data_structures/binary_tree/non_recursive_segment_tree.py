@@ -35,6 +35,8 @@ https://www.geeksforgeeks.org/segment-tree-efficient-implementation/
 >>> st.query(0, 2)
 [1, 2, 3]
 """
+from builtins import range
+from builtins import object
 from __future__ import annotations
 
 from typing import Callable, TypeVar
@@ -42,7 +44,7 @@ from typing import Callable, TypeVar
 T = TypeVar("T")
 
 
-class SegmentTree:
+class SegmentTree(object):
     def __init__(self, arr: list[T], fnc: Callable[[T, T], T]) -> None:
         """
         Segment Tree constructor, it works just with commutative combiner.
@@ -150,7 +152,7 @@ if __name__ == "__main__":
 
     test_all_segments()
 
-    for index, value in test_updates.items():
+    for index, value in list(test_updates.items()):
         test_array[index] = value
         min_segment_tree.update(index, value)
         max_segment_tree.update(index, value)

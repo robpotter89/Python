@@ -11,8 +11,10 @@ python3 -m doctest -v gnome_sort.py
 For manual testing run:
 python3 gnome_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
 def gnome_sort(lst: list) -> list:
     """
     Pure implementation of the gnome sort algorithm in Python

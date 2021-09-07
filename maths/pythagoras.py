@@ -1,9 +1,10 @@
 """Uses Pythagoras theorem to calculate the distance between two points in space."""
 
+from builtins import object
 import math
 
 
-class Point:
+class Point(object):
     def __init__(self, x, y, z):
         self.x = x
         self.y = y

@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Random Forest Regressor Example
 from sklearn.datasets import load_boston
 from sklearn.ensemble import RandomForestRegressor
@@ -14,7 +15,7 @@ def main():
 
     # Load Boston house price dataset
     boston = load_boston()
-    print(boston.keys())
+    print(list(boston.keys()))
 
     # Split dataset into train and test data
     X = boston["data"]  # features

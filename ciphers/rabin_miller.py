@@ -1,5 +1,7 @@
+from __future__ import print_function
 # Primality Testing with the Rabin-Miller Algorithm
 
+from builtins import range
 import random
 
 

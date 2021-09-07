@@ -1,6 +1,8 @@
 # https://www.tutorialspoint.com/python3/bitwise_operators_example.htm
 
 
+from builtins import str
+from builtins import zip
 def binary_or(a: int, b: int) -> str:
     """
     Take in 2 integers, convert them to binary, and return a binary number that is the

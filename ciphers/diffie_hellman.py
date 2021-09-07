@@ -1,3 +1,6 @@
+from builtins import hex
+from builtins import str
+from builtins import object
 from binascii import hexlify
 from hashlib import sha256
 from os import urandom
@@ -179,7 +182,7 @@ primes = {
 }
 
 
-class DiffieHellman:
+class DiffieHellman(object):
     """
     Class to represent the Diffie-Hellman key exchange protocol
 

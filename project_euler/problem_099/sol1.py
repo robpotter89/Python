@@ -12,7 +12,9 @@ pair on each line, determine which line number has the greatest numerical value.
 
 NOTE: The first two lines in the file represent the numbers in the example given above.
 """
+from __future__ import print_function
 
+from builtins import map
 import os
 from math import log10
 

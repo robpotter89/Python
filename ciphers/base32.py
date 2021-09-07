@@ -1,8 +1,10 @@
+from __future__ import print_function
+from builtins import input
 import base64
 
 
 def main() -> None:
-    inp = input("->")
+    inp = eval(input("->"))
     encoded = inp.encode("utf-8")  # encoded the input (we need a bytes like object)
     b32encoded = base64.b32encode(encoded)  # b32encoded the encoded string
     print(b32encoded)

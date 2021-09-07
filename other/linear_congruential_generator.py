@@ -1,9 +1,11 @@
+from __future__ import print_function
+from builtins import object
 __author__ = "Tobias Carryer"
 
 from time import time
 
 
-class LinearCongruentialGenerator:
+class LinearCongruentialGenerator(object):
     """
     A pseudorandom number generator.
     """

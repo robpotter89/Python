@@ -1,8 +1,11 @@
 """
 https://en.wikipedia.org/wiki/Shellsort#Pseudocode
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def shell_sort(collection):
     """Pure implementation of shell sort algorithm in Python
     :param collection:  Some mutable ordered collection with heterogeneous

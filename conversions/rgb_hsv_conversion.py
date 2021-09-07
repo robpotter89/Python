@@ -10,8 +10,10 @@ representation to the other.
 (description adapted from https://en.wikipedia.org/wiki/RGB_color_model and
 https://en.wikipedia.org/wiki/HSL_and_HSV).
 """
+from __future__ import division
 
 
+from past.utils import old_div
 def hsv_to_rgb(hue: float, saturation: float, value: float) -> list[int]:
     """
     Conversion from the HSV-representation to the RGB-representation.
@@ -49,7 +51,7 @@ def hsv_to_rgb(hue: float, saturation: float, value: float) -> list[int]:
         raise Exception("value should be between 0 and 1")
 
     chroma = value * saturation
-    hue_section = hue / 60
+    hue_section = old_div(hue, 60)
     second_largest_component = chroma * (1 - abs(hue_section % 2 - 1))
     match_value = value - chroma
 
@@ -118,21 +120,21 @@ def rgb_to_hsv(red: int, green: int, blue: int) -> list[float]:
     if blue < 0 or blue > 255:
         raise Exception("blue should be between 0 and 255")
 
-    float_red = red / 255
-    float_green = green / 255
-    float_blue = blue / 255
+    float_red = old_div(red, 255)
+    float_green = old_div(green, 255)
+    float_blue = old_div(blue, 255)
     value = max(max(float_red, float_green), float_blue)
     chroma = value - min(min(float_red, float_green), float_blue)
-    saturation = 0 if value == 0 else chroma / value
+    saturation = 0 if value == 0 else old_div(chroma, value)
 
     if chroma == 0:
         hue = 0.0
     elif value == float_red:
-        hue = 60 * (0 + (float_green - float_blue) / chroma)
+        hue = 60 * (0 + old_div((float_green - float_blue), chroma))
     elif value == float_green:
-        hue = 60 * (2 + (float_blue - float_red) / chroma)
+        hue = 60 * (2 + old_div((float_blue - float_red), chroma))
     else:
-        hue = 60 * (4 + (float_red - float_green) / chroma)
+        hue = 60 * (4 + old_div((float_red - float_green), chroma))
 
     hue = (hue + 360) % 360
 

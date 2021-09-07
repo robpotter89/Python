@@ -12,8 +12,10 @@ of the numbers from 1 to 20?
 References:
     - https://en.wiktionary.org/wiki/evenly_divisible
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(n: int = 20) -> int:
     """
     Returns the smallest positive number that is evenly divisible (divisible

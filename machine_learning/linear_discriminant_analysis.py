@@ -42,6 +42,12 @@
 
     Author: @EverLookNeverSee
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import zip
+from builtins import input
+from builtins import range
+from past.utils import old_div
 from math import log
 from os import name, system
 from random import gauss, seed
@@ -102,7 +108,7 @@ def calculate_mean(instance_count: int, items: list) -> float:
     5.011267842911003
     """
     # the sum of all items divided by number of instances
-    return sum(items) / instance_count
+    return old_div(sum(items), instance_count)
 
 
 # Calculate the class probabilities
@@ -119,7 +125,7 @@ def calculate_probabilities(instance_count: int, total_count: int) -> float:
     0.3
     """
     # number of instances in specific class divided by number of all instances
-    return instance_count / total_count
+    return old_div(instance_count, total_count)
 
 
 # Calculate the variance
@@ -148,7 +154,7 @@ def calculate_variance(items: list, means: list, total_count: int) -> float:
     # one divided by (the number of all instances - number of classes) multiplied by
     # sum of all squared differences
     n_classes = len(means)  # Number of classes in dataset
-    return 1 / (total_count - n_classes) * sum(squared_diff)
+    return old_div(1, (total_count - n_classes)) * sum(squared_diff)
 
 
 # Making predictions
@@ -205,8 +211,8 @@ def predict_y_values(
             for k in range(len(x_items)):
                 # appending values of discriminants for each class to 'temp' list
                 temp.append(
-                    x_items[i][j] * (means[k] / variance)
-                    - (means[k] ** 2 / (2 * variance))
+                    x_items[i][j] * (old_div(means[k], variance))
+                    - (old_div(means[k] ** 2, (2 * variance)))
                     + log(probabilities[k])
                 )
             # appending discriminant values of each item to 'results' list
@@ -244,7 +250,7 @@ def accuracy(actual_y: list, predicted_y: list) -> float:
     correct = sum(1 for i, j in zip(actual_y, predicted_y) if i == j)
     # percentage of accuracy equals to number of correct predictions divided by number
     # of all data and multiplied by 100
-    return (correct / len(actual_y)) * 100
+    return (old_div(correct, len(actual_y))) * 100
 
 
 num = TypeVar("num")
@@ -286,7 +292,7 @@ def main():
     """This function starts execution phase"""
     while True:
         print(" Linear Discriminant Analysis ".center(50, "*"))
-        print("*" * 50, "\n")
+        print(("*" * 50, "\n"))
         print("First of all we should specify the number of classes that")
         print("we want to generate as training dataset")
         # Trying to get number of classes
@@ -337,7 +343,7 @@ def main():
             user_means.append(user_mean)
         print("-" * 100)
 
-        print("Standard deviation: ", std_dev)
+        print(("Standard deviation: ", std_dev))
         # print out the number of instances in classes in separated line
         for i, count in enumerate(counts, 1):
             print(f"Number of instances in class_{i} is: {count}")
@@ -353,12 +359,12 @@ def main():
             gaussian_distribution(user_means[j], std_dev, counts[j])
             for j in range(n_classes)
         ]
-        print("Generated Normal Distribution: \n", x)
+        print(("Generated Normal Distribution: \n", x))
         print("-" * 100)
 
         # Generating Ys to detecting corresponding classes
         y = y_generator(n_classes, counts)
-        print("Generated Corresponding Ys: \n", y)
+        print(("Generated Corresponding Ys: \n", y))
         print("-" * 100)
 
         # Calculating the value of actual mean for each class
@@ -382,7 +388,7 @@ def main():
 
         # Calculating the values of variance for each class
         variance = calculate_variance(x, actual_means, sum(counts))
-        print("Variance: ", variance)
+        print(("Variance: ", variance))
         print("-" * 100)
 
         # Predicting Y values

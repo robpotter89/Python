@@ -17,9 +17,13 @@ Find the last 8 digits of 1777↑↑1855.
 References:
     - https://en.wikipedia.org/wiki/Tetration
 """
+from __future__ import division
+from __future__ import print_function
 
 
 # small helper function for modular exponentiation
+from builtins import range
+from past.utils import old_div
 def _modexpt(base: int, exponent: int, modulo_value: int) -> int:
     """
     Returns the modular exponentiation, that is the value
@@ -36,7 +40,7 @@ def _modexpt(base: int, exponent: int, modulo_value: int) -> int:
     if exponent == 1:
         return base
     if exponent % 2 == 0:
-        x = _modexpt(base, exponent / 2, modulo_value) % modulo_value
+        x = _modexpt(base, old_div(exponent, 2), modulo_value) % modulo_value
         return (x * x) % modulo_value
     else:
         return (base * _modexpt(base, exponent - 1, modulo_value)) % modulo_value

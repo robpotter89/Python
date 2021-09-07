@@ -1,5 +1,8 @@
 from __future__ import annotations
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 from cmath import sqrt
 
 
@@ -20,8 +23,8 @@ def quadratic_roots(a: int, b: int, c: int) -> tuple[complex, complex]:
         raise ValueError("Coefficient 'a' must not be zero.")
     delta = b * b - 4 * a * c
 
-    root_1 = (-b + sqrt(delta)) / (2 * a)
-    root_2 = (-b - sqrt(delta)) / (2 * a)
+    root_1 = old_div((-b + sqrt(delta)), (2 * a))
+    root_2 = old_div((-b - sqrt(delta)), (2 * a))
 
     return (
         root_1.real if not root_1.imag else root_1,

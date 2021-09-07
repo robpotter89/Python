@@ -11,8 +11,11 @@ python3 -m doctest -v levenshtein-distance.py
 For manual testing run:
 python levenshtein-distance.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def levenshtein_distance(first_word: str, second_word: str) -> int:
     """Implementation of the levenshtein distance in Python.
     :param first_word: the first word to measure the difference.

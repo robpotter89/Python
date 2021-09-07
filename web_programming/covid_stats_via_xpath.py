@@ -3,6 +3,7 @@ This is to show simple COVID19 info fetching from worldometers site using lxml
 * The main motivation to use lxml in place of bs4 is that it is faster and therefore
 more convenient to use in Python web projects (e.g. Django or Flask-based)
 """
+from __future__ import print_function
 
 from collections import namedtuple
 

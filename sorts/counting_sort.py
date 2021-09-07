@@ -7,8 +7,12 @@ python3 -m doctest -v counting_sort.py
 For manual testing run:
 python counting_sort.py
 """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import chr
+from builtins import range
 def counting_sort(collection):
     """Pure implementation of counting sort algorithm in Python
     :param collection: some mutable ordered collection with heterogeneous
@@ -49,7 +53,7 @@ def counting_sort(collection):
 
     # place the elements in the output, respecting the original order (stable
     # sort) from end to begin, updating counting_arr
-    for i in reversed(range(0, coll_len)):
+    for i in reversed(list(range(0, coll_len))):
         ordered[counting_arr[collection[i] - coll_min] - 1] = collection[i]
         counting_arr[collection[i] - coll_min] -= 1
 

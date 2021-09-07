@@ -4,7 +4,9 @@ Union by Rank Heuristic and Path Compression
 """
 
 
-class DisjointSet:
+from builtins import range
+from builtins import object
+class DisjointSet(object):
     def __init__(self, set_counts: list) -> None:
         """
         Initialize with a list of the number of items in each set

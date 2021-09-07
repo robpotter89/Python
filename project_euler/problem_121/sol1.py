@@ -22,7 +22,11 @@ Solution:
     of the player winning. The inverse of this probability gives an upper bound for
     the prize if the banker wants to avoid an expected loss.
 """
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 from itertools import product
 
 
@@ -43,7 +47,7 @@ def solution(num_turns: int = 15) -> int:
     col: int
     series: tuple[int, ...]
 
-    for series in product(range(2), repeat=num_turns):
+    for series in product(list(range(2)), repeat=num_turns):
         num_blue = series.count(1)
         num_red = num_turns - num_blue
         if num_red >= num_blue:
@@ -51,13 +55,13 @@ def solution(num_turns: int = 15) -> int:
         prob = 1.0
         for ind, col in enumerate(series, 2):
             if col == 0:
-                prob *= (ind - 1) / ind
+                prob *= old_div((ind - 1), ind)
             else:
-                prob *= 1 / ind
+                prob *= old_div(1, ind)
 
         total_prob += prob
 
-    return int(1 / total_prob)
+    return int(old_div(1, total_prob))
 
 
 if __name__ == "__main__":

@@ -1,12 +1,16 @@
 """
 Fast Polynomial Multiplication using radix-2 fast Fourier Transform.
 """
+from __future__ import division
 
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import mpmath  # for roots of unity
 import numpy as np
 
 
-class FFT:
+class FFT(object):
     """
     Fast Polynomial Multiplication using radix-2 fast Fourier Transform.
 
@@ -132,19 +136,17 @@ class FFT:
                 for i in range(next_ncol // 2):
                     # Even positions
                     new_inverseC[i].append(
-                        (
+                        old_div((
                             inverseC[i][j]
                             + inverseC[i][j + self.C_max_length // next_ncol]
-                        )
-                        / 2
+                        ), 2)
                     )
                     # Odd positions
                     new_inverseC[i + next_ncol // 2].append(
-                        (
+                        old_div((
                             inverseC[i][j]
                             - inverseC[i][j + self.C_max_length // next_ncol]
-                        )
-                        / (2 * current_root)
+                        ), (2 * current_root))
                     )
                 current_root *= root
             # Update

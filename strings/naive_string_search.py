@@ -7,8 +7,10 @@ Complexity : O(n*m)
     n=length of main string
     m=length of pattern string
 """
+from __future__ import print_function
 
 
+from builtins import range
 def naive_pattern_search(s: str, pattern: str) -> list:
     """
     >>> naive_pattern_search("ABAAABCDBBABCDDEBCABC", "ABC")

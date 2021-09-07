@@ -1,3 +1,4 @@
+from builtins import range
 def palindromic_string(input_string: str) -> str:
     """
     >>> palindromic_string('abbbaba')

@@ -16,11 +16,14 @@
 # frequencies will be placed near the root of the tree while the nodes
 # with low frequencies will be placed near the leaves of the tree thus
 # reducing search time in the most frequent instances.
+from __future__ import print_function
+from builtins import range
+from builtins import object
 import sys
 from random import randint
 
 
-class Node:
+class Node(object):
     """Binary Search Tree Node"""
 
     def __init__(self, key, freq):

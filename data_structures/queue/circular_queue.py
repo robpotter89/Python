@@ -1,7 +1,8 @@
 # Implementation of Circular Queue (using Python lists)
 
 
-class CircularQueue:
+from builtins import object
+class CircularQueue(object):
     """Circular FIFO queue with a fixed capacity"""
 
     def __init__(self, n: int):

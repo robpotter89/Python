@@ -1,7 +1,10 @@
+from __future__ import print_function
+from builtins import range
+from builtins import object
 INF = float("inf")
 
 
-class Dinic:
+class Dinic(object):
     def __init__(self, n):
         self.lvl = [0] * n
         self.ptr = [0] * n

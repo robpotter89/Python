@@ -44,8 +44,12 @@ Solution:
 Reference: https://en.wikipedia.org/wiki/Triangular_number
            https://en.wikipedia.org/wiki/Quadratic_formula
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 from math import ceil, floor, sqrt
 from typing import List
 
@@ -83,7 +87,7 @@ def solution(target: int = 2000000) -> int:
     triangle_b_second_guess: int
 
     for idx_a, triangle_a in enumerate(triangle_numbers[1:], 1):
-        b_estimate = (-1 + sqrt(1 + 8 * target / triangle_a)) / 2
+        b_estimate = old_div((-1 + sqrt(1 + old_div(8 * target, triangle_a))), 2)
         b_floor = floor(b_estimate)
         b_ceil = ceil(b_estimate)
         triangle_b_first_guess = triangle_numbers[b_floor]

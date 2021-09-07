@@ -5,10 +5,12 @@ The rule for merging is that if two nodes overlap, then put the value sum of
 both nodes to the new value of the merged node. Otherwise, the NOT null node
 will be used as the node of new tree.
 """
+from __future__ import print_function
+from builtins import object
 from typing import Optional
 
 
-class Node:
+class Node(object):
     """
     A binary node has value variable and pointers to its left and right node.
     """

@@ -11,8 +11,10 @@ What is the 10001st prime number?
 References:
     - https://en.wikipedia.org/wiki/Prime_number
 """
+from __future__ import print_function
 
 
+from builtins import range
 def isprime(number: int) -> bool:
     """
     Determines whether the given number is prime or not

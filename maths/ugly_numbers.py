@@ -7,8 +7,10 @@ Given an integer n, we have to find the nth ugly number.
 For more details, refer this article
 https://www.geeksforgeeks.org/ugly-numbers/
 """
+from __future__ import print_function
 
 
+from builtins import range
 def ugly_numbers(n: int) -> int:
     """
     Returns the nth ugly number.

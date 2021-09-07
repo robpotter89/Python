@@ -5,8 +5,10 @@ where A,B,C and D are numbers from 0-254
 for example: 192.168.23.1, 172.254.254.254 are valid IP address
              192.168.255.0, 255.192.3.121 are Invalid IP address
 """
+from __future__ import print_function
 
 
+from builtins import input
 def check_valid_ip(ip: str) -> bool:
     """
     print "Valid IP address" If IP is valid.
@@ -38,7 +40,7 @@ def check_valid_ip(ip: str) -> bool:
 
 
 if __name__ == "__main__":
-    ip = input()
+    ip = eval(input())
     output = check_valid_ip(ip)
     if output is True:
         print(f"{ip} is a Valid IP address")

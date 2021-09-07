@@ -28,6 +28,8 @@ References:
 Finding totients
 https://en.wikipedia.org/wiki/Euler's_totient_function#Euler's_product_formula
 """
+from __future__ import print_function
+from builtins import range
 from typing import List
 
 

@@ -1,6 +1,9 @@
 """ https://en.wikipedia.org/wiki/Cocktail_shaker_sort """
+from __future__ import print_function
 
 
+from builtins import input
+from builtins import range
 def cocktail_shaker_sort(unsorted: list) -> list:
     """
     Pure implementation of the cocktail shaker sort algorithm in Python.

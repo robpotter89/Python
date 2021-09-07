@@ -12,8 +12,11 @@ All trinagle numbers are hexagonal numbers.
 T(2n-1) = n * (2 * n - 1) = H(n)
 So we shall check only for hexagonal numbers which are also pentagonal.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def hexagonal_num(n: int) -> int:
     """
     Returns nth hexagonal number
@@ -38,7 +41,7 @@ def is_pentagonal(n: int) -> bool:
     True
     """
     root = (1 + 24 * n) ** 0.5
-    return ((1 + root) / 6) % 1 == 0
+    return (old_div((1 + root), 6)) % 1 == 0
 
 
 def solution(start: int = 144) -> int:

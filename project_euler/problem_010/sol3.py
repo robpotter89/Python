@@ -11,8 +11,10 @@ References:
     - https://en.wikipedia.org/wiki/Prime_number
     - https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(n: int = 2000000) -> int:
     """
     Returns the sum of all the primes below n using Sieve of Eratosthenes:

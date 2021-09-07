@@ -1,4 +1,7 @@
 """Implementation of Basic Math in Python."""
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 import math
 
 
@@ -20,11 +23,11 @@ def prime_factors(n: int) -> list:
     pf = []
     while n % 2 == 0:
         pf.append(2)
-        n = int(n / 2)
+        n = int(old_div(n, 2))
     for i in range(3, int(math.sqrt(n)) + 1, 2):
         while n % i == 0:
             pf.append(i)
-            n = int(n / i)
+            n = int(old_div(n, i))
     if n > 2:
         pf.append(n)
     return pf
@@ -49,13 +52,13 @@ def number_of_divisors(n: int) -> int:
     temp = 1
     while n % 2 == 0:
         temp += 1
-        n = int(n / 2)
+        n = int(old_div(n, 2))
     div *= temp
     for i in range(3, int(math.sqrt(n)) + 1, 2):
         temp = 1
         while n % i == 0:
             temp += 1
-            n = int(n / i)
+            n = int(old_div(n, i))
         div *= temp
     return div
 
@@ -79,16 +82,16 @@ def sum_of_divisors(n: int) -> int:
     temp = 1
     while n % 2 == 0:
         temp += 1
-        n = int(n / 2)
+        n = int(old_div(n, 2))
     if temp > 1:
-        s *= (2 ** temp - 1) / (2 - 1)
+        s *= old_div((2 ** temp - 1), (2 - 1))
     for i in range(3, int(math.sqrt(n)) + 1, 2):
         temp = 1
         while n % i == 0:
             temp += 1
-            n = int(n / i)
+            n = int(old_div(n, i))
         if temp > 1:
-            s *= (i ** temp - 1) / (i - 1)
+            s *= old_div((i ** temp - 1), (i - 1))
     return int(s)
 
 
@@ -99,7 +102,7 @@ def euler_phi(n: int) -> int:
     """
     s = n
     for x in set(prime_factors(n)):
-        s *= (x - 1) / x
+        s *= old_div((x - 1), x)
     return int(s)
 
 

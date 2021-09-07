@@ -1,4 +1,6 @@
+from __future__ import print_function
 # Numbers of alphabet which we call base
+from builtins import range
 alphabet_size = 256
 # Modulus to hash a string
 modulus = 1000003

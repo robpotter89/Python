@@ -1,3 +1,8 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import chr
+from builtins import range
+from past.utils import old_div
 def mixed_keyword(key: str = "college", pt: str = "UNIVERSITY") -> str:
     """
 
@@ -35,7 +40,7 @@ def mixed_keyword(key: str = "college", pt: str = "UNIVERSITY") -> str:
         if t not in temp:
             temp.append(t)
     # print(temp)
-    r = int(26 / 4)
+    r = int(old_div(26, 4))
     # print(r)
     k = 0
     for _ in range(r):

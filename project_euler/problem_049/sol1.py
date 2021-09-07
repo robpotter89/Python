@@ -24,7 +24,10 @@ After that, bruteforce all passed candidates sequences using
 3 nested loops since we know the answer will be 12 digits.
 The bruteforce of this solution will be about 1 sec.
 """
+from __future__ import print_function
 
+from builtins import str
+from builtins import range
 from itertools import permutations
 from math import floor, sqrt
 

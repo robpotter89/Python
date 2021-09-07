@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import input
+from builtins import range
 def factors_of_a_number(num: int) -> list:
     """
     >>> factors_of_a_number(1)
@@ -13,6 +16,6 @@ def factors_of_a_number(num: int) -> list:
 
 
 if __name__ == "__main__":
-    num = int(input("Enter a number to find its factors: "))
+    num = int(eval(input("Enter a number to find its factors: ")))
     factors = factors_of_a_number(num)
     print(f"{num} has {len(factors)} factors: {', '.join(str(f) for f in factors)}")

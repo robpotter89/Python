@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import math
 from typing import Callable, Union
 
@@ -41,7 +45,7 @@ def line_length(
     for i in range(steps):
 
         # Approximates curve as a sequence of linear lines and sums their length
-        x2 = (x_end - x_start) / steps + x1
+        x2 = old_div((x_end - x_start), steps) + x1
         fx2 = fnc(x2)
         length += math.hypot(x2 - x1, fx2 - fx1)
 

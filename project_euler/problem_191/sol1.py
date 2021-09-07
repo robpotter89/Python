@@ -24,6 +24,7 @@ References:
     - The original Project Euler project page:
       https://projecteuler.net/problem=191
 """
+from __future__ import print_function
 
 
 cache = {}

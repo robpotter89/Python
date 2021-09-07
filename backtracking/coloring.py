@@ -5,6 +5,7 @@
 
     Wikipedia: https://en.wikipedia.org/wiki/Graph_coloring
 """
+from builtins import range
 from typing import List
 
 

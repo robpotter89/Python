@@ -13,6 +13,10 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 
 Evaluate the sum of all the amicable numbers under 10000.
 """
+from __future__ import print_function
+from builtins import str
+from builtins import input
+from builtins import range
 from math import sqrt
 
 
@@ -51,4 +55,4 @@ def solution(n: int = 10000) -> int:
 
 
 if __name__ == "__main__":
-    print(solution(int(str(input()).strip())))
+    print(solution(int(str(eval(input())).strip())))

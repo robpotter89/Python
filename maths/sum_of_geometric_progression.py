@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 def sum_of_geometric_progression(
     first_term: int, common_ratio: int, num_of_terms: int
 ) -> float:
@@ -25,4 +27,4 @@ def sum_of_geometric_progression(
         return num_of_terms * first_term
 
     # Formula for finding sum of n terms of a GeometricProgression
-    return (first_term / (1 - common_ratio)) * (1 - common_ratio ** num_of_terms)
+    return (old_div(first_term, (1 - common_ratio))) * (1 - common_ratio ** num_of_terms)

@@ -8,10 +8,11 @@ Operations:
 """
 
 
-class _DoublyLinkedBase:
+from builtins import object
+class _DoublyLinkedBase(object):
     """A Private class (to be inherited)"""
 
-    class _Node:
+    class _Node(object):
         __slots__ = "_prev", "_data", "_next"
 
         def __init__(self, link_p, element, link_n):

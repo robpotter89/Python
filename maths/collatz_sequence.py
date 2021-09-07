@@ -1,4 +1,5 @@
 from __future__ import annotations
+from __future__ import print_function
 
 
 def collatz_sequence(n: int) -> list[int]:

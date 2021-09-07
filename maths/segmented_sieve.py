@@ -1,5 +1,9 @@
 """Segmented Sieve."""
+from __future__ import division
+from __future__ import print_function
 
+from builtins import range
+from past.utils import old_div
 import math
 
 
@@ -29,7 +33,7 @@ def sieve(n):
         temp = [True] * (high - low + 1)
         for each in in_prime:
 
-            t = math.floor(low / each) * each
+            t = math.floor(old_div(low, each)) * each
             if t < low:
                 t += each
 

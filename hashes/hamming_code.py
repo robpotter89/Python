@@ -43,8 +43,13 @@
             print the original message, the encoded message, the bit changed
         message and the decoded message
 """
+from __future__ import division
+from __future__ import print_function
 
 # Imports
+from builtins import str
+from builtins import range
+from past.utils import old_div
 import numpy as np
 
 
@@ -99,7 +104,7 @@ def emitterConverter(sizePar, data):
         # Performs a template of bit positions - who should be given,
         # and who should be parity
         if qtdBP < sizePar:
-            if (np.log(x) / np.log(2)).is_integer():
+            if (old_div(np.log(x), np.log(2))).is_integer():
                 dataOutGab.append("P")
                 qtdBP = qtdBP + 1
             else:
@@ -165,7 +170,7 @@ def receptorConverter(sizePar, data):
     for x in range(1, len(data) + 1):
         # Performs a template of bit positions - who should be given,
         #  and who should be parity
-        if qtdBP < sizePar and (np.log(x) / np.log(2)).is_integer():
+        if qtdBP < sizePar and (old_div(np.log(x), np.log(2))).is_integer():
             dataOutGab.append("P")
             qtdBP = qtdBP + 1
         else:
@@ -195,7 +200,7 @@ def receptorConverter(sizePar, data):
     for x in range(1, sizePar + len(dataOutput) + 1):
         # Performs a template position of bits - who should be given,
         # and who should be parity
-        if qtdBP < sizePar and (np.log(x) / np.log(2)).is_integer():
+        if qtdBP < sizePar and (old_div(np.log(x), np.log(2))).is_integer():
             dataOutGab.append("P")
             qtdBP = qtdBP + 1
         else:

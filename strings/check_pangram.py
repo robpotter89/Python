@@ -1,6 +1,7 @@
 """
 wiki: https://en.wikipedia.org/wiki/Pangram
 """
+from __future__ import print_function
 
 
 def check_pangram(

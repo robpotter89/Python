@@ -11,6 +11,7 @@ Time Complexity: O(n) - where n is the length of the string
 """
 
 
+from builtins import range
 def prefix_function(input_string: str) -> list:
     """
     For the given string this function computes value for each index(i),

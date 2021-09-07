@@ -3,10 +3,16 @@ Implementation of a basic regression decision tree.
 Input data set: The input data set must be 1-dimensional with continuous labels.
 Output: The decision tree maps a real number input to a real number output.
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from past.utils import old_div
+from builtins import object
 import numpy as np
 
 
-class Decision_Tree:
+class Decision_Tree(object):
     def __init__(self, depth=5, min_leaf_size=5):
         self.depth = depth
         self.decision_boundary = 0
@@ -134,7 +140,7 @@ class Decision_Tree:
             return None
 
 
-class Test_Decision_Tree:
+class Test_Decision_Tree(object):
     """Decision Tres test class"""
 
     @staticmethod
@@ -149,7 +155,7 @@ class Test_Decision_Tree:
         for label in labels:
             squared_error_sum += (label - prediction) ** 2
 
-        return np.float(squared_error_sum / labels.size)
+        return np.float(old_div(squared_error_sum, labels.size))
 
 
 def main():

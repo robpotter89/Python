@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+from __future__ import division
+from builtins import chr
+from builtins import range
+from past.utils import old_div
 from typing import Optional
 
 
@@ -195,7 +199,7 @@ def decrypt_caesar_with_chi_squared(
                     expected = frequencies[letter] * occurrences
 
                     # Complete the chi squared statistic formula
-                    chi_letter_value = ((occurrences - expected) ** 2) / expected
+                    chi_letter_value = old_div(((occurrences - expected) ** 2), expected)
 
                     # Add the margin of error to the total chi squared statistic
                     chi_squared_statistic += chi_letter_value
@@ -209,7 +213,7 @@ def decrypt_caesar_with_chi_squared(
                     expected = frequencies[letter] * occurrences
 
                     # Complete the chi squared statistic formula
-                    chi_letter_value = ((occurrences - expected) ** 2) / expected
+                    chi_letter_value = old_div(((occurrences - expected) ** 2), expected)
 
                     # Add the margin of error to the total chi squared statistic
                     chi_squared_statistic += chi_letter_value

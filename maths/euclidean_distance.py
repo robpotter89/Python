@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import zip
+from past.utils import old_div
 from typing import Iterable, Union
 
 import numpy as np
@@ -31,7 +35,7 @@ def euclidean_distance_no_np(vector_1: Vector, vector_2: Vector) -> VectorOut:
     >>> euclidean_distance_no_np([1, 2, 3, 4], [5, 6, 7, 8])
     8.0
     """
-    return sum((v1 - v2) ** 2 for v1, v2 in zip(vector_1, vector_2)) ** (1 / 2)
+    return sum((v1 - v2) ** 2 for v1, v2 in zip(vector_1, vector_2)) ** (old_div(1, 2))
 
 
 if __name__ == "__main__":

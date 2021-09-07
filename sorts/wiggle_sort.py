@@ -7,8 +7,11 @@ For example:
 if input numbers = [3, 5, 2, 1, 6, 4]
 one possible Wiggle Sorted answer is [3, 5, 1, 6, 2, 4].
 """
+from __future__ import print_function
 
 
+from builtins import map
+from builtins import input
 def wiggle_sort(nums: list) -> list:
     """
     Python implementation of wiggle.

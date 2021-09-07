@@ -13,8 +13,10 @@ Solution:
 On expanding the terms, we get 2 if n is even and 2an if n is odd.
 For maximizing the value, 2an < a*a => n <= (a - 1)/2 (integer division)
 """
+from __future__ import print_function
 
 
+from builtins import range
 def solution(n: int = 1000) -> int:
     """
     Returns ∑ r_max for 3 <= a <= n as explained above

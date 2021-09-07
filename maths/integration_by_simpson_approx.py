@@ -12,9 +12,12 @@ integration.
 simpson_integration() takes function,lower_limit=a,upper_limit=b,precision and
 returns the integration of function in given limit.
 """
+from __future__ import division
 
 # constants
 # the more the number of steps the more accurate
+from builtins import range
+from past.utils import old_div
 N_STEPS = 1000
 
 
@@ -109,14 +112,14 @@ def simpson_integration(function, a: float, b: float, precision: int = 4) -> flo
     # just applying the formula of simpson for approximate integraion written in
     # mentioned article in first comment of this file and above this function
 
-    h = (b - a) / N_STEPS
+    h = old_div((b - a), N_STEPS)
     result = function(a) + function(b)
 
     for i in range(1, N_STEPS):
         a1 = a + h * i
         result += function(a1) * (4 if i % 2 else 2)
 
-    result *= h / 3
+    result *= old_div(h, 3)
     return round(result, precision)
 
 

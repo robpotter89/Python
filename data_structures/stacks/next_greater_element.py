@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import range
 arr = [-10, -5, 0, 5, 5.1, 11, 13, 21, 3, 4, -21, -10, -5, -1, 0]
 expect = [-5, 0, 5, 5.1, 11, 13, 21, -1, 4, -1, -10, -5, -1, 0, -1]
 
@@ -56,7 +58,7 @@ def next_greatest_element(arr: list) -> list:
     stack = []
     result = [-1] * len(arr)
 
-    for index in reversed(range(len(arr))):
+    for index in reversed(list(range(len(arr)))):
         if len(stack):
             while stack[-1] <= arr[index]:
                 stack.pop()
@@ -84,15 +86,15 @@ if __name__ == "__main__":
         "from __main__ import arr, next_greatest_element_slow, "
         "next_greatest_element_fast, next_greatest_element"
     )
-    print(
+    print((
         "next_greatest_element_slow():",
         timeit("next_greatest_element_slow(arr)", setup=setup),
-    )
-    print(
+    ))
+    print((
         "next_greatest_element_fast():",
         timeit("next_greatest_element_fast(arr)", setup=setup),
-    )
-    print(
+    ))
+    print((
         "     next_greatest_element():",
         timeit("next_greatest_element(arr)", setup=setup),
-    )
+    ))

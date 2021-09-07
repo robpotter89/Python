@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 import string
 from math import log10
 
@@ -111,13 +113,13 @@ def inverse_document_frequency(df: int, N: int, smoothing=False) -> float:
     if smoothing:
         if N == 0:
             raise ValueError("log10(0) is undefined.")
-        return round(1 + log10(N / (1 + df)), 3)
+        return round(1 + log10(old_div(N, (1 + df))), 3)
 
     if df == 0:
         raise ZeroDivisionError("df must be > 0")
     elif N == 0:
         raise ValueError("log10(0) is undefined.")
-    return round(log10(N / df), 3)
+    return round(log10(old_div(N, df)), 3)
 
 
 def tf_idf(tf: int, idf: int) -> float:

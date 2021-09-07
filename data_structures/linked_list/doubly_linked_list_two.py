@@ -10,7 +10,9 @@
 """
 
 
-class Node:
+from builtins import str
+from builtins import object
+class Node(object):
     def __init__(self, data: int, previous=None, next_node=None):
         self.data = data
         self.previous = previous
@@ -23,13 +25,13 @@ class Node:
         return self.data
 
     def get_next(self):
-        return self.next
+        return self.__next__
 
     def get_previous(self):
         return self.previous
 
 
-class LinkedListIterator:
+class LinkedListIterator(object):
     def __init__(self, head):
         self.current = head
 
@@ -45,7 +47,7 @@ class LinkedListIterator:
             return value
 
 
-class LinkedList:
+class LinkedList(object):
     def __init__(self):
         self.head = None  # First node in list
         self.tail = None  # Last node in list
@@ -113,7 +115,7 @@ class LinkedList:
 
     def insert_after_node(self, node: Node, node_to_insert: Node) -> None:
         node_to_insert.previous = node
-        node_to_insert.next = node.next
+        node_to_insert.next = node.__next__
 
         if node.get_next() is None:
             self.tail = node_to_insert
@@ -131,7 +133,7 @@ class LinkedList:
                 self.insert_before_node(node, new_node)
                 return None
             current_position += 1
-            node = node.next
+            node = node.__next__
         self.insert_after_node(self.tail, new_node)
 
     def get_node(self, item: int) -> Node:
@@ -160,7 +162,7 @@ class LinkedList:
             node.next.previous = node.previous
 
         if node.get_previous():
-            node.previous.next = node.next
+            node.previous.next = node.__next__
 
         node.next = None
         node.previous = None

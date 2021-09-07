@@ -2,6 +2,7 @@
 Scraping jobs given job title and location from indeed website
 """
 from __future__ import annotations
+from __future__ import print_function
 
 from typing import Generator
 

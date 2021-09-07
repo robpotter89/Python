@@ -1,4 +1,5 @@
 """Get the site emails from URL."""
+from __future__ import print_function
 __author__ = "Muhammad Umer Farooq"
 __license__ = "MIT"
 __version__ = "1.0.0"

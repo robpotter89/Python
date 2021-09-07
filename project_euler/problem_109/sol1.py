@@ -52,7 +52,9 @@ Solution:
     If the total of these three darts is less than the given limit, we increment
     the counter.
 """
+from __future__ import print_function
 
+from builtins import range
 from itertools import combinations_with_replacement
 
 

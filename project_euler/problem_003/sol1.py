@@ -10,6 +10,10 @@ What is the largest prime factor of the number 600851475143?
 References:
     - https://en.wikipedia.org/wiki/Prime_number#Unique_factorization
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 import math
 
 
@@ -92,8 +96,8 @@ def solution(n: int = 600851475143) -> int:
         return n
     for i in range(3, int(math.sqrt(n)) + 1, 2):
         if n % i == 0:
-            if isprime(n / i):
-                max_number = n / i
+            if isprime(old_div(n, i)):
+                max_number = old_div(n, i)
                 break
             elif isprime(i):
                 max_number = i

@@ -5,8 +5,10 @@ Given weights and values of n items, put these items in a knapsack of
 Note that only the integer weights 0-1 knapsack problem is solvable
  using dynamic programming.
 """
+from __future__ import print_function
 
 
+from builtins import range
 def MF_knapsack(i, wt, val, j):
     """
     This code involves the concept of memory functions. Here we solve the subproblems
@@ -146,5 +148,5 @@ if __name__ == "__main__":
     optimal_solution, optimal_subset = knapsack_with_example_solution(w, wt, val)
     assert optimal_solution == 8
     assert optimal_subset == {3, 4}
-    print("optimal_value = ", optimal_solution)
-    print("An optimal subset corresponding to the optimal value", optimal_subset)
+    print(("optimal_value = ", optimal_solution))
+    print(("An optimal subset corresponding to the optimal value", optimal_subset))

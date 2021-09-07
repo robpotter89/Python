@@ -44,8 +44,10 @@ we get the right numerator and denominator.
 Reference:
 https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem
 """
+from __future__ import print_function
 
 
+from builtins import range
 from fractions import Fraction
 from math import gcd, sqrt
 from typing import Tuple

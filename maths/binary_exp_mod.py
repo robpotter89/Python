@@ -1,3 +1,7 @@
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+from past.utils import old_div
 def bin_exp_mod(a, n, b):
     """
     >>> bin_exp_mod(3, 4, 5)
@@ -13,7 +17,7 @@ def bin_exp_mod(a, n, b):
     if n % 2 == 1:
         return (bin_exp_mod(a, n - 1, b) * a) % b
 
-    r = bin_exp_mod(a, n / 2, b)
+    r = bin_exp_mod(a, old_div(n, 2), b)
     return (r * r) % b
 
 

@@ -1,3 +1,4 @@
+from builtins import range
 import itertools
 import string
 from typing import Generator, Iterable

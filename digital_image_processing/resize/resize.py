@@ -1,9 +1,13 @@
 """ Multiple image resizing techniques """
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import numpy as np
 from cv2 import destroyAllWindows, imread, imshow, waitKey
 
 
-class NearestNeighbour:
+class NearestNeighbour(object):
     """
     Simplest and fastest version of image resizing.
     Source: https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
@@ -19,8 +23,8 @@ class NearestNeighbour:
         self.dst_w = dst_width
         self.dst_h = dst_height
 
-        self.ratio_x = self.src_w / self.dst_w
-        self.ratio_y = self.src_h / self.dst_h
+        self.ratio_x = old_div(self.src_w, self.dst_w)
+        self.ratio_y = old_div(self.src_h, self.dst_h)
 
         self.output = self.output_img = (
             np.ones((self.dst_h, self.dst_w, 3), np.uint8) * 255

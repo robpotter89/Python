@@ -5,6 +5,7 @@ Finding strongly connected components in directed graph
 
 """
 
+from builtins import range
 test_graph_1 = {0: [2, 3], 1: [0], 2: [1], 3: [4], 4: []}
 
 test_graph_2 = {0: [1, 2, 3], 1: [2], 2: [0], 3: [4], 4: [5], 5: [3]}
@@ -69,7 +70,7 @@ def strongly_connected_components(graph: dict[int, list[int]]) -> list[list[int]
     visited = len(graph) * [False]
     reversed_graph: dict[int, list[int]] = {vert: [] for vert in range(len(graph))}
 
-    for vert, neighbours in graph.items():
+    for vert, neighbours in list(graph.items()):
         for neighbour in neighbours:
             reversed_graph[neighbour].append(vert)
 

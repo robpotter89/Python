@@ -6,8 +6,11 @@ The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
 
 Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
 """
+from __future__ import print_function
 
 
+from builtins import str
+from builtins import range
 def solution():
     """
     Returns the last 10 digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.

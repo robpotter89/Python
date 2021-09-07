@@ -7,12 +7,15 @@ method 2:
 "Simpson Rule"
 
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from past.utils import old_div
 def method_2(boundary, steps):
     # "Simpson Rule"
     # int(f) = delta_x/2 * (b-a)/3*(f1 + 4f2 + 2f_3 + ... + fn)
-    h = (boundary[1] - boundary[0]) / steps
+    h = old_div((boundary[1] - boundary[0]), steps)
     a = boundary[0]
     b = boundary[1]
     x_i = make_points(a, b, h)
@@ -20,7 +23,7 @@ def method_2(boundary, steps):
     y += (h / 3.0) * f(a)
     cnt = 2
     for i in x_i:
-        y += (h / 3) * (4 - 2 * (cnt % 2)) * f(i)
+        y += (old_div(h, 3)) * (4 - 2 * (cnt % 2)) * f(i)
         cnt += 1
     y += (h / 3.0) * f(b)
     return y

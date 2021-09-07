@@ -1,6 +1,7 @@
 """ https://en.wikipedia.org/wiki/Rail_fence_cipher """
 
 
+from builtins import range
 def encrypt(input_string: str, key: int) -> str:
     """
     Shuffles the character of a string by placing each of them

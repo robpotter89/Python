@@ -9,8 +9,10 @@ In this implementation, I provide two algorithms, a divide-and-conquer
 algorithm which runs in nlogn and the brute-force n^2 algorithm.
 
 """
+from __future__ import print_function
 
 
+from builtins import range
 def count_inversions_bf(arr):
     """
     Counts the number of inversions using a a naive brute-force algorithm
@@ -145,7 +147,7 @@ def main():
 
     assert num_inversions_bf == num_inversions_recursive == 8
 
-    print("number of inversions = ", num_inversions_bf)
+    print(("number of inversions = ", num_inversions_bf))
 
     # testing an array with zero inversion (a sorted arr_1)
 
@@ -154,7 +156,7 @@ def main():
     _, num_inversions_recursive = count_inversions_recursive(arr_1)
 
     assert num_inversions_bf == num_inversions_recursive == 0
-    print("number of inversions = ", num_inversions_bf)
+    print(("number of inversions = ", num_inversions_bf))
 
     # an empty list should also have zero inversions
     arr_1 = []
@@ -162,7 +164,7 @@ def main():
     _, num_inversions_recursive = count_inversions_recursive(arr_1)
 
     assert num_inversions_bf == num_inversions_recursive == 0
-    print("number of inversions = ", num_inversions_bf)
+    print(("number of inversions = ", num_inversions_bf))
 
 
 if __name__ == "__main__":

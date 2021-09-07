@@ -8,7 +8,11 @@ frequent subgraphs and maximum common subgraphs.
 
 URL: https://www.researchgate.net/publication/235255851
 """
+from __future__ import division
+from __future__ import print_function
 # fmt: off
+from builtins import range
+from past.utils import old_div
 edge_array = [
     ['ab-e1', 'ac-e3', 'ad-e5', 'bc-e4', 'bd-e2', 'be-e6', 'bh-e12', 'cd-e2', 'ce-e4',
      'de-e1', 'df-e8', 'dg-e5', 'dh-e10', 'ef-e3', 'eg-e2', 'fg-e6', 'gh-e6', 'hi-e3'],
@@ -65,7 +69,7 @@ def get_frequency_table(edge_array):
     # Store [Distinct edge, WT(Bitcode), Bitcode] in descending order
     sorted_frequency_table = [
         [k, v[0], v[1]]
-        for k, v in sorted(frequency_table.items(), key=lambda v: v[1][0], reverse=True)
+        for k, v in sorted(list(frequency_table.items()), key=lambda v: v[1][0], reverse=True)
     ]
     return sorted_frequency_table
 
@@ -90,7 +94,7 @@ def get_cluster(nodes):
     format cluster:{WT(bitcode):nodes with same WT}
     """
     cluster = {}
-    for key, value in nodes.items():
+    for key, value in list(nodes.items()):
         cluster.setdefault(key.count("1"), {})[key] = value
     return cluster
 
@@ -106,21 +110,21 @@ def get_support(cluster):
     ...              1: {'00100': ['fh', 'eh'], '10000': ['hi']}})
     [100.0, 80.0, 60.0, 40.0, 20.0]
     """
-    return [i * 100 / len(cluster) for i in cluster]
+    return [old_div(i * 100, len(cluster)) for i in cluster]
 
 
 def print_all() -> None:
     print("\nNodes\n")
-    for key, value in nodes.items():
-        print(key, value)
+    for key, value in list(nodes.items()):
+        print((key, value))
     print("\nSupport\n")
     print(support)
     print("\n Cluster \n")
-    for key, value in sorted(cluster.items(), reverse=True):
-        print(key, value)
+    for key, value in sorted(list(cluster.items()), reverse=True):
+        print((key, value))
     print("\n Graph\n")
-    for key, value in graph.items():
-        print(key, value)
+    for key, value in list(graph.items()):
+        print((key, value))
     print("\n Edge List of Frequent subgraphs \n")
     for edge_list in freq_subgraph_edge_list:
         print(edge_list)
@@ -130,11 +134,11 @@ def create_edge(nodes, graph, cluster, c1):
     """
     create edge between the nodes
     """
-    for i in cluster[c1].keys():
+    for i in list(cluster[c1].keys()):
         count = 0
         c2 = c1 + 1
         while c2 < max(cluster.keys()):
-            for j in cluster[c2].keys():
+            for j in list(cluster[c2].keys()):
                 """
                 creates edge only if the condition satisfies
                 """
@@ -184,8 +188,8 @@ def find_freq_subgraph_given_support(s, cluster, graph):
     """
     find edges of multiple frequent subgraphs
     """
-    k = int(s / 100 * (len(cluster) - 1))
-    for i in cluster[k].keys():
+    k = int(old_div(s, 100) * (len(cluster) - 1))
+    for i in list(cluster[k].keys()):
         myDFS(graph, tuple(cluster[k][i]), tuple(["Header"]))
 
 

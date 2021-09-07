@@ -1,4 +1,5 @@
 from __future__ import annotations
+from __future__ import print_function
 
 
 def n31(a: int) -> tuple[list[int], int]:

@@ -6,6 +6,7 @@ the equation am + bn = gcd(m, n) (a.k.a Bezout's Identity)
 
 https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
 """
+from __future__ import print_function
 
 # @Author: S. Sharma <silentcat>
 # @Date:   2019-02-25T12:08:53-06:00

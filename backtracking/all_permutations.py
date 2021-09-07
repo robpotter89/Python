@@ -5,6 +5,8 @@
         Time complexity: O(n! * n),
         where n denotes the length of the given sequence.
 """
+from __future__ import print_function
+from builtins import range
 from typing import List, Union
 
 

@@ -1,3 +1,4 @@
+from builtins import range
 def kthPermutation(k, n):
     """
     Finds k'th lexicographic permutation (in increasing order) of

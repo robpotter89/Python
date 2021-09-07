@@ -15,8 +15,12 @@ Surprisingly, bouncy numbers become more and more common and by the time we reac
 
 Find the least number for which the proportion of bouncy numbers is exactly 99%.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import str
+from past.utils import old_div
 def check_bouncy(n: int) -> bool:
     """
     Returns True if number is bouncy, False otherwise
@@ -77,7 +81,7 @@ def solution(percent: float = 99) -> int:
     while True:
         if check_bouncy(num):
             bouncy_num += 1
-        if (bouncy_num / num) * 100 >= percent:
+        if (old_div(bouncy_num, num)) * 100 >= percent:
             return num
         num += 1
 

@@ -1,4 +1,6 @@
-class BinaryHeap:
+from __future__ import print_function
+from builtins import object
+class BinaryHeap(object):
     """
     A max-heap implementation in Python
     >>> binary_heap = BinaryHeap()

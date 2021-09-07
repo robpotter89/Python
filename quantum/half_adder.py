@@ -9,6 +9,7 @@ References:
 https://en.wikipedia.org/wiki/Adder_(electronics)
 https://qiskit.org/textbook/ch-states/atoms-computation.html#4.2-Remembering-how-to-add-
 """
+from __future__ import print_function
 
 import qiskit as q
 

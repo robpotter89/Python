@@ -1,6 +1,10 @@
 """https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance"""
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import zip
+from past.utils import old_div
 def jaro_winkler(str1: str, str2: str) -> float:
     """
     Jaro–Winkler distance is a string metric measuring an edit distance between two
@@ -51,12 +55,11 @@ def jaro_winkler(str1: str, str2: str) -> float:
         jaro = 0.0
     else:
         jaro = (
-            1
-            / 3
+            old_div(1, 3)
             * (
-                match_count / len(str1)
-                + match_count / len(str2)
-                + (match_count - transpositions) / match_count
+                old_div(match_count, len(str1))
+                + old_div(match_count, len(str2))
+                + old_div((match_count - transpositions), match_count)
             )
         )
 

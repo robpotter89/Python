@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from math import pi
 
 
@@ -20,7 +22,7 @@ def radians(degree: float) -> float:
     True
     """
 
-    return degree / (180 / pi)
+    return old_div(degree, (old_div(180, pi)))
 
 
 if __name__ == "__main__":

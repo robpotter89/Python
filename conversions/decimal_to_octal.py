@@ -1,5 +1,8 @@
 """Convert a Decimal Number to an Octal Number."""
+from __future__ import division
+from __future__ import print_function
 
+from past.utils import old_div
 import math
 
 # Modified from:
@@ -19,7 +22,7 @@ def decimal_to_octal(num: int) -> str:
         remainder = num % 8
         octal = octal + (remainder * math.floor(math.pow(10, counter)))
         counter += 1
-        num = math.floor(num / 8)  # basically /= 8 without remainder if any
+        num = math.floor(old_div(num, 8))  # basically /= 8 without remainder if any
         # This formatting removes trailing '.0' from `octal`.
     return f"0o{int(octal)}"
 

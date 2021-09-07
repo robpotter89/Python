@@ -1,4 +1,6 @@
+from __future__ import division
 # https://en.wikipedia.org/wiki/Ohm%27s_law
+from past.utils import old_div
 from typing import Dict
 
 
@@ -29,9 +31,9 @@ def ohms_law(voltage: float, current: float, resistance: float) -> Dict[str, flo
     if voltage == 0:
         return {"voltage": float(current * resistance)}
     elif current == 0:
-        return {"current": voltage / resistance}
+        return {"current": old_div(voltage, resistance)}
     elif resistance == 0:
-        return {"resistance": voltage / current}
+        return {"resistance": old_div(voltage, current)}
     else:
         raise ValueError("Exactly one argument must be 0")
 

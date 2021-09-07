@@ -1,5 +1,8 @@
+from __future__ import print_function
 # Author: Abhijeeth S
 
+from builtins import map
+from builtins import input
 import math
 
 
@@ -18,8 +21,8 @@ if __name__ == "__main__":  # Main function
     # Read two numbers from input and typecast them to int using map function.
     # Here x is the base and y is the power.
     prompt = "Enter the base and the power separated by a comma: "
-    x1, y1 = map(int, input(prompt).split(","))
-    x2, y2 = map(int, input(prompt).split(","))
+    x1, y1 = list(map(int, input(prompt).split(",")))
+    x2, y2 = list(map(int, input(prompt).split(",")))
 
     # We find the log of each number, using the function res(), which takes two
     # arguments.
@@ -28,8 +31,8 @@ if __name__ == "__main__":  # Main function
 
     # We check for the largest number
     if res1 > res2:
-        print("Largest number is", x1, "^", y1)
+        print(("Largest number is", x1, "^", y1))
     elif res2 > res1:
-        print("Largest number is", x2, "^", y2)
+        print(("Largest number is", x2, "^", y2))
     else:
         print("Both are equal")

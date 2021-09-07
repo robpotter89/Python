@@ -1,3 +1,4 @@
+from builtins import str
 def binary_recursive(decimal: int) -> str:
     """
     Take a positive integer value and return its binary equivalent.

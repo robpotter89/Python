@@ -2,6 +2,10 @@
 Implementing Secant method in Python
 Author: dimgrichr
 """
+from __future__ import division
+from __future__ import print_function
+from builtins import range
+from past.utils import old_div
 from math import exp
 
 
@@ -21,7 +25,7 @@ def secant_method(lower_bound: float, upper_bound: float, repeats: int) -> float
     x0 = lower_bound
     x1 = upper_bound
     for i in range(0, repeats):
-        x0, x1 = x1, x1 - (f(x1) * (x1 - x0)) / (f(x1) - f(x0))
+        x0, x1 = x1, x1 - old_div((f(x1) * (x1 - x0)), (f(x1) - f(x0)))
     return x1
 
 

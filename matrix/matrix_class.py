@@ -1,7 +1,12 @@
+from __future__ import division
 # An OOP approach to representing and manipulating matrices
 
 
-class Matrix:
+from builtins import str
+from builtins import range
+from builtins import object
+from past.utils import old_div
+class Matrix(object):
     """
     Matrix object generated from a 2D array where each element is an array representing
     a row.
@@ -218,7 +223,7 @@ class Matrix:
 
     def inverse(self):
         determinant = self.determinant()
-        return None if not determinant else self.adjugate() * (1 / determinant)
+        return None if not determinant else self.adjugate() * (old_div(1, determinant))
 
     def __repr__(self):
         return str(self.rows)

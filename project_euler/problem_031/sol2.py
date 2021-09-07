@@ -32,6 +32,7 @@ Example:
 """
 
 
+from builtins import range
 def solution(pence: int = 200) -> int:
     """Returns the number of different ways to make X pence using any number of coins.
     The solution is based on dynamic programming paradigm in a bottom-up fashion.

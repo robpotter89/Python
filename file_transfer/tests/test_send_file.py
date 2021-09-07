@@ -1,3 +1,4 @@
+from builtins import next
 from unittest.mock import Mock, patch
 
 from file_transfer.send_file import send_file

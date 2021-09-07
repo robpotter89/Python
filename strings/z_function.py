@@ -10,6 +10,7 @@ Time Complexity: O(n) - where n is the length of the string
 """
 
 
+from builtins import range
 def z_function(input_str: str) -> list:
     """
     For the given string this function computes value for each index,

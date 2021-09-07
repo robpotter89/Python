@@ -33,8 +33,11 @@ So we check individually each one of these before incrementing our
 count of current primes.
 
 """
+from __future__ import division
 
 
+from builtins import range
+from past.utils import old_div
 def isprime(d: int) -> int:
     """
     returns whether the given digit is prime or not
@@ -72,7 +75,7 @@ def solution(ratio: float = 0.1) -> int:
     j = 3
     primes = 3
 
-    while primes / (2 * j - 1) >= ratio:
+    while old_div(primes, (2 * j - 1)) >= ratio:
         for i in range(j * j + j + 1, (j + 2) * (j + 2), j + 1):
             primes = primes + isprime(i)
 

@@ -11,8 +11,12 @@
     Output -->
         2 to the power of 0 is 1
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import input
+from past.utils import old_div
 def power(base: int, exponent: int) -> float:
     """
     power(3, 4)
@@ -32,5 +36,5 @@ if __name__ == "__main__":
     exponent = int(input("Enter the exponent: ").strip())
     result = power(base, abs(exponent))
     if exponent < 0:  # power() does not properly deal w/ negative exponents
-        result = 1 / result
+        result = old_div(1, result)
     print(f"{base} to the power of {exponent} is {result}")

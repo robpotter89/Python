@@ -3,8 +3,12 @@
 # https://medium.com/walkinthecode/greedy-algorithm-fractional-knapsack-problem-9aba1daecc93
 
 from __future__ import annotations
+from __future__ import division
 
 
+from builtins import zip
+from builtins import range
+from past.utils import old_div
 def fractional_knapsack(
     value: list[int], weight: list[int], capacity: int
 ) -> tuple[float, list[float]]:
@@ -29,7 +33,7 @@ def fractional_knapsack(
     (0, [])
     """
     index = list(range(len(value)))
-    ratio = [v / w for v, w in zip(value, weight)]
+    ratio = [old_div(v, w) for v, w in zip(value, weight)]
     index.sort(key=lambda i: ratio[i], reverse=True)
 
     max_value: float = 0
@@ -40,8 +44,8 @@ def fractional_knapsack(
             max_value += value[i]
             capacity -= weight[i]
         else:
-            fractions[i] = capacity / weight[i]
-            max_value += value[i] * capacity / weight[i]
+            fractions[i] = old_div(capacity, weight[i])
+            max_value += old_div(value[i] * capacity, weight[i])
             break
 
     return max_value, fractions

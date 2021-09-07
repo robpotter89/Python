@@ -3,6 +3,7 @@
 # https://www.interviewcake.com/concept/java/bit-shift
 
 
+from builtins import str
 def logical_left_shift(number: int, shift_amount: int) -> str:
     """
     Take in 2 positive integers.

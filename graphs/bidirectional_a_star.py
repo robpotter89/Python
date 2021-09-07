@@ -1,7 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Bidirectional_search
 """
+from __future__ import print_function
 
+from builtins import object
 from __future__ import annotations
 
 import time
@@ -27,7 +29,7 @@ delta = [[-1, 0], [0, -1], [1, 0], [0, 1]]  # up, left, down, right
 TPosition = tuple[int, int]
 
 
-class Node:
+class Node(object):
     """
     >>> k = Node(0, 0, 4, 3, 0, None)
     >>> k.calculate_heuristic()
@@ -77,7 +79,7 @@ class Node:
         return self.f_cost < other.f_cost
 
 
-class AStar:
+class AStar(object):
     """
     >>> astar = AStar((0, 0), (len(grid) - 1, len(grid[0]) - 1))
     >>> (astar.start.pos_y + delta[3][0], astar.start.pos_x + delta[3][1])
@@ -170,7 +172,7 @@ class AStar:
         return path
 
 
-class BidirectionalAStar:
+class BidirectionalAStar(object):
     """
     >>> bd_astar = BidirectionalAStar((0, 0), (len(grid) - 1, len(grid[0]) - 1))
     >>> bd_astar.fwd_astar.start.pos == bd_astar.bwd_astar.target.pos

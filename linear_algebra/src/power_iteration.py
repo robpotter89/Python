@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 import numpy as np
 
 
@@ -54,13 +56,13 @@ def power_iteration(
         # Multiple matrix by the vector.
         w = np.dot(input_matrix, vector)
         # Normalize the resulting output vector.
-        vector = w / np.linalg.norm(w)
+        vector = old_div(w, np.linalg.norm(w))
         # Find rayleigh quotient
         # (faster than usual b/c we know vector is normalized already)
         lamda = np.dot(vector.T, np.dot(input_matrix, vector))
 
         # Check convergence.
-        error = np.abs(lamda - lamda_previous) / lamda
+        error = old_div(np.abs(lamda - lamda_previous), lamda)
         iterations += 1
 
         if error <= error_tol or iterations >= max_iterations:

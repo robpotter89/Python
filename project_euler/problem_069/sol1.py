@@ -22,8 +22,12 @@ It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
 
 Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 """
+from __future__ import division
+from __future__ import print_function
 
 
+from builtins import range
+from past.utils import old_div
 def solution(n: int = 10 ** 6) -> int:
     """
     Returns solution to problem.
@@ -56,7 +60,7 @@ def solution(n: int = 10 ** 6) -> int:
 
     answer = 1
     for number in range(1, n + 1):
-        if (answer / phi[answer]) < (number / phi[number]):
+        if (old_div(answer, phi[answer])) < (old_div(number, phi[number])):
             answer = number
 
     return answer

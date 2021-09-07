@@ -4,6 +4,7 @@
     Manual test:
     python bfs_shortest_path.py
 """
+from __future__ import print_function
 demo_graph = {
     "A": ["B", "C", "E"],
     "B": ["A", "D", "E"],
